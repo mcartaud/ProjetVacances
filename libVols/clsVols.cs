@@ -12,9 +12,9 @@ namespace libVols
         public List<string> getVilleDepart()
         {
             SqlConnection MyC = new SqlConnection();
-            MyC.ConnectionString = "Data Source=CLEMENT\\SQLEXPRESS;Initial Catalog=ENREGISTREMENTS;Integrated Security = true";
+            MyC.ConnectionString = "Data Source=172.18.92.166;Initial Catalog=SAISIE;Persist Security Info=True;User ID=benjamin;Password=benjamin";
             MyC.Open();
-            SqlCommand MyCom = new SqlCommand("listVilleD", MyC);
+            SqlCommand MyCom = new SqlCommand("listeVilleDepart", MyC);
             MyCom.CommandType = CommandType.StoredProcedure;
             SqlDataReader reader = MyCom.ExecuteReader();
             List<string> Res = new List<string>();
@@ -32,12 +32,12 @@ namespace libVols
         public List<string> getVilleArrivee(string villeDepart)
         {
             SqlConnection MyC = new SqlConnection();
-            MyC.ConnectionString = "";
+            MyC.ConnectionString = "Data Source=172.18.92.166;Initial Catalog=SAISIE;Persist Security Info=True;User ID=benjamin;Password=benjamin";
             MyC.Open();
-            SqlCommand MyCom = new SqlCommand("listVilleA", MyC);
+            SqlCommand MyCom = new SqlCommand("listeVilleArrivee", MyC);
             MyCom.CommandType = CommandType.StoredProcedure;
-            MyCom.Parameters.Add("@VILLEDEPART", SqlDbType.Text);
-            MyCom.Parameters["@VILLEDEPART"].Value = villeDepart;
+            MyCom.Parameters.Add("@DEPART", SqlDbType.Text);
+            MyCom.Parameters["@DEPART"].Value = villeDepart;
             SqlDataReader reader = MyCom.ExecuteReader();
             List<string> Res = new List<string>();
             if (reader.HasRows)
@@ -55,14 +55,14 @@ namespace libVols
         public List<DateTime> getDateVol(string VilleD, string VilleA)
         {
             SqlConnection MyC = new SqlConnection();
-            MyC.ConnectionString = "";
+            MyC.ConnectionString = "Data Source=172.18.92.166;Initial Catalog=SAISIE;Persist Security Info=True;User ID=benjamin;Password=benjamin";
             MyC.Open();
-            SqlCommand MyCom = new SqlCommand("getDateVol", MyC);
+            SqlCommand MyCom = new SqlCommand("listeDateVol", MyC);
             MyCom.CommandType = CommandType.StoredProcedure;
-            MyCom.Parameters.Add("@VILLED", SqlDbType.Text);
-            MyCom.Parameters["@VILLED"].Value = VilleD;
-            MyCom.Parameters.Add("@VILLEA", SqlDbType.Text);
-            MyCom.Parameters["@VILLEA"].Value = VilleA;
+            MyCom.Parameters.Add("@DEPART", SqlDbType.Text);
+            MyCom.Parameters["@DEPART"].Value = VilleD;
+            MyCom.Parameters.Add("@ARRIVEE", SqlDbType.Text);
+            MyCom.Parameters["@ARRIVEE"].Value = VilleA;
             SqlDataReader reader = MyCom.ExecuteReader();
             List<DateTime> Res = new List<DateTime>();
             if (reader.HasRows)
@@ -77,21 +77,31 @@ namespace libVols
             return Res;
         }
 
-        public SqlDataReader getVols(string VilleD, string VilleA, DateTime Date)
+        public List<string> getVols(string VilleD, string VilleA, DateTime Date)
         {
             SqlConnection MyC = new SqlConnection();
-            MyC.ConnectionString = "";
+            MyC.ConnectionString = "Data Source=172.18.92.166;Initial Catalog=SAISIE;Persist Security Info=True;User ID=benjamin;Password=benjamin";
             MyC.Open();
-            SqlCommand MyCom = new SqlCommand("getDateVol", MyC);
+            SqlCommand MyCom = new SqlCommand("listeVol", MyC);
             MyCom.CommandType = CommandType.StoredProcedure;
-            MyCom.Parameters.Add("@VILLED", SqlDbType.Text);
-            MyCom.Parameters["@VILLED"].Value = VilleD;
-            MyCom.Parameters.Add("@VILLEA", SqlDbType.Text);
-            MyCom.Parameters["@VILLEA"].Value = VilleA;
+            MyCom.Parameters.Add("@DEPART", SqlDbType.Text);
+            MyCom.Parameters["@DEPART"].Value = VilleD;
+            MyCom.Parameters.Add("@ARRIVEE", SqlDbType.Text);
+            MyCom.Parameters["@ARRIVEE"].Value = VilleA;
             MyCom.Parameters.Add("@DATE", SqlDbType.Date);
             MyCom.Parameters["@DATE"].Value = Date;
-            SqlDataReader Reader = MyCom.ExecuteReader();
-            return Reader;
+            SqlDataReader reader = MyCom.ExecuteReader();
+            List<string> Res = new List<string>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Res.Add(reader.GetString(0) + ";" + reader.GetString(1) + ";" + reader.GetDateTime(2));
+                }
+            }
+            MyCom.Dispose();
+            MyC.Close();
+            return Res;
         }
     }
 }
