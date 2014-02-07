@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F9126DF7-FC72-468E-ABB7-18B06B5354A5}</ProjectGuid>
+    <ProjectGuid>{925AA3CA-05F8-49BD-9CB3-6DFBD4DBB9F7}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SiteVoyage</RootNamespace>
-    <AssemblyName>SiteVoyage</AssemblyName>
+    <RootNamespace>svcVols</RootNamespace>
+    <AssemblyName>svcVols</AssemblyName>
     <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -91,7 +91,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1707/</IISUrl>
+          <IISUrl>http://localhost:2133/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
