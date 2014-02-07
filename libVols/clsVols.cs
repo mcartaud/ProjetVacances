@@ -4,7 +4,7 @@ using System.Text;
 
 namespace libVols
 {
-    public class Class1
+    public class clsVols
     {
     }
 }

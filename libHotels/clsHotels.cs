@@ -4,7 +4,7 @@ using System.Text;
 
 namespace libHotels
 {
-    public class Class1
+    public class clsHotels
     {
     }
 }
