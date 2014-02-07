@@ -1,8 +1,38 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccessLayer", "DataAccessLayer", "{28F55EF3-D206-4549-ADFF-BBAE9ACE7DED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libVols", "libVols\libVols.csproj", "{631EFD57-9937-4DB2-9960-DBB89A1C4B39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libHotels", "libHotels\libHotels.csproj", "{CA85560E-1E3C-4AD7-8E5C-8D7D83B9E32C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuisnessLayer", "BuisnessLayer", "{125C4EE9-2253-4E67-A1F7-7A1BC1CAD6DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{327DAA5D-70B0-4594-9DF7-777F92E8CD0E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserInterface", "UserInterface", "{14B36824-755E-4AC8-8ADF-37671D1368FB}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{631EFD57-9937-4DB2-9960-DBB89A1C4B39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631EFD57-9937-4DB2-9960-DBB89A1C4B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631EFD57-9937-4DB2-9960-DBB89A1C4B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631EFD57-9937-4DB2-9960-DBB89A1C4B39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA85560E-1E3C-4AD7-8E5C-8D7D83B9E32C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA85560E-1E3C-4AD7-8E5C-8D7D83B9E32C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA85560E-1E3C-4AD7-8E5C-8D7D83B9E32C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA85560E-1E3C-4AD7-8E5C-8D7D83B9E32C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{631EFD57-9937-4DB2-9960-DBB89A1C4B39} = {28F55EF3-D206-4549-ADFF-BBAE9ACE7DED}
+		{CA85560E-1E3C-4AD7-8E5C-8D7D83B9E32C} = {28F55EF3-D206-4549-ADFF-BBAE9ACE7DED}
 	EndGlobalSection
 EndGlobal
