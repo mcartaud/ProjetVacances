@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.Services;
 
-namespace svnVols
+namespace svcVols
 {
     /// <summary>
     /// Description résumée de Service1

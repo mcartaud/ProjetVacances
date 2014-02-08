@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>b03b17fc-cfdd-488a-92b5-27beb4f69b16</ProjectGuid>
+    <ProjectGuid>5998a273-1b35-4953-a1d2-1460f6acbf18</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>svnVols</RootNamespace>
-    <AssemblyName>svnVols</AssemblyName>
+    <RootNamespace>svcVols</RootNamespace>
+    <AssemblyName>svcVols</AssemblyName>
     <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
