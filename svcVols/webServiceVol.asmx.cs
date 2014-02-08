@@ -11,13 +11,13 @@ namespace svcVols
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    public class Service1 : System.Web.Services.WebService
+    public class webServiceVol : System.Web.Services.WebService
     {
 
         [WebMethod]
-        public string HelloWorld()
+        public void getVols(string Ville)
         {
-            return "Hello World";
+            return 
         }
     }
 }
