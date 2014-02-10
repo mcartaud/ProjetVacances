@@ -48,12 +48,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Service1.asmx" />
+    <Content Include="webServiceHotel.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Service1.asmx.cs">
-      <DependentUpon>Service1.asmx</DependentUpon>
+    <Compile Include="webServiceHotel.asmx.cs">
+      <DependentUpon>webServiceHotel.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,6 +68,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libHotels\libHotels.csproj">
+      <Project>{ca85560e-1e3c-4ad7-8e5c-8d7d83b9e32c}</Project>
+      <Name>libHotels</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Web;
 using System.Web.Services;
-
+using libVols;
 namespace svcVols
 {
     /// <summary>
@@ -13,11 +14,11 @@ namespace svcVols
     [System.ComponentModel.ToolboxItem(false)]
     public class webServiceVol : System.Web.Services.WebService
     {
-
+        private libVols.clsVols Vols;
         [WebMethod]
-        public void getVols(string Ville)
+        public DataSet getVols(string VilleD, string VilleA, DateTime Date)
         {
-            return 
+            return this.Vols.getVols(VilleD, VilleA, Date);
         }
     }
 }
