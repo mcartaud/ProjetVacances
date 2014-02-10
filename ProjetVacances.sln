@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccessLayer", "DataAccessLayer", "{28F55EF3-D206-4549-ADFF-BBAE9ACE7DED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libVols", "libVols\libVols.csproj", "{631EFD57-9937-4DB2-9960-DBB89A1C4B39}"
@@ -18,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "svcHotels", "svcHotels\svcHotels.csproj", "{678D0C22-387F-4D07-9FCC-651E0FA445EC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "svcVols", "svcVols\svcVols.csproj", "{851787F5-E3A9-4B5A-9C56-08100135F465}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDAL", "TestDAL\TestDAL.csproj", "{66164792-EDBF-4B04-9F8D-25F14D050693}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,10 @@ Global
 		{851787F5-E3A9-4B5A-9C56-08100135F465}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{851787F5-E3A9-4B5A-9C56-08100135F465}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{851787F5-E3A9-4B5A-9C56-08100135F465}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66164792-EDBF-4B04-9F8D-25F14D050693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66164792-EDBF-4B04-9F8D-25F14D050693}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66164792-EDBF-4B04-9F8D-25F14D050693}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66164792-EDBF-4B04-9F8D-25F14D050693}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,5 +63,6 @@ Global
 		{678D0C22-387F-4D07-9FCC-651E0FA445EC} = {327DAA5D-70B0-4594-9DF7-777F92E8CD0E}
 		{851787F5-E3A9-4B5A-9C56-08100135F465} = {327DAA5D-70B0-4594-9DF7-777F92E8CD0E}
 		{F9126DF7-FC72-468E-ABB7-18B06B5354A5} = {14B36824-755E-4AC8-8ADF-37671D1368FB}
+		{66164792-EDBF-4B04-9F8D-25F14D050693} = {14B36824-755E-4AC8-8ADF-37671D1368FB}
 	EndGlobalSection
 EndGlobal

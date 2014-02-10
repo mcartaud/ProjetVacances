@@ -8,48 +8,45 @@ namespace libHotels
 {
     public class clsHotels
     {
-        public int getDureeMax(string villeArrivee, DateTime date)
+
+        private string Connection = "Data Source=172.18.98.7;Initial Catalog=SAISIE;Persist Security Info=True;User ID=benjamin;Password=benjamin";
+
+        public DataSet getDureeMax(string villeArrivee, DateTime date)
         {
             SqlConnection MyC = new SqlConnection();
-            MyC.ConnectionString = "";
+            MyC.ConnectionString = Connection;
             MyC.Open();
-            SqlCommand MyCom = new SqlCommand("dureeHotel", MyC);
-            MyCom.CommandType = CommandType.StoredProcedure;
-            MyCom.Parameters.Add("@ARRIVEE", SqlDbType.Text);
-            MyCom.Parameters["@ARRIVEE"].Value = villeArrivee;
-            MyCom.Parameters.Add("@DATE", SqlDbType.Date);
-            MyCom.Parameters["@DATE"].Value = date;
-            int Res = Convert.ToInt32(MyCom.ExecuteScalar());
+            SqlDataAdapter MyCom = new SqlDataAdapter("dureeHotel", MyC);
+            MyCom.SelectCommand.CommandType = CommandType.StoredProcedure;
+            MyCom.SelectCommand.Parameters.Add("@ARRIVEE", SqlDbType.Text);
+            MyCom.SelectCommand.Parameters["@ARRIVEE"].Value = villeArrivee;
+            MyCom.SelectCommand.Parameters.Add("@DATE", SqlDbType.Date);
+            MyCom.SelectCommand.Parameters["@DATE"].Value = date;
+            DataSet DataSet = new DataSet();
+            MyCom.Fill(DataSet, "DUREE_MAX");
             MyCom.Dispose();
             MyC.Close();
-            return Res;
+            return DataSet;
         }
 
-        public List<string> getHotels(string VilleA, string Duree, DateTime Date)
+        public DataSet getHotels(string VilleA, int Duree, DateTime Date)
         {
             SqlConnection MyC = new SqlConnection();
-            MyC.ConnectionString = "Data Source=172.18.92.166;Initial Catalog=SAISIE;Persist Security Info=True;User ID=benjamin;Password=benjamin";
+            MyC.ConnectionString = Connection;
             MyC.Open();
-            SqlCommand MyCom = new SqlCommand("listeHotel", MyC);
-            MyCom.CommandType = CommandType.StoredProcedure;
-            MyCom.Parameters.Add("@DUREE", SqlDbType.Int);
-            MyCom.Parameters["@DUREE"].Value = Duree;
-            MyCom.Parameters.Add("@ARRIVEE", SqlDbType.Text);
-            MyCom.Parameters["@ARRIVEE"].Value = VilleA;
-            MyCom.Parameters.Add("@DATE", SqlDbType.Date);
-            MyCom.Parameters["@DATE"].Value = Date;
-            SqlDataReader reader = MyCom.ExecuteReader();
-            List<string> Res = new List<string>();
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    Res.Add(reader.GetString(0) + ";" + reader.GetString(1) + ";" + reader.GetDateTime(2));
-                }
-            }
+            SqlDataAdapter MyCom = new SqlDataAdapter("listeHotel", MyC);
+            MyCom.SelectCommand.CommandType = CommandType.StoredProcedure;
+            MyCom.SelectCommand.Parameters.Add("@DUREE", SqlDbType.Int);
+            MyCom.SelectCommand.Parameters["@DUREE"].Value = Duree;
+            MyCom.SelectCommand.Parameters.Add("@ARRIVEE", SqlDbType.Text);
+            MyCom.SelectCommand.Parameters["@ARRIVEE"].Value = VilleA;
+            MyCom.SelectCommand.Parameters.Add("@DATE", SqlDbType.Date);
+            MyCom.SelectCommand.Parameters["@DATE"].Value = Date;
+            DataSet DataSet = new DataSet();
+            MyCom.Fill(DataSet, "LISTE_HOTELS");
             MyCom.Dispose();
             MyC.Close();
-            return Res;
+            return DataSet;
         }
     }
 }
