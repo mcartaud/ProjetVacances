@@ -9,7 +9,7 @@ namespace libHotels
     public class clsHotels
     {
 
-        private string Connection = "Data Source=172.18.98.7;Initial Catalog=SAISIE;Persist Security Info=True;User ID=benjamin;Password=benjamin";
+        private string Connection = "Data Source=localhost;Initial Catalog=SAISIE;Persist Security Info=True;User ID=benjamin;Password=benjamin";
 
         public DataSet getDureeMax(string villeArrivee, DateTime date)
         {

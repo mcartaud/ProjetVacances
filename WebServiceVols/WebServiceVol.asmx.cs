@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Services;
-using System.Data;
 
-namespace svcHotels
+namespace WebServiceVols
 {
     /// <summary>
     /// Description résumée de Service1
@@ -12,14 +11,13 @@ namespace svcHotels
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    public class WebServiceHotel : System.Web.Services.WebService
+    public class Service1 : System.Web.Services.WebService
     {
-        private libHotels.clsHotels Hotels;
 
         [WebMethod]
-        public DataSet getHotels(string VilleA, string Duree, DateTime Date)
+        public string HelloWorld()
         {
-            return this.Hotels.getHotels(VilleA, Duree, Date);
+            return "Hello World";
         }
     }
 }

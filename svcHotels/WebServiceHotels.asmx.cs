@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Web;
 using System.Web.Services;
-using libVols;
-namespace svcVols
+using System.Data;
+
+namespace svcHotels
 {
     /// <summary>
     /// Description résumée de Service1
@@ -14,17 +14,16 @@ namespace svcVols
     [System.ComponentModel.ToolboxItem(false)]
     public class Service1 : System.Web.Services.WebService
     {
-        private libVols.clsVols Vols;
-
+        private libHotels.clsHotels Hotels;
         public Service1()
         {
-            this.Vols = new libVols.clsVols();
+            this.Hotels = new libHotels.clsHotels();
         }
 
         [WebMethod]
-        public DataSet getVols(string VilleD, string VilleA, DateTime Date)
+        public DataSet getHotels(string VilleA, int Duree, DateTime Date)
         {
-            return this.Vols.getVols(VilleD, VilleA, Date);
+            return this.Hotels.getHotels(VilleA, Duree, Date);
         }
     }
 }

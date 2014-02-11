@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="WebServiceHotels.asmx.cs" Class="svcHotels.Service1" %>
