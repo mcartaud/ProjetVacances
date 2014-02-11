@@ -26,5 +26,19 @@ namespace svcVols
         {
             return this.Vols.getVols(VilleD, VilleA, Date);
         }
+
+
+        [WebMethod]
+        public DataSet getVilleDepart()
+        {
+            return this.Vols.getVilleDepart();
+        }
+
+        [WebMethod]
+        public DataSet getVilleArrivee(string VilleDepart)
+        {
+            return this.Vols.getVilleArrivee(VilleDepart);
+        }
+
     }
 }
