@@ -4,27 +4,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <style type="text/css">
-        #form1 {
-            height: 230px;
-        }
-    </style>
+    <title>Réservation d'hotels et de vol</title>
 </head>
 <body style="height: 391px">
     <form id="form1" runat="server">
         <asp:Label ID="labVilleD" runat="server" Text="Choisissez votre ville de départ: "></asp:Label>
-        <asp:DropDownList ID="listVilleD" runat="server">
+        <asp:DropDownList ID="cmbVilleDepart" runat="server">
         </asp:DropDownList>
     <div style="height: 17px; margin-top: 20px">
     
         <asp:Label ID="labVilleA" runat="server" Text="Choisissez votre ville d'arrivée: "></asp:Label>
-        <asp:DropDownList ID="listVilleA" runat="server">
+        <asp:DropDownList ID="cmbVilleArrivee" runat="server" OnSelectedIndexChanged="listVilleA_SelectedIndexChanged">
         </asp:DropDownList>
     
     </div>
-        <p>
-            &nbsp;</p>
         <p>
             <asp:Label ID="Label1" runat="server" Text="Date de départ: "></asp:Label>
             <asp:DropDownList ID="listDateDepart" runat="server">

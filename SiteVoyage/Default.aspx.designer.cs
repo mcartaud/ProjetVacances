@@ -31,13 +31,13 @@ namespace SiteVoyage {
         protected global::System.Web.UI.WebControls.Label labVilleD;
         
         /// <summary>
-        /// Contrôle listVilleD.
+        /// Contrôle cmbVilleDepart.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList listVilleD;
+        protected global::System.Web.UI.WebControls.DropDownList cmbVilleDepart;
         
         /// <summary>
         /// Contrôle labVilleA.
@@ -49,13 +49,13 @@ namespace SiteVoyage {
         protected global::System.Web.UI.WebControls.Label labVilleA;
         
         /// <summary>
-        /// Contrôle listVilleA.
+        /// Contrôle cmbVilleArrivee.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList listVilleA;
+        protected global::System.Web.UI.WebControls.DropDownList cmbVilleArrivee;
         
         /// <summary>
         /// Contrôle Label1.
