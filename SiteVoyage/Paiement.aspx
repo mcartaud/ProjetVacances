@@ -13,18 +13,41 @@
     
         <div align="center"><h1>Confirmation de commande</h1></div>
         <h3>Récapitulatif de la commande</h3>
-       Vols :
-        <asp:Label ID="label_recap_vol" runat="server" Text="Label"></asp:Label>
-        <br />
-        Date de départ
-        :
-        <asp:Label ID="label_recap_vol0" runat="server" Text="Label"></asp:Label>
-        <br />
-        Date d&#39;arrivée :
-        <asp:Label ID="label_recap_vol1" runat="server" Text="Label"></asp:Label>
-        <br />
-        Hôtel réservé :
-        <asp:Label ID="label_recap_vol2" runat="server" Text="Label"></asp:Label>
+        <table>
+            <tr>
+                <td>
+                    Vols :
+                </td>
+                <td>
+                    <asp:Label ID="label_recap_vol" runat="server" Text="Label"></asp:Label>
+                </td>
+            </tr>
+                        <tr>
+                <td>
+                    Date de départ :
+                </td>
+                <td>
+                    <asp:Label ID="label_recap_vol0" runat="server" Text="Label"></asp:Label>
+                </td>
+            </tr>
+                        <tr>
+                <td>
+                    Date d&#39;arrivée :
+                </td>
+                <td>
+                    <asp:Label ID="label_recap_vol1" runat="server" Text="Label"></asp:Label>
+                </td>
+            </tr>
+                        <tr>
+                <td>
+                    Hôtel réservé :
+                </td>
+                <td>
+                    <asp:Label ID="label_recap_vol2" runat="server" Text="Label"></asp:Label>
+                </td>
+            </tr>
+        </table>        
+    
         <h2>Coordonnée de contact :</h2>
         <table>
             <tr>
