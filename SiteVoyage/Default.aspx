@@ -20,8 +20,7 @@
     </div>
         <p>
             <asp:Label ID="Label1" runat="server" Text="Date de départ: "></asp:Label>
-            <asp:DropDownList ID="listDateDepart" runat="server">
-            </asp:DropDownList>
+            <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
         </p>
         <asp:Label ID="Label2" runat="server" Text="Durée du séjour: "></asp:Label>
         <asp:DropDownList ID="listChoixDuree" runat="server">
