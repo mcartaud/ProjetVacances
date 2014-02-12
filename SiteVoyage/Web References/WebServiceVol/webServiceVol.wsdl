@@ -31,17 +31,15 @@
       <s:element name="getVilleDepartResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getVilleDepartResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="getVilleDepartResult" type="tns:ArrayOfString" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="getVilleArrivee">
         <s:complexType>
           <s:sequence>
@@ -52,14 +50,7 @@
       <s:element name="getVilleArriveeResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getVilleArriveeResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="getVilleArriveeResult" type="tns:ArrayOfString" />
           </s:sequence>
         </s:complexType>
       </s:element>

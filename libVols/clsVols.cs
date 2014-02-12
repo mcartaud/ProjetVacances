@@ -28,20 +28,24 @@ namespace libVols
             MyC.Close();
             return listeVilleDepart;
         }
-        public DataSet getVilleArrivee(string villeDepart)
+        public List<string> getVilleArrivee(string villeDepart)
         {
             SqlConnection MyC = new SqlConnection();
             MyC.ConnectionString = Connection;
             MyC.Open();
-            SqlDataAdapter MyCom = new SqlDataAdapter("listeVilleArrivee", MyC);
-            MyCom.SelectCommand.CommandType = CommandType.StoredProcedure;
-            MyCom.SelectCommand.Parameters.Add("@DEPART", SqlDbType.Text);
-            MyCom.SelectCommand.Parameters["@DEPART"].Value = villeDepart;
-            DataSet DataSet = new DataSet();
-            MyCom.Fill(DataSet, "LISTE_VILLE_ARRIVEE");
+            SqlCommand MyCom = new SqlCommand("listeVilleArrivee", MyC);
+            MyCom.CommandType = CommandType.StoredProcedure;
+            MyCom.Parameters.Add("@DEPART", SqlDbType.Text);
+            MyCom.Parameters["@DEPART"].Value = villeDepart;
+            List<string> listeVilleArrivee = new List<string>();
+            SqlDataReader reader = MyCom.ExecuteReader();
+            while (reader.Read())
+            {
+                listeVilleArrivee.Add(reader.GetString(0));
+            }
             MyCom.Dispose();
             MyC.Close();
-            return DataSet;
+            return listeVilleArrivee;
         }
 
         public DataSet getDateVol(string VilleD, string VilleA)

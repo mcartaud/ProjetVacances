@@ -10,15 +10,12 @@ namespace SiteVoyage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // WebServiceVol webServiceVol = new WebServiceVol();
             WebServiceVol.Service1 ws = new WebServiceVol.Service1();
-            cmbVilleDepart.DataValueField = "villeDepart";
-            cmbVilleDepart.DataSource = ws.getVilleDepart().Tables[0];
+            cmbVilleDepart.DataSource = ws.getVilleDepart();
             cmbVilleDepart.DataBind();
 
             WebServiceVol.Service1 ws2 = new WebServiceVol.Service1();
-            cmbVilleArrivee.DataValueField = "villeDestination";
-            cmbVilleArrivee.DataSource = ws2.getVilleArrivee(cmbVilleDepart.Text).Tables[0];
+            cmbVilleArrivee.DataSource = ws2.getVilleArrivee(cmbVilleDepart.Text);
             cmbVilleArrivee.DataBind();
         }
 

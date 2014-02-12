@@ -118,9 +118,9 @@ namespace SiteVoyage.WebServiceVol {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getVilleDepart", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public System.Data.DataSet getVilleDepart() {
+        public string[] getVilleDepart() {
             object[] results = this.Invoke("getVilleDepart", new object[0]);
-            return ((System.Data.DataSet)(results[0]));
+            return ((string[])(results[0]));
         }
         
         /// <remarks/>
@@ -145,10 +145,10 @@ namespace SiteVoyage.WebServiceVol {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getVilleArrivee", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public System.Data.DataSet getVilleArrivee(string VilleDepart) {
+        public string[] getVilleArrivee(string VilleDepart) {
             object[] results = this.Invoke("getVilleArrivee", new object[] {
                         VilleDepart});
-            return ((System.Data.DataSet)(results[0]));
+            return ((string[])(results[0]));
         }
         
         /// <remarks/>
@@ -235,10 +235,10 @@ namespace SiteVoyage.WebServiceVol {
         }
         
         /// <remarks/>
-        public System.Data.DataSet Result {
+        public string[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((System.Data.DataSet)(this.results[0]));
+                return ((string[])(this.results[0]));
             }
         }
     }
@@ -261,10 +261,10 @@ namespace SiteVoyage.WebServiceVol {
         }
         
         /// <remarks/>
-        public System.Data.DataSet Result {
+        public string[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((System.Data.DataSet)(this.results[0]));
+                return ((string[])(this.results[0]));
             }
         }
     }
