@@ -26,7 +26,7 @@ namespace SiteVoyage
             string tel = TextBox_telephone.Text;
             string numCarte = TextBox_numCarte.Text;
             string crypto = TextBox_cryptogramme.Text;
-            string dateExp = 
+            // string dateExp = 
 
 
         }

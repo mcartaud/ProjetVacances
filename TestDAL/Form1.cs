@@ -32,7 +32,7 @@ namespace TestDAL
         {
             var tset = comboBox1.SelectedItem;
             clsVols vols = new clsVols();
-            label1.Text = vols.getVilleArrivee((string)tset).Tables[0].Rows[0].ItemArray[0].ToString();
+            // label1.Text = vols.getVilleArrivee((string)tset).Tables[0].Rows[0].ItemArray[0].ToString();
         }
     }
 }

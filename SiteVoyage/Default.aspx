@@ -11,7 +11,6 @@
         <asp:Label ID="labVilleD" runat="server" Text="Choisissez votre ville de départ: "></asp:Label>
         <asp:DropDownList ID="drpVilleDepart" runat="server" OnSelectedIndexChanged="drpVilleDepart_SelectedIndexChanged">
         </asp:DropDownList>
-        <asp:Button ID="btnVilleDepart" runat="server" OnClick="btnVilleDepart_Click" Text="Charger ville arrivee" />
     <div style="height: 17px; margin-top: 20px">
     
         <asp:Label ID="labVilleA" runat="server" Text="Choisissez votre ville d'arrivée: "></asp:Label>

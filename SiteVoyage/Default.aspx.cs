@@ -14,21 +14,18 @@ namespace SiteVoyage
         {
             drpVilleDepart.DataSource = this.wsVol.getVilleDepart();
             drpVilleDepart.DataBind();
+            if (Session["villeDepart"] != null)
+            {
+                drpVilleDepart.SelectedIndex = Convert.ToInt32(Session["villeDepart"]);
+            }
         }
 
         protected void drpVilleDepart_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Console.WriteLine("pute");
-            //drpVilleDepart.Text = drpVilleDepart.Text;
-            //drpVilleArrivee.DataSource = this.wsVol.getVilleArrivee(drpVilleDepart.SelectedItem.ToString());
-            //drpVilleArrivee.DataBind();
-        }
-
-        protected void btnVilleDepart_Click(object sender, EventArgs e)
-        {
-            drpVilleArrivee.DataSource = this.wsVol.getVilleArrivee(drpVilleDepart.Text);
+            Response.Write(drpVilleDepart.SelectedIndex);
+            Session["villeDepart"] = drpVilleDepart.SelectedIndex;
+            drpVilleArrivee.DataSource = this.wsVol.getVilleArrivee(drpVilleDepart.SelectedItem.ToString());
             drpVilleArrivee.DataBind();
         }
-
     }
 }
