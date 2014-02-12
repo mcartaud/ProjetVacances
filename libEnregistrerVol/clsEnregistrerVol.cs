@@ -21,7 +21,13 @@ namespace libEnregistrerVol
             SqlCommand MyCom = new SqlCommand("dbo.enregistrerHotel", MyC);
             MyCom.CommandType = CommandType.StoredProcedure;
             MyCom.Parameters.Add("@villeDepart", SqlDbType.Text);
-            MyCom.Parameters["@VilleDepart"].Value = vol.villeDepart;
+            MyCom.Parameters["@villeDepart"].Value = vol.villeDepart;
+
+            MyCom.Parameters.Add("@paysDepart", SqlDbType.Text);
+            MyCom.Parameters["@paysDepart"].Value = vol.paysDepart;
+
+            MyCom.Parameters.Add("@paysDestination", SqlDbType.Text);
+            MyCom.Parameters["@paysDestination"].Value = vol.paysDestination;
 
             MyCom.Parameters.Add("@villeDestination", SqlDbType.Text);
             MyCom.Parameters["@villeDestination"].Value = vol.villeDestination;
@@ -29,21 +35,33 @@ namespace libEnregistrerVol
             MyCom.Parameters.Add("@dateDepart", SqlDbType.Date);
             MyCom.Parameters["@dateDepart"].Value = vol.dateDepart;
 
+            MyCom.Parameters.Add("@prixVol", SqlDbType.Int);
+            MyCom.Parameters["@prixVol"].Value = vol.prixVol;
+
             MyCom.Parameters.Add("@id", SqlDbType.Int);
             MyCom.Parameters["@id"].Value = vol.id;
 
 
-            MyCom.Parameters.Add("@nom", SqlDbType.Text);
-            MyCom.Parameters["@nom"].Value = client.nom;
+            MyCom.Parameters.Add("@nomUser", SqlDbType.Text);
+            MyCom.Parameters["@nomUser"].Value = client.nomUser;
 
-            MyCom.Parameters.Add("@adresse", SqlDbType.Text);
-            MyCom.Parameters["@adresse"].Value = client.adresse;
+            MyCom.Parameters.Add("@villeUser", SqlDbType.Text);
+            MyCom.Parameters["@villeUser"].Value = client.villeUser;
 
-            MyCom.Parameters.Add("@prenom", SqlDbType.Text);
-            MyCom.Parameters["@prenom"].Value = client.prenom;
+            MyCom.Parameters.Add("@paysUser", SqlDbType.Text);
+            MyCom.Parameters["@paysUser"].Value = client.paysUser;
 
-            MyCom.Parameters.Add("@rib", SqlDbType.Int);
-            MyCom.Parameters["@rib"].Value = client.rib;
+            MyCom.Parameters.Add("@cpUser", SqlDbType.Int);
+            MyCom.Parameters["@cpUser"].Value = client.cpUser;
+
+            MyCom.Parameters.Add("@adresseUser", SqlDbType.Text);
+            MyCom.Parameters["@adresseUser"].Value = client.adresseUser;
+
+            MyCom.Parameters.Add("@prenomUser", SqlDbType.Text);
+            MyCom.Parameters["@prenomUser"].Value = client.prenomUser;
+
+            MyCom.Parameters.Add("@ribUser", SqlDbType.Text);
+            MyCom.Parameters["@ribUser"].Value = client.ribUser;
 
             MyCom.ExecuteScalar();
 
