@@ -11,18 +11,22 @@ namespace libVols
 
         private string Connection = "Data Source=localhost;Initial Catalog=SAISIE;Persist Security Info=True;User ID=benjamin;Password=benjamin";
 
-        public DataSet getVilleDepart()
+        public List<string> getVilleDepart()
         {
             SqlConnection MyC = new SqlConnection();
             MyC.ConnectionString = Connection;
             MyC.Open();
-            SqlDataAdapter MyCom = new SqlDataAdapter("listeVilleDepart", MyC);
-            MyCom.SelectCommand.CommandType = CommandType.StoredProcedure;
-            DataSet DataSet = new DataSet();
-            MyCom.Fill(DataSet, "LISTE_VILLE_DEPART");
+            SqlCommand MyCom = new SqlCommand("listeVilleDepart", MyC);
+            MyCom.CommandType = CommandType.StoredProcedure;
+            List<string> listeVilleDepart = new List<string>();
+            SqlDataReader reader = MyCom.ExecuteReader();
+            while (reader.Read())
+            {
+                listeVilleDepart.Add(reader.GetString(0));
+            }
             MyCom.Dispose();
             MyC.Close();
-            return DataSet;
+            return listeVilleDepart;
         }
         public DataSet getVilleArrivee(string villeDepart)
         {
