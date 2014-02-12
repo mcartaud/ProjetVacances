@@ -9,14 +9,20 @@ namespace dataEntity
         public int id;
         public DateTime dateDepart { get; set; }
         public string villeDepart { get; set; }
+        public string paysDepart { get; set; }
         public string villeDestination { get; set; }
+        public string paysDestination { get; set; }
+        public int prixVol { get; set; }
     }
 
     public class clsHotelEntity
     {
         public int id;
-        public string nom { get; set; }
-        public string ville { get; set; }
+        public string nomHotel { get; set; }
+        public string adresseHotel { get; set; }
+        public int cpHotel { get; set; }
+        public string villeHotel { get; set; }
+        public string paysHotel { get; set; }
         public DateTime dateArrivee { get; set; }
         public int duree { get; set; }
     }
@@ -24,9 +30,12 @@ namespace dataEntity
     public class clsInfoClient
     {
         public int id { get; set; }
-        public string nom { get; set; }
-        public string prenom { get; set; }
-        public string adresse { get; set; }
-        public int rib { get; set; }
+        public string nomUser { get; set; }
+        public string prenomUser { get; set; }
+        public string adresseUser { get; set; }
+        public int cpUser { get; set; }
+        public string villeUser { get; set; }
+        public string paysUser { get; set; }
+        public string ribUser { get; set; }
     }
 }

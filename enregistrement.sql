@@ -96,7 +96,7 @@ CREATE PROCEDURE [dbo].[enregistrerHotel]
 	@NOMUSER varchar(50),
 	@PRENOMUSER varchar(50),
 	@ADRESSEUSER varchar(50),
-	@CODEPOSTALUSER int,
+	@CPUSER int,
 	@VILLEUSER varchar(50),
 	@PAYSUSER varchar(50),
 	@RIBUSER varchar(50),
@@ -107,11 +107,12 @@ CREATE PROCEDURE [dbo].[enregistrerHotel]
 	@VILLEHOTEL varchar(50),
 	@PAYSHOTEL varchar(50),
 	@DATEARRIVEEHOTEL date,
-	@DUREESEJOUR int
+	@DUREESEJOUR int,
+	@PRIXHOTEL int
 AS
 BEGIN
-	INSERT INTO CMDHOTELS (id,nomUser,prenomUser,adresseUser,codePostalUser,villeUser,paysUser,ribUser,nomHotel,adresseHotel,cpHotel,villeHotel,paysHotel,dateArriveeHotel,dureeSejour)
-	VALUES (@ID,@NOMUSER,@PRENOMUSER,@ADRESSEUSER,@CODEPOSTALUSER,@VILLEUSER,@PAYSUSER,@RIBUSER,@NOMHOTEL,@ADRESSEHOTEL,@CPHOTEL,@VILLEHOTEL,@PAYSHOTEL,@DATEARRIVEEHOTEL,@DUREESEJOUR)
+	INSERT INTO CMDHOTELS (id,nomUser,prenomUser,adresseUser,cpUser,villeUser,paysUser,ribUser,nomHotel,adresseHotel,cpHotel,villeHotel,paysHotel,dateArriveeHotel,dureeSejour,prixHotel)
+	VALUES (@ID,@NOMUSER,@PRENOMUSER,@ADRESSEUSER,@CPUSER,@VILLEUSER,@PAYSUSER,@RIBUSER,@NOMHOTEL,@ADRESSEHOTEL,@CPHOTEL,@VILLEHOTEL,@PAYSHOTEL,@DATEARRIVEEHOTEL,@DUREESEJOUR,@PRIXHOTEL)
 END
 GO
 /****** Object:  StoredProcedure [dbo].[enregistrerVol]    Script Date: 10/02/2014 17:44:41 ******/
@@ -129,7 +130,7 @@ CREATE PROCEDURE [dbo].[enregistrerVol]
 	@NOMUSER varchar(50),
 	@PRENOMUSER varchar(50),
 	@ADRESSEUSER varchar(50),
-	@CODEPOSTALUSER int,
+	@CPUSER int,
 	@VILLEUSER varchar(50),
 	@PAYSUSER varchar(50),
 	@RIBUSER varchar(50),
@@ -141,8 +142,8 @@ CREATE PROCEDURE [dbo].[enregistrerVol]
 	@PRIXVOL int
 AS
 BEGIN
-	INSERT INTO CMDVOLS (id,nomUser,prenomUser,adresseUser,codePostalUser,villeUser,paysUser,ribUser,villeDepartVol,paysDepartVol,villeDestinationVol,paysDestinationVol,dateDepartVol,prixVol)
-	VALUES (@ID,@NOMUSER,@PRENOMUSER,@ADRESSEUSER,@RIBUSER,@VILLEDEPARTVOL,@PAYSDEPARTVOL,@VILLEDESTINATIONVOL,@PAYSDESTINATIONVOL,@DATEDEPARTVOL,@PRIXVOL)
+	INSERT INTO CMDVOLS (id,nomUser,prenomUser,adresseUser,cpUser,villeUser,paysUser,ribUser,villeDepartVol,paysDepartVol,villeDestinationVol,paysDestinationVol,dateDepartVol,prixVol)
+	VALUES (@ID,@NOMUSER,@PRENOMUSER,@ADRESSEUSER,@CPUSER,@VILLEUSER,@PAYSUSER,@RIBUSER,@VILLEDEPARTVOL,@PAYSDEPARTVOL,@VILLEDESTINATIONVOL,@PAYSDESTINATIONVOL,@DATEDEPARTVOL,@PRIXVOL)
 END
 GO
 /****** Object:  Table [dbo].[CMDHOTELS]    Script Date: 10/02/2014 17:44:41 ******/
@@ -157,17 +158,18 @@ CREATE TABLE [dbo].[CMDHOTELS](
 	[nomUser] [varchar](50) NULL,
 	[prenomUser] [varchar](50) NULL,
 	[adresseUser] [varchar](50) NULL,
-	[codePostalUser] [numeric](5, 0) NULL,
+	[cpUser] [int] NULL,
 	[villeUser] [varchar](50) NULL,
 	[paysUser] [varchar](50) NULL,
 	[ribUser] [varchar](50) NULL,
 	[nomHotel] [varchar](50) NULL,
 	[adresseHotel] [varchar](50) NULL,
-	[cpHotel] [numeric](5, 0) NULL,
+	[cpHotel] [int] NULL,
 	[villeHotel] [varchar](50) NULL,
 	[paysHotel] [varchar](50) NULL,
 	[dateArriveeHotel] [date] NULL,
 	[dureeSejour] [int] NULL,
+	[prixHotel] [int] NULL,
  CONSTRAINT [PK_CMDHOTELS] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -189,7 +191,7 @@ CREATE TABLE [dbo].[CMDVOLS](
 	[nomUser] [varchar](50) NULL,
 	[prenomUser] [varchar](50) NULL,
 	[adresseUser] [varchar](50) NULL,
-	[codePostalUser] [numeric](5, 0) NULL,
+	[cpUser] [int] NULL,
 	[villeUser] [varchar](50) NULL,
 	[paysUser] [varchar](50) NULL,
 	[ribUser] [varchar](50) NULL,
@@ -198,7 +200,7 @@ CREATE TABLE [dbo].[CMDVOLS](
 	[villeDestinationVol] [varchar](50) NULL,
 	[paysDestinationVol] [varchar](50) NULL,
 	[dateDepartVol] [date] NULL,
-	[prixVol] [numeric](18, 0) NULL
+	[prixVol] [int] NULL
  CONSTRAINT [PK_CMDVOLS] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
