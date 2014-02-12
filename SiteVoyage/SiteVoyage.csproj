@@ -57,6 +57,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="UIPaiement.aspx" />
     <Content Include="Web References\WebServiceHotels\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -83,6 +84,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="UIPaiement.aspx.cs">
+      <DependentUpon>UIPaiement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UIPaiement.aspx.designer.cs">
+      <DependentUpon>UIPaiement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web References\WebServiceHotels\Reference.cs">
       <AutoGen>True</AutoGen>
