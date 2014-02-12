@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="default.css" />
+    <Content Include="foundation.min.css" />
     <Content Include="UIPaiement.aspx" />
     <Content Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -75,7 +77,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-	  <Compile Include="UIPaiement.aspx.cs">
+    <Compile Include="UIPaiement.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>UIPaiement.aspx</DependentUpon>
     </Compile>

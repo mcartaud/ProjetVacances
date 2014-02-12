@@ -5,36 +5,40 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Réservation d'hotels et de vol</title>
+    <link rel="stylesheet" media="screen" href="foundation.min.css" />
+    <link rel="stylesheet" media="screen" href="default.css" />
 </head>
-<body style="height: 391px">
-    <form id="form1" runat="server">
-        <asp:Label ID="labVilleD" runat="server" Text="Choisissez votre ville de départ: "></asp:Label>
-        <asp:DropDownList ID="drpVilleDepart" runat="server" OnSelectedIndexChanged="drpVilleDepart_SelectedIndexChanged">
-        </asp:DropDownList>
-    <div style="height: 17px; margin-top: 20px">
-    
-        <asp:Label ID="labVilleA" runat="server" Text="Choisissez votre ville d'arrivée: "></asp:Label>
-        <asp:DropDownList ID="drpVilleArrivee" runat="server">
-        </asp:DropDownList>
-    
+<body>
+    <div class="panel">
+        <h1 class="title-area; panel; text-center">Réservation de vols et d'hôtels</h1>
     </div>
-        <p>
-            <asp:Label ID="Label1" runat="server" Text="Date de départ: "></asp:Label>
-            <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
-        </p>
-        <asp:Label ID="Label2" runat="server" Text="Durée du séjour: "></asp:Label>
-        <asp:DropDownList ID="listChoixDuree" runat="server">
-        </asp:DropDownList>
-        <p>
-            <asp:Label ID="labChoixVol" runat="server" Text="Choisissez votre vol: "></asp:Label>
-            <asp:DropDownList ID="listChoixVol" runat="server">
+    <form id="form1" runat="server">
+        <div class="row">
+            <div class="alert-box warning radius">
+                <asp:Label ID="lblError" runat="server"></asp:Label>
+            </div>
+        </div>
+        <div class="row">
+            <asp:Label ID="labVilleD" runat="server" Text="Choisissez votre ville de départ: "></asp:Label>
+            <asp:DropDownList ID="drpVilleDepart" runat="server" OnSelectedIndexChanged="drpVilleDepart_SelectedIndexChanged" AutoPostBack="True">
             </asp:DropDownList>
-        </p>
-        <asp:Label ID="Label3" runat="server" Text="Choisissez votre hotel: "></asp:Label>
-        <asp:DropDownList ID="listChoixHotel" runat="server">
-        </asp:DropDownList>
-        <br />
-        <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+        </div>
+        <div class="row">
+            <asp:Label ID="labVilleA" runat="server" Text="Choisissez votre ville d'arrivée: "></asp:Label>
+            <asp:DropDownList ID="drpVilleArrivee" runat="server">
+            </asp:DropDownList>
+        </div>
+        <div class="row">
+            <asp:Label ID="Label1" runat="server" Text="Date de départ: "></asp:Label>
+            <asp:Calendar ID="cldDateDepart" runat="server" Width="100%"></asp:Calendar>
+        </div>
+        <div class="row">
+            <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" OnClick="btnRechercher_Click" class="button" Width="100%"/>
+        </div>
+        <div class="row">
+            <asp:Label ID="lblListeVol" runat="server" Text="Liste des vols :"></asp:Label>
+            <asp:DropDownList ID="drpVols" runat="server"></asp:DropDownList>
+        </div>
     </form>
 </body>
 </html>

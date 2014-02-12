@@ -48,24 +48,6 @@ namespace libVols
             return listeVilleArrivee;
         }
 
-        public DataSet getDateVol(string VilleD, string VilleA)
-        {
-            SqlConnection MyC = new SqlConnection();
-            MyC.ConnectionString = Connection;
-            MyC.Open();
-            SqlDataAdapter MyCom = new SqlDataAdapter("listeDateVol", MyC);
-            MyCom.SelectCommand.CommandType = CommandType.StoredProcedure;
-            MyCom.SelectCommand.Parameters.Add("@DEPART", SqlDbType.Text);
-            MyCom.SelectCommand.Parameters["@DEPART"].Value = VilleD;
-            MyCom.SelectCommand.Parameters.Add("@ARRIVEE", SqlDbType.Text);
-            MyCom.SelectCommand.Parameters["@ARRIVEE"].Value = VilleA;
-            DataSet DataSet = new DataSet();
-            MyCom.Fill(DataSet, "LISTE_DATE_VOL");
-            MyCom.Dispose();
-            MyC.Close();
-            return DataSet;
-        }
-
         public DataSet getVols(string VilleD, string VilleA, DateTime Date)
         {
             SqlConnection MyC = new SqlConnection();
