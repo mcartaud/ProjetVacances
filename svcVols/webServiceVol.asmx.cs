@@ -29,13 +29,13 @@ namespace svcVols
 
 
         [WebMethod]
-        public DataSet getVilleDepart()
+        public List<string> getVilleDepart()
         {
             return this.Vols.getVilleDepart();
         }
 
         [WebMethod]
-        public DataSet getVilleArrivee(string VilleDepart)
+        public List<string> getVilleArrivee(string VilleDepart)
         {
             return this.Vols.getVilleArrivee(VilleDepart);
         }

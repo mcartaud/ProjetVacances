@@ -9,7 +9,7 @@ namespace libHotels
     public class clsHotels
     {
 
-        private string Connection = "Data Source=localhost;Initial Catalog=SAISIE;Persist Security Info=True;User ID=benjamin;Password=benjamin";
+        private string Connection = "Data Source=" + Environment.MachineName + "\\SQLEXPRESS;Initial Catalog=SAISIE;Integrated Security = true";
 
         public DataSet getDureeMax(string villeArrivee, DateTime date)
         {
@@ -42,6 +42,7 @@ namespace libHotels
             MyCom.SelectCommand.Parameters["@ARRIVEE"].Value = VilleA;
             MyCom.SelectCommand.Parameters.Add("@DATE", SqlDbType.Date);
             MyCom.SelectCommand.Parameters["@DATE"].Value = Date;
+
             DataSet DataSet = new DataSet();
             MyCom.Fill(DataSet, "LISTE_HOTELS");
             MyCom.Dispose();

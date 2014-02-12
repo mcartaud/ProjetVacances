@@ -10,7 +10,7 @@
 namespace SiteVoyage {
     
     
-    public partial class _Default {
+    public partial class UIPaiement {
         
         /// <summary>
         /// Contrôle form1.
@@ -22,120 +22,174 @@ namespace SiteVoyage {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Contrôle labVilleD.
+        /// Contrôle label_recap_vol.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labVilleD;
+        protected global::System.Web.UI.WebControls.Label label_recap_vol;
         
         /// <summary>
-        /// Contrôle drpVilleDepart.
+        /// Contrôle label_recap_depart.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpVilleDepart;
+        protected global::System.Web.UI.WebControls.Label label_recap_depart;
         
         /// <summary>
-        /// Contrôle labVilleA.
+        /// Contrôle label_recap_arrivee.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labVilleA;
+        protected global::System.Web.UI.WebControls.Label label_recap_arrivee;
         
         /// <summary>
-        /// Contrôle drpVilleArrivee.
+        /// Contrôle label_recap_hotel.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpVilleArrivee;
+        protected global::System.Web.UI.WebControls.Label label_recap_hotel;
         
         /// <summary>
-        /// Contrôle Label1.
+        /// Contrôle TextBox_nom.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_nom;
         
         /// <summary>
-        /// Contrôle Calendar1.
+        /// Contrôle TextBox_prenom.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_prenom;
         
         /// <summary>
-        /// Contrôle Label2.
+        /// Contrôle TextBox_age.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_age;
         
         /// <summary>
-        /// Contrôle listChoixDuree.
+        /// Contrôle TextBox_nationalite.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList listChoixDuree;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_nationalite;
         
         /// <summary>
-        /// Contrôle labChoixVol.
+        /// Contrôle TextBox_ville.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labChoixVol;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_ville;
         
         /// <summary>
-        /// Contrôle listChoixVol.
+        /// Contrôle TextBox_cp.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList listChoixVol;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_cp;
         
         /// <summary>
-        /// Contrôle Label3.
+        /// Contrôle TextBox_adresse.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_adresse;
         
         /// <summary>
-        /// Contrôle listChoixHotel.
+        /// Contrôle TextBox_telephone.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList listChoixHotel;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_telephone;
         
         /// <summary>
-        /// Contrôle Label4.
+        /// Contrôle cv.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.CompareValidator cv;
+        
+        /// <summary>
+        /// Contrôle TextBox_numCarte.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_numCarte;
+        
+        /// <summary>
+        /// Contrôle Cv1.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator Cv1;
+        
+        /// <summary>
+        /// Contrôle TextBox_cryptogramme.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_cryptogramme;
+        
+        /// <summary>
+        /// Contrôle Cv2.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator Cv2;
+        
+        /// <summary>
+        /// Contrôle Button_valider.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_valider;
+        
+        /// <summary>
+        /// Contrôle Button_annuler.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_annuler;
     }
 }

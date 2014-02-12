@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SiteVoyage.Properties {
+namespace Voyage.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -27,9 +27,9 @@ namespace SiteVoyage.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:2133/webServiceVol.asmx")]
-        public string SiteVoyage_WebServiceVol_Service1 {
+        public string Voyage_WebServiceVol_Service1 {
             get {
-                return ((string)(this["SiteVoyage_WebServiceVol_Service1"]));
+                return ((string)(this["Voyage_WebServiceVol_Service1"]));
             }
         }
     }
