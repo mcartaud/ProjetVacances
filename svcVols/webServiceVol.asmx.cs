@@ -35,7 +35,7 @@ namespace svcVols
         }
 
         [WebMethod]
-        public DataSet getVilleArrivee(string VilleDepart)
+        public List<string> getVilleArrivee(string VilleDepart)
         {
             return this.Vols.getVilleArrivee(VilleDepart);
         }

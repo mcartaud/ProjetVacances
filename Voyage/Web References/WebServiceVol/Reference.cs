@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace SiteVoyage.WebServiceVol {
+namespace Voyage.WebServiceVol {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -40,7 +40,7 @@ namespace SiteVoyage.WebServiceVol {
         
         /// <remarks/>
         public Service1() {
-            this.Url = global::SiteVoyage.Properties.Settings.Default.SiteVoyage_WebServiceVol_Service1;
+            this.Url = global::Voyage.Properties.Settings.Default.Voyage_WebServiceVol_Service1;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;

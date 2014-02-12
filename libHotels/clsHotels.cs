@@ -42,7 +42,7 @@ namespace libHotels
             MyCom.SelectCommand.Parameters["@ARRIVEE"].Value = VilleA;
             MyCom.SelectCommand.Parameters.Add("@DATE", SqlDbType.Date);
             MyCom.SelectCommand.Parameters["@DATE"].Value = Date;
-            
+
             DataSet DataSet = new DataSet();
             MyCom.Fill(DataSet, "LISTE_HOTELS");
             MyCom.Dispose();
