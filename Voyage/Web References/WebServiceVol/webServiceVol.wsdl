@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="getVols">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VilleD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VilleA" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getVolsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getVolsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getVilleDepart">
+        <s:complexType />
+      </s:element>
+      <s:element name="getVilleDepartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getVilleDepartResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getVilleArrivee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VilleDepart" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getVilleArriveeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getVilleArriveeResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getVolsSoapIn">
+    <wsdl:part name="parameters" element="tns:getVols" />
+  </wsdl:message>
+  <wsdl:message name="getVolsSoapOut">
+    <wsdl:part name="parameters" element="tns:getVolsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getVilleDepartSoapIn">
+    <wsdl:part name="parameters" element="tns:getVilleDepart" />
+  </wsdl:message>
+  <wsdl:message name="getVilleDepartSoapOut">
+    <wsdl:part name="parameters" element="tns:getVilleDepartResponse" />
+  </wsdl:message>
+  <wsdl:message name="getVilleArriveeSoapIn">
+    <wsdl:part name="parameters" element="tns:getVilleArrivee" />
+  </wsdl:message>
+  <wsdl:message name="getVilleArriveeSoapOut">
+    <wsdl:part name="parameters" element="tns:getVilleArriveeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="getVols">
+      <wsdl:input message="tns:getVolsSoapIn" />
+      <wsdl:output message="tns:getVolsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVilleDepart">
+      <wsdl:input message="tns:getVilleDepartSoapIn" />
+      <wsdl:output message="tns:getVilleDepartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVilleArrivee">
+      <wsdl:input message="tns:getVilleArriveeSoapIn" />
+      <wsdl:output message="tns:getVilleArriveeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getVols">
+      <soap:operation soapAction="http://tempuri.org/getVols" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVilleDepart">
+      <soap:operation soapAction="http://tempuri.org/getVilleDepart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVilleArrivee">
+      <soap:operation soapAction="http://tempuri.org/getVilleArrivee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getVols">
+      <soap12:operation soapAction="http://tempuri.org/getVols" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVilleDepart">
+      <soap12:operation soapAction="http://tempuri.org/getVilleDepart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVilleArrivee">
+      <soap12:operation soapAction="http://tempuri.org/getVilleArrivee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://localhost:2133/webServiceVol.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://localhost:2133/webServiceVol.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

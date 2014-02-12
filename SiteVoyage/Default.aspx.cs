@@ -8,20 +8,27 @@ namespace SiteVoyage
 {
     public partial class _Default : System.Web.UI.Page
     {
+        private WebServiceVol.Service1 wsVol = new WebServiceVol.Service1();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            WebServiceVol.Service1 ws = new WebServiceVol.Service1();
-            cmbVilleDepart.DataSource = ws.getVilleDepart();
-            cmbVilleDepart.DataBind();
-
-            WebServiceVol.Service1 ws2 = new WebServiceVol.Service1();
-            cmbVilleArrivee.DataSource = ws2.getVilleArrivee(cmbVilleDepart.Text);
-            cmbVilleArrivee.DataBind();
+            drpVilleDepart.DataSource = this.wsVol.getVilleDepart();
+            drpVilleDepart.DataBind();
         }
 
-        protected void listVilleA_SelectedIndexChanged(object sender, EventArgs e)
+        protected void drpVilleDepart_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            //Console.WriteLine("pute");
+            //drpVilleDepart.Text = drpVilleDepart.Text;
+            //drpVilleArrivee.DataSource = this.wsVol.getVilleArrivee(drpVilleDepart.SelectedItem.ToString());
+            //drpVilleArrivee.DataBind();
         }
+
+        protected void btnVilleDepart_Click(object sender, EventArgs e)
+        {
+            drpVilleArrivee.DataSource = this.wsVol.getVilleArrivee(drpVilleDepart.Text);
+            drpVilleArrivee.DataBind();
+        }
+
     }
 }

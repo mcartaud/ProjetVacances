@@ -31,13 +31,22 @@ namespace SiteVoyage {
         protected global::System.Web.UI.WebControls.Label labVilleD;
         
         /// <summary>
-        /// Contrôle cmbVilleDepart.
+        /// Contrôle drpVilleDepart.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbVilleDepart;
+        protected global::System.Web.UI.WebControls.DropDownList drpVilleDepart;
+        
+        /// <summary>
+        /// Contrôle btnVilleDepart.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVilleDepart;
         
         /// <summary>
         /// Contrôle labVilleA.
@@ -49,13 +58,13 @@ namespace SiteVoyage {
         protected global::System.Web.UI.WebControls.Label labVilleA;
         
         /// <summary>
-        /// Contrôle cmbVilleArrivee.
+        /// Contrôle drpVilleArrivee.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbVilleArrivee;
+        protected global::System.Web.UI.WebControls.DropDownList drpVilleArrivee;
         
         /// <summary>
         /// Contrôle Label1.
@@ -128,5 +137,14 @@ namespace SiteVoyage {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList listChoixHotel;
+        
+        /// <summary>
+        /// Contrôle Label4.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
     }
 }
