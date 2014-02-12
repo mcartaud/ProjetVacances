@@ -9,7 +9,7 @@ namespace libVols
     public class clsVols
     {
 
-        private string Connection = "Data Source=localhost;Initial Catalog=SAISIE;Persist Security Info=True;User ID=benjamin;Password=benjamin";
+        private string Connection = "Data Source=" + Environment.MachineName + "\\SQLEXPRESS;Initial Catalog=SAISIE;Integrated Security = true";
 
         public List<string> getVilleDepart()
         {

@@ -27,5 +27,12 @@ namespace TestDAL
            // label1.Text = vols.getVilleDepart().Tables[0].Rows[0].ItemArray[0].ToString();
             label1.Text = vols.getVols("Nantes", "Paris", new DateTime(2014, 01, 01)).Tables[0].Rows[0].ItemArray[0].ToString();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var tset = comboBox1.SelectedItem;
+            clsVols vols = new clsVols();
+            label1.Text = vols.getVilleArrivee((string)tset).Tables[0].Rows[0].ItemArray[0].ToString();
+        }
     }
 }

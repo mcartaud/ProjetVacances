@@ -27,7 +27,7 @@
                     Date de départ :
                 </td>
                 <td>
-                    <asp:Label ID="label_recap_vol0" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="label_recap_depart" runat="server" Text="Label"></asp:Label>
                 </td>
             </tr>
                         <tr>
@@ -35,7 +35,7 @@
                     Date d&#39;arrivée :
                 </td>
                 <td>
-                    <asp:Label ID="label_recap_vol1" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="label_recap_arrivee" runat="server" Text="Label"></asp:Label>
                 </td>
             </tr>
                         <tr>
@@ -43,7 +43,7 @@
                     Hôtel réservé :
                 </td>
                 <td>
-                    <asp:Label ID="label_recap_vol2" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="label_recap_hotel" runat="server" Text="Label"></asp:Label>
                 </td>
             </tr>
         </table>        
@@ -56,7 +56,7 @@
                 </td>
                 <td>
 
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox_nom" runat="server"></asp:TextBox>
 
                 </td>
             </tr>
@@ -65,7 +65,7 @@
                     Prénom :</td>
                 <td>
 
-                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox_prenom" runat="server"></asp:TextBox>
 
                 </td>
             </tr>
@@ -74,7 +74,7 @@
                     Age :</td>
                 <td>
 
-                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox_age" runat="server"></asp:TextBox>
 
                 </td>
             </tr>
@@ -84,7 +84,7 @@
                     Nationalité :</td>
                 <td>
 
-                    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox_nationalite" runat="server"></asp:TextBox>
 
                 </td>
             </tr>
@@ -94,7 +94,7 @@
                     Ville :</td>
                 <td>
 
-                    <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox_ville" runat="server"></asp:TextBox>
 
                 </td>
             </tr>
@@ -104,7 +104,7 @@
                     Code Postal :</td>
                 <td>
 
-                    <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox_cp" runat="server"></asp:TextBox>
 
                 </td>
             </tr>
@@ -114,7 +114,7 @@
                     Adresse :</td>
                 <td>
 
-                    <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox_adresse" runat="server"></asp:TextBox>
 
                 </td>
             </tr>
@@ -124,8 +124,9 @@
                     Téléphone :</td>
                 <td>
 
-                    <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
-
+                    <asp:TextBox ID="TextBox_telephone" runat="server"></asp:TextBox>
+                    <asp:CompareValidator ID="cv" runat="server" ControlToValidate="TextBox_telephone" Type="Integer"
+   Operator="DataTypeCheck" ErrorMessage="Veuillez entrer un nombre !" />
                 </td>
             </tr>
 
@@ -139,8 +140,9 @@
                 </td>
                 <td>
 
-                    <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
-
+                    <asp:TextBox ID="TextBox_numCarte" runat="server"></asp:TextBox>
+                     <asp:CompareValidator ID="Cv1" runat="server" ControlToValidate="TextBox_numCarte" Type="Integer"
+   Operator="DataTypeCheck" ErrorMessage="Veuillez entrer un nombre !" />
                 </td>
             </tr>
                         <tr>
@@ -149,8 +151,9 @@
                 </td>
                 <td>
 
-                    <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
-
+                    <asp:TextBox ID="TextBox_cryptogramme" runat="server"></asp:TextBox>
+                     <asp:CompareValidator ID="Cv2" runat="server" ControlToValidate="TextBox_cryptogramme" Type="Integer"
+   Operator="DataTypeCheck" ErrorMessage="Veuillez entrer un nombre !" />
                 </td>
             </tr>
                         <tr>
@@ -158,16 +161,14 @@
                     Date d&#39;expiration :
                 </td>
                 <td>
-
-                    <asp:TextBox ID="TextBox11" runat="server"></asp:TextBox>
-
+                     <input id="expirationDate" type="date" value="2014-02-17"/>
                 </td>
             </tr>
         </table>
         <br />
-        <asp:Button ID="Button1" runat="server" Text="Valider" />
+        <asp:Button ID="Button_valider" runat="server" Text="Valider" OnClick="Button_valider_Click" />
 &nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button2" runat="server" Text="Annuler" />
+        <asp:Button ID="Button_annuler" runat="server" Text="Annuler" />
     
     </div>
     </form>
