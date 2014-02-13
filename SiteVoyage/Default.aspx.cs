@@ -35,7 +35,7 @@ namespace SiteVoyage
             else
             {
                 drpVols.DataSource = this.wsVol.getVols(villeDepart, villeArrivee, dateDepart).Tables[0];
-                drpVols.DataTextField = "villeDepart";
+                drpVols.DataTextField = "villeDepartVol";
                 drpVols.DataBind();
             }
         }
