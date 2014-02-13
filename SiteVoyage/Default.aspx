@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="panel">
-        <h1 class="title-area; panel; text-center">Réservation de vols et d'hôtels</h1>
+        <h1 class="title-area; panel; text-center"Réservation de vols et d'hôtels</h1>
     </div>
     <form id="form1" runat="server">
         <div class="row">

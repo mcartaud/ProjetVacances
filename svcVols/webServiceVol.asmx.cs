@@ -29,7 +29,7 @@ namespace svcVols
 
 
         [WebMethod]
-        public List<string> getVilleDepart()
+        public List<List<string>> getVilleDepart()
         {
             return this.Vols.getVilleDepart();
         }
@@ -41,9 +41,9 @@ namespace svcVols
    ///     }
 
         [WebMethod]
-        public List<string> getVilleArrivee(string VilleDepart)
+        public List<List<string>> getVilleArrivee(string VilleDepart, string paysDepart)
         {
-            return this.Vols.getVilleArrivee(VilleDepart);
+            return this.Vols.getVilleArrivee(VilleDepart, paysDepart);
         }
 
 //        [WebMethod]

@@ -4,6 +4,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using System.Diagnostics;
+
 namespace SiteVoyage
 {
     public partial class _Default : System.Web.UI.Page
@@ -12,14 +14,36 @@ namespace SiteVoyage
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            drpVilleDepart.DataSource = this.wsVol.getVilleDepart();
+            string[][] listeDepart = this.wsVol.getVilleDepart();
+            string[] liste = listeDepart[0];
+            for (int i = 0; i < liste.Length; i++)
+            {
+                liste[i] = liste[i] + " - " + listeDepart[1][i];
+            }
+            drpVilleDepart.DataSource = liste;
             drpVilleDepart.DataBind();
         }
 
         protected void drpVilleDepart_SelectedIndexChanged(object sender, EventArgs e)
         {
-            drpVilleArrivee.DataSource = this.wsVol.getVilleArrivee(drpVilleDepart.SelectedItem.ToString());
-            drpVilleArrivee.DataBind();
+            string selection = drpVilleDepart.SelectedItem.ToString();
+            string[] selections = selection.Split('-');
+            string villeDepart = selections[0].Trim();
+            string paysDepart = selections[1].Trim();
+            string[][] listeArrivee = this.wsVol.getVilleArrivee(villeDepart, paysDepart);
+            string[] liste = listeArrivee[0];
+            for (int i = 0; i < liste.Length; i++)
+            {
+                liste[i] = liste[i] + " - " + listeArrivee[1][i];
+            }
+            ListItem li = new ListItem();
+            drpVilleArrivee.Items.Clear();
+            for (int i = 0; i < liste.Length; i++)
+            {
+                li.Text = liste[i];
+                li.Value = liste[i];
+                drpVilleArrivee.Items.Add(li);
+            }
         }
 
         protected void btnRechercher_Click(object sender, EventArgs e)
