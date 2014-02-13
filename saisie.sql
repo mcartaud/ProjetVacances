@@ -199,7 +199,7 @@ CREATE TABLE [dbo].[HOTELS](
 	[cpHotel] [int] NULL,
 	[villeHotel] [varchar](50) NULL,
 	[paysHotel] [varchar](50) NULL,
-	[dateArriveeHotel] [date] NULL,
+	[dateArriveeHotel] [datetime] NULL,
 	[dureeSejour] [int] NULL,
 	[prixHotel] [int] NULL,
 	[etoileHotel] [int] NULL,
