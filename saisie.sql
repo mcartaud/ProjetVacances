@@ -86,22 +86,7 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
--- =============================================
--- Author:		<Carguebro>
--- Create date: <06/02/2014>
--- Description:	<Retourne la duree disponible pour un hotel>
--- =============================================
-CREATE PROCEDURE [dbo].[dureeHotel]
-	@ARRIVEE varchar(50),
-	@DATE date
-AS
-BEGIN
-	SELECT HOTELS.dureeSejour FROM HOTELS 
-	WHERE HOTELS.villeHotel = @ARRIVEE 
-	AND HOTELS.dateArriveeHotel = @DATE
-END
 
-GO
 /****** Object:  StoredProcedure [dbo].[listeDateVol]    Script Date: 10/02/2014 17:44:03 ******/
 SET ANSI_NULLS ON
 GO
