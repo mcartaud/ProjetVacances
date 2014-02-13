@@ -96,6 +96,11 @@
 
                     <asp:TextBox ID="TextBox_ville" runat="server"></asp:TextBox>
 
+                    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                        <asp:ListItem></asp:ListItem>
+                        <asp:ListItem></asp:ListItem>
+                    </asp:DropDownList>
+
                 </td>
             </tr>
             

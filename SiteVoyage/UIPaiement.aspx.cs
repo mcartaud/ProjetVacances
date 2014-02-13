@@ -11,9 +11,14 @@ namespace SiteVoyage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Response.Write("test2");
         }
 
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            Response.Write("test");
+            Response.Write("test3");
+        }
         protected void Button_valider_Click(object sender, EventArgs e)
         {
             string nom = TextBox_nom.Text;
@@ -26,8 +31,13 @@ namespace SiteVoyage
             string tel = TextBox_telephone.Text;
             string numCarte = TextBox_numCarte.Text;
             string crypto = TextBox_cryptogramme.Text;
-            string dateExp = 
+            //string dateExp = 
 
+
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
