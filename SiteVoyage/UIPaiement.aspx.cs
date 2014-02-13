@@ -33,7 +33,6 @@ namespace SiteVoyage
             string crypto = TextBox_cryptogramme.Text;
             //string dateExp = 
 
-
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)

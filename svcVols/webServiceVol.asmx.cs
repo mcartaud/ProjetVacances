@@ -34,11 +34,23 @@ namespace svcVols
             return this.Vols.getVilleDepart();
         }
 
+//        [WebMethod]
+ //       public List<string> getPaysDepart()
+ //       {
+  //          return this.Vols.getPaysDepart();
+   ///     }
+
         [WebMethod]
         public List<string> getVilleArrivee(string VilleDepart)
         {
             return this.Vols.getVilleArrivee(VilleDepart);
         }
+
+//        [WebMethod]
+//        public List<string> getPaysArrivee()
+//        {
+ //        //   return this.Vols.getPaysArrivee();
+ //       }
 
     }
 }
