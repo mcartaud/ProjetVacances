@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
@@ -10,7 +10,7 @@ namespace SiteVoyage
     {
         private WebServiceVol.Service1 wsVol = new WebServiceVol.Service1();
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Init(object sender, EventArgs e)
         {
             drpVilleDepart.DataSource = this.wsVol.getVilleDepart();
             drpVilleDepart.DataBind();
@@ -18,17 +18,26 @@ namespace SiteVoyage
 
         protected void drpVilleDepart_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Console.WriteLine("pute");
-            //drpVilleDepart.Text = drpVilleDepart.Text;
-            //drpVilleArrivee.DataSource = this.wsVol.getVilleArrivee(drpVilleDepart.SelectedItem.ToString());
-            //drpVilleArrivee.DataBind();
-        }
-
-        protected void btnVilleDepart_Click(object sender, EventArgs e)
-        {
-            drpVilleArrivee.DataSource = this.wsVol.getVilleArrivee(drpVilleDepart.Text);
+            drpVilleArrivee.DataSource = this.wsVol.getVilleArrivee(drpVilleDepart.SelectedItem.ToString());
             drpVilleArrivee.DataBind();
         }
 
+        protected void btnRechercher_Click(object sender, EventArgs e)
+        {
+            string villeDepart = drpVilleDepart.Text;
+            string villeArrivee = drpVilleArrivee.Text;
+            DateTime dateDepart = cldDateDepart.SelectedDate;
+            // Un des champs n'a pas été saisi
+            if (String.IsNullOrEmpty(villeDepart) || String.IsNullOrEmpty(villeArrivee) || dateDepart == null)
+            {
+                lblError.Text = "Un des champs n'a pas été rempli";
+            }
+            else
+            {
+                drpVols.DataSource = this.wsVol.getVols(villeDepart, villeArrivee, dateDepart).Tables[0];
+                drpVols.DataTextField = "villeDepart";
+                drpVols.DataBind();
+            }
+        }
     }
 }
