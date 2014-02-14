@@ -11,32 +11,45 @@ namespace SiteVoyage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Write("test2");
         }
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            Response.Write("test");
-            Response.Write("test3");
+            // donnée à init
+            /*lblRecapVol.Text = Session["vol"].ToString();
+            lblRecapHotel.Text = Session["hotel"].ToString();
+            lblRecapArrivee.Text = Session["arrivee"].ToString();
+            lblRecapDepart.Text = Session["depart"].ToString();*/
         }
         protected void Button_valider_Click(object sender, EventArgs e)
         {
-            string nom = TextBox_nom.Text;
-            string prenom = TextBox_prenom.Text;
-            string age = TextBox_age.Text;
-            string nationalite = TextBox_nationalite.Text;
-            string ville = TextBox_ville.Text;
-            string cp = TextBox_cp.Text;
-            string adresse = TextBox_adresse.Text;
-            string tel = TextBox_telephone.Text;
-            string numCarte = TextBox_numCarte.Text;
-            string crypto = TextBox_cryptogramme.Text;
-            //string dateExp = 
+            // Donnée à envoyer
+            string nom = txtNom.Text;
+            string prenom = txtPrenom.Text;
+            string age = txtAge.Text;
+            string nationalite = txtNationalite.Text;
+            string ville = txtVille.Text;
+            string cp = txtCp.Text;
+            string adresse = txtAdresse.Text;
+            string tel = txtTelephone.Text;
+            string numCarte = txtNumCarte.Text;
+            string crypto = txtCryptogramme.Text;
+            string dateExp = txtDateExp.Text;
 
-        }
-
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            if (!String.IsNullOrEmpty(nom) && !String.IsNullOrEmpty(prenom) &&
+                !String.IsNullOrEmpty(age) && !String.IsNullOrEmpty(nationalite) &&
+                !String.IsNullOrEmpty(ville) && !String.IsNullOrEmpty(cp) &&
+                !String.IsNullOrEmpty(adresse) && !String.IsNullOrEmpty(tel) &&
+                !String.IsNullOrEmpty(numCarte) && !String.IsNullOrEmpty(crypto) &&
+                !String.IsNullOrEmpty(dateExp))
+            {
+                // MSMQ
+            }
+            else
+            {
+                lblError.Text = "Veuillez remplir les champs !";
+                lblError.Visible = true;
+            }
 
         }
     }
