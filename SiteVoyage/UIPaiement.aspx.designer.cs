@@ -22,6 +22,15 @@ namespace SiteVoyage {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// Contrôle Label_error.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_error;
+        
+        /// <summary>
         /// Contrôle label_recap_vol.
         /// </summary>
         /// <remarks>
@@ -103,15 +112,6 @@ namespace SiteVoyage {
         protected global::System.Web.UI.WebControls.TextBox TextBox_ville;
         
         /// <summary>
-        /// Contrôle DropDownList1.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
-        
-        /// <summary>
         /// Contrôle TextBox_cp.
         /// </summary>
         /// <remarks>
@@ -182,6 +182,24 @@ namespace SiteVoyage {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator Cv2;
+        
+        /// <summary>
+        /// Contrôle TextBox_dateExp.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_dateExp;
+        
+        /// <summary>
+        /// Contrôle Cv3.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator Cv3;
         
         /// <summary>
         /// Contrôle Button_valider.
