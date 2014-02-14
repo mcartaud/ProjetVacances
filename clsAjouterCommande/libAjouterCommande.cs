@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.EnterpriseServices;
 using libEnregistrerHotel;
 using libEnregistrerVol;
 
 namespace clsAjouterCommande
 {
+    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(), Description("BANK 2014 EMN")]
     public class libAjouterCommande
     {
 

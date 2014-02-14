@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{66164792-EDBF-4B04-9F8D-25F14D050693}</ProjectGuid>
+    <ProjectGuid>{ED1BA70E-4E6B-4218-A068-2395EE629E29}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestDAL</RootNamespace>
-    <AssemblyName>TestDAL</AssemblyName>
+    <RootNamespace>LireCommandeMSMQ</RootNamespace>
+    <AssemblyName>LireCommandeMSMQ</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -72,13 +72,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\libHotels\libHotels.csproj">
-      <Project>{ca85560e-1e3c-4ad7-8e5c-8d7d83b9e32c}</Project>
-      <Name>libHotels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\libVols\libVols.csproj">
-      <Project>{631efd57-9937-4db2-9960-dbb89a1c4b39}</Project>
-      <Name>libVols</Name>
+    <ProjectReference Include="..\dataEntity\dataEntity.csproj">
+      <Project>{016bcb39-4212-4e2e-865e-183c8f110dbe}</Project>
+      <Name>dataEntity</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

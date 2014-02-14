@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -24,19 +23,7 @@ namespace SiteVoyage
         }
         protected void Button_valider_Click(object sender, EventArgs e)
         {
-
-            dataEntity.clsVolEntity vol = new dataEntity.clsVolEntity();
-            dataEntity.clsHotelEntity hotel = new dataEntity.clsHotelEntity();
-
-            MessageQueue MyMQ = new MessageQueue(@".\private$\bankemn");
-            // Juste pour montrer qu'on peut le faire ! MyMQ.BasePriority = 1;
-            MyMQ.Send(vol, "Commande vol");
-            MyMQ.Send(hotel, "Commande hotel");
-            MyMQ.Close();
-
-            
             // vol.nom
-
             // Donnée à envoyer
             string nom = TextBox_nom.Text;
             string prenom = TextBox_prenom.Text;
@@ -58,6 +45,17 @@ namespace SiteVoyage
                 !String.IsNullOrEmpty(dateExp))
             {
                 // MSMQ
+                dataEntity.clsVolEntity vol = new dataEntity.clsVolEntity();
+                dataEntity.clsHotelEntity hotel = new dataEntity.clsHotelEntity();
+                vol = (dataEntity.clsVolEntity) Session["vol"];
+                hotel = (dataEntity.clsHotelEntity) Session["hotel"];
+                MessageQueue mqVols = new MessageQueue(@".\private$\cmdvols");
+                MessageQueue mqHotels = new MessageQueue(@".\private$\cmdhotels");
+                // Ajout dans la file d'attente
+                mqVols.Send(vol, "Commande vol");
+                mqHotels.Send(hotel, "Commande hotel");
+                mqVols.Close();
+                mqHotels.Close();
             }
             else
             {

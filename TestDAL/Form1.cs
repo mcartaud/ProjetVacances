@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using libHotels;
 using libVols;
+using System.Messaging;
 
 namespace TestDAL
 {
