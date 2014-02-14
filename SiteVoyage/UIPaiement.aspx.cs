@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Messaging;
 
 namespace SiteVoyage
 {
@@ -21,6 +22,17 @@ namespace SiteVoyage
         }
         protected void Button_valider_Click(object sender, EventArgs e)
         {
+            dataEntity.clsVolEntity vol = new dataEntity.clsVolEntity();
+            dataEntity.clsHotelEntity hotel = new dataEntity.clsHotelEntity();
+
+            MessageQueue MyMQ = new MessageQueue(@".\private$\bankemn");
+            // Juste pour montrer qu'on peut le faire ! MyMQ.BasePriority = 1;
+            MyMQ.Send(vol, "Commande vol");
+            MyMQ.Send(hotel, "Commande hotel");
+            MyMQ.Close();
+
+            
+            // vol.nom
             string nom = TextBox_nom.Text;
             string prenom = TextBox_prenom.Text;
             string age = TextBox_age.Text;
