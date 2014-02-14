@@ -16,25 +16,25 @@ namespace SiteVoyage
         protected void Page_Init(object sender, EventArgs e)
         {
             // donnée à init
-            /*label_recap_vol.Text = Session["vol"].ToString();
-            label_recap_hotel.Text = Session["hotel"].ToString();
-            label_recap_arrivee.Text = Session["arrivee"].ToString();
-            label_recap_depart.Text = Session["depart"].ToString();*/
+            /*lblRecapVol.Text = Session["vol"].ToString();
+            lblRecapHotel.Text = Session["hotel"].ToString();
+            lblRecapArrivee.Text = Session["arrivee"].ToString();
+            lblRecapDepart.Text = Session["depart"].ToString();*/
         }
         protected void Button_valider_Click(object sender, EventArgs e)
         {
             // Donnée à envoyer
-            string nom = TextBox_nom.Text;
-            string prenom = TextBox_prenom.Text;
-            string age = TextBox_age.Text;
-            string nationalite = TextBox_nationalite.Text;
-            string ville = TextBox_ville.Text;
-            string cp = TextBox_cp.Text;
-            string adresse = TextBox_adresse.Text;
-            string tel = TextBox_telephone.Text;
-            string numCarte = TextBox_numCarte.Text;
-            string crypto = TextBox_cryptogramme.Text;
-            string dateExp = TextBox_dateExp.Text;
+            string nom = txtNom.Text;
+            string prenom = txtPrenom.Text;
+            string age = txtAge.Text;
+            string nationalite = txtNationalite.Text;
+            string ville = txtVille.Text;
+            string cp = txtCp.Text;
+            string adresse = txtAdresse.Text;
+            string tel = txtTelephone.Text;
+            string numCarte = txtNumCarte.Text;
+            string crypto = txtCryptogramme.Text;
+            string dateExp = txtDateExp.Text;
 
             if (!String.IsNullOrEmpty(nom) && !String.IsNullOrEmpty(prenom) &&
                 !String.IsNullOrEmpty(age) && !String.IsNullOrEmpty(nationalite) &&
@@ -47,7 +47,8 @@ namespace SiteVoyage
             }
             else
             {
-                Label_error.Text = "Veuillez remplir les champs !";   
+                lblError.Text = "Veuillez remplir les champs !";
+                lblError.Visible = true;
             }
 
         }
