@@ -103,12 +103,21 @@ namespace SiteVoyage {
         protected global::System.Web.UI.WebControls.Label lblListeVol;
         
         /// <summary>
-        /// Contrôle drpVols.
+        /// Contrôle gvVols.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpVols;
+        protected global::System.Web.UI.WebControls.GridView gvVols;
+        
+        /// <summary>
+        /// Contrôle gvHotels.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvHotels;
     }
 }

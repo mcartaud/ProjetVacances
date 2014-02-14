@@ -6,7 +6,9 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="VilleD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PaysD" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="VilleA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PaysA" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
           </s:sequence>
         </s:complexType>
@@ -25,13 +27,13 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="getVilleDepart">
+      <s:element name="getInit">
         <s:complexType />
       </s:element>
-      <s:element name="getVilleDepartResponse">
+      <s:element name="getInitResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getVilleDepartResult" type="tns:ArrayOfArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="getInitResult" type="tns:ArrayOfArrayOfString" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -68,11 +70,11 @@
   <wsdl:message name="getVolsSoapOut">
     <wsdl:part name="parameters" element="tns:getVolsResponse" />
   </wsdl:message>
-  <wsdl:message name="getVilleDepartSoapIn">
-    <wsdl:part name="parameters" element="tns:getVilleDepart" />
+  <wsdl:message name="getInitSoapIn">
+    <wsdl:part name="parameters" element="tns:getInit" />
   </wsdl:message>
-  <wsdl:message name="getVilleDepartSoapOut">
-    <wsdl:part name="parameters" element="tns:getVilleDepartResponse" />
+  <wsdl:message name="getInitSoapOut">
+    <wsdl:part name="parameters" element="tns:getInitResponse" />
   </wsdl:message>
   <wsdl:message name="getVilleArriveeSoapIn">
     <wsdl:part name="parameters" element="tns:getVilleArrivee" />
@@ -85,9 +87,9 @@
       <wsdl:input message="tns:getVolsSoapIn" />
       <wsdl:output message="tns:getVolsSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="getVilleDepart">
-      <wsdl:input message="tns:getVilleDepartSoapIn" />
-      <wsdl:output message="tns:getVilleDepartSoapOut" />
+    <wsdl:operation name="getInit">
+      <wsdl:input message="tns:getInitSoapIn" />
+      <wsdl:output message="tns:getInitSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="getVilleArrivee">
       <wsdl:input message="tns:getVilleArriveeSoapIn" />
@@ -105,8 +107,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getVilleDepart">
-      <soap:operation soapAction="http://tempuri.org/getVilleDepart" style="document" />
+    <wsdl:operation name="getInit">
+      <soap:operation soapAction="http://tempuri.org/getInit" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -135,8 +137,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getVilleDepart">
-      <soap12:operation soapAction="http://tempuri.org/getVilleDepart" style="document" />
+    <wsdl:operation name="getInit">
+      <soap12:operation soapAction="http://tempuri.org/getInit" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

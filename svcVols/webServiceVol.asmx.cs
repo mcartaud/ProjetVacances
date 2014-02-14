@@ -22,35 +22,22 @@ namespace svcVols
         }
 
         [WebMethod]
-        public DataSet getVols(string VilleD, string VilleA, DateTime Date)
+        public DataSet getVols(string VilleD, string PaysD, string VilleA, string PaysA, DateTime Date)
         {
-            return this.Vols.getVols(VilleD, VilleA, Date);
+            return this.Vols.getVols(VilleD, PaysD, VilleA, PaysA, Date);
         }
 
 
         [WebMethod]
-        public List<List<string>> getVilleDepart()
+        public List<List<string>> getInit()
         {
-            return this.Vols.getVilleDepart();
+            return this.Vols.getInit();
         }
-
-//        [WebMethod]
- //       public List<string> getPaysDepart()
- //       {
-  //          return this.Vols.getPaysDepart();
-   ///     }
 
         [WebMethod]
         public List<List<string>> getVilleArrivee(string VilleDepart, string paysDepart)
         {
             return this.Vols.getVilleArrivee(VilleDepart, paysDepart);
         }
-
-//        [WebMethod]
-//        public List<string> getPaysArrivee()
-//        {
- //        //   return this.Vols.getPaysArrivee();
- //       }
-
     }
 }
