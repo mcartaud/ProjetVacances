@@ -32,7 +32,7 @@ namespace SiteVoyage.WebServiceVol {
         
         private System.Threading.SendOrPostCallback getVolsOperationCompleted;
         
-        private System.Threading.SendOrPostCallback getVilleDepartOperationCompleted;
+        private System.Threading.SendOrPostCallback getInitOperationCompleted;
         
         private System.Threading.SendOrPostCallback getVilleArriveeOperationCompleted;
         
@@ -78,34 +78,38 @@ namespace SiteVoyage.WebServiceVol {
         public event getVolsCompletedEventHandler getVolsCompleted;
         
         /// <remarks/>
-        public event getVilleDepartCompletedEventHandler getVilleDepartCompleted;
+        public event getInitCompletedEventHandler getInitCompleted;
         
         /// <remarks/>
         public event getVilleArriveeCompletedEventHandler getVilleArriveeCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getVols", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public System.Data.DataSet getVols(string VilleD, string VilleA, System.DateTime Date) {
+        public System.Data.DataSet getVols(string VilleD, string PaysD, string VilleA, string PaysA, System.DateTime Date) {
             object[] results = this.Invoke("getVols", new object[] {
                         VilleD,
+                        PaysD,
                         VilleA,
+                        PaysA,
                         Date});
             return ((System.Data.DataSet)(results[0]));
         }
         
         /// <remarks/>
-        public void getVolsAsync(string VilleD, string VilleA, System.DateTime Date) {
-            this.getVolsAsync(VilleD, VilleA, Date, null);
+        public void getVolsAsync(string VilleD, string PaysD, string VilleA, string PaysA, System.DateTime Date) {
+            this.getVolsAsync(VilleD, PaysD, VilleA, PaysA, Date, null);
         }
         
         /// <remarks/>
-        public void getVolsAsync(string VilleD, string VilleA, System.DateTime Date, object userState) {
+        public void getVolsAsync(string VilleD, string PaysD, string VilleA, string PaysA, System.DateTime Date, object userState) {
             if ((this.getVolsOperationCompleted == null)) {
                 this.getVolsOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetVolsOperationCompleted);
             }
             this.InvokeAsync("getVols", new object[] {
                         VilleD,
+                        PaysD,
                         VilleA,
+                        PaysA,
                         Date}, this.getVolsOperationCompleted, userState);
         }
         
@@ -117,31 +121,31 @@ namespace SiteVoyage.WebServiceVol {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getVilleDepart", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getInit", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfString")]
         [return: System.Xml.Serialization.XmlArrayItemAttribute(NestingLevel=1)]
-        public string[][] getVilleDepart() {
-            object[] results = this.Invoke("getVilleDepart", new object[0]);
+        public string[][] getInit() {
+            object[] results = this.Invoke("getInit", new object[0]);
             return ((string[][])(results[0]));
         }
         
         /// <remarks/>
-        public void getVilleDepartAsync() {
-            this.getVilleDepartAsync(null);
+        public void getInitAsync() {
+            this.getInitAsync(null);
         }
         
         /// <remarks/>
-        public void getVilleDepartAsync(object userState) {
-            if ((this.getVilleDepartOperationCompleted == null)) {
-                this.getVilleDepartOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetVilleDepartOperationCompleted);
+        public void getInitAsync(object userState) {
+            if ((this.getInitOperationCompleted == null)) {
+                this.getInitOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetInitOperationCompleted);
             }
-            this.InvokeAsync("getVilleDepart", new object[0], this.getVilleDepartOperationCompleted, userState);
+            this.InvokeAsync("getInit", new object[0], this.getInitOperationCompleted, userState);
         }
         
-        private void OngetVilleDepartOperationCompleted(object arg) {
-            if ((this.getVilleDepartCompleted != null)) {
+        private void OngetInitOperationCompleted(object arg) {
+            if ((this.getInitCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.getVilleDepartCompleted(this, new getVilleDepartCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.getInitCompleted(this, new getInitCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -225,17 +229,17 @@ namespace SiteVoyage.WebServiceVol {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
-    public delegate void getVilleDepartCompletedEventHandler(object sender, getVilleDepartCompletedEventArgs e);
+    public delegate void getInitCompletedEventHandler(object sender, getInitCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class getVilleDepartCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class getInitCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal getVilleDepartCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal getInitCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="panel">
-        <h1 class="title-area; panel; text-center"Réservation de vols et d'hôtels</h1>
+        <h1 class="title-area; panel; text-center">Réservation de vols et d'hôtels</h1>
     </div>
     <form id="form1" runat="server">
         <div class="row">
@@ -37,8 +37,11 @@
         </div>
         <div class="row">
             <asp:Label ID="lblListeVol" runat="server" Text="Liste des vols :"></asp:Label>
-            <asp:DropDownList ID="drpVols" runat="server"></asp:DropDownList>
         </div>
+        <asp:GridView ID="gvVols" runat="server" AutoGenerateSelectButton="True">
+        </asp:GridView>
+        Liste des hotels :<asp:GridView ID="gvHotels" runat="server" AutoGenerateSelectButton="True">
+        </asp:GridView>
     </form>
 </body>
 </html>
