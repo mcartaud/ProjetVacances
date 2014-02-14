@@ -51,8 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
-    <Content Include="default.css" />
-    <Content Include="foundation.min.css" />
+    <Content Include="App_Data\default.css" />
+    <Content Include="App_Data\foundation.min.css" />
     <Content Include="UIPaiement.aspx" />
     <Content Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -108,9 +108,7 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Web References\WebServiceVol\webServiceVol.wsdl" />
     <None Include="Web.Debug.config">

@@ -76,6 +76,10 @@
       <Project>{016bcb39-4212-4e2e-865e-183c8f110dbe}</Project>
       <Name>dataEntity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TraitementCommandeLibrary\TraitementCommandeLibrary.csproj">
+      <Project>{dfee3f5e-c4f1-4b0d-a87f-ab1480dcf23d}</Project>
+      <Name>TraitementCommandeLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

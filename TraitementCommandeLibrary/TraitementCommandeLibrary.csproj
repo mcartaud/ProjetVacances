@@ -44,6 +44,14 @@
       <Project>{016bcb39-4212-4e2e-865e-183c8f110dbe}</Project>
       <Name>dataEntity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\libEnregistrerHotel\libEnregistrerHotel.csproj">
+      <Project>{95016a52-f95e-46f3-9376-4ead00ffd6fa}</Project>
+      <Name>libEnregistrerHotel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\libEnregistrerVol\libEnregistrerVol.csproj">
+      <Project>{2e549f6a-5d5f-4ea0-aa8c-cd82f7a6d98c}</Project>
+      <Name>libEnregistrerVol</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
