@@ -12,6 +12,11 @@
     <div>
     
         <div align="center"><h1>Confirmation de commande</h1></div>
+
+        <asp:Label ID="Label_error" runat="server" Font-Size="X-Large" ForeColor="Red"></asp:Label>
+
+        <br />
+
         <h3>Récapitulatif de la commande</h3>
         <table>
             <tr>
@@ -19,7 +24,7 @@
                     Vols :
                 </td>
                 <td>
-                    <asp:Label ID="label_recap_vol" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="label_recap_vol" runat="server"></asp:Label>
                 </td>
             </tr>
                         <tr>
@@ -27,7 +32,7 @@
                     Date de départ :
                 </td>
                 <td>
-                    <asp:Label ID="label_recap_depart" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="label_recap_depart" runat="server"></asp:Label>
                 </td>
             </tr>
                         <tr>
@@ -35,7 +40,7 @@
                     Date d&#39;arrivée :
                 </td>
                 <td>
-                    <asp:Label ID="label_recap_arrivee" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="label_recap_arrivee" runat="server"></asp:Label>
                 </td>
             </tr>
                         <tr>
@@ -43,7 +48,7 @@
                     Hôtel réservé :
                 </td>
                 <td>
-                    <asp:Label ID="label_recap_hotel" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="label_recap_hotel" runat="server"></asp:Label>
                 </td>
             </tr>
         </table>        
@@ -95,12 +100,6 @@
                 <td>
 
                     <asp:TextBox ID="TextBox_ville" runat="server"></asp:TextBox>
-
-                    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                        <asp:ListItem></asp:ListItem>
-                        <asp:ListItem></asp:ListItem>
-                    </asp:DropDownList>
-
                 </td>
             </tr>
             
@@ -166,8 +165,11 @@
                     Date d&#39;expiration :
                 </td>
                 <td>
-                     <input id="expirationDate" type="date" value="2014-02-17"/>
+                     <asp:TextBox ID="TextBox_dateExp" runat="server"></asp:TextBox>
+                    <asp:CompareValidator ID="Cv3" runat="server" ControlToValidate="TextBox_dateExp" Type="Date"
+   Operator="DataTypeCheck" ErrorMessage="Veuillez entrer une date valide (dd/mm/yyyy) !" />
                 </td>
+                
             </tr>
         </table>
         <br />
