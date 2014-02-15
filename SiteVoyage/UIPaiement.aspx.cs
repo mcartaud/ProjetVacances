@@ -31,35 +31,31 @@ namespace SiteVoyage
             string age = txtAge.Text;
             string nationalite = txtNationalite.Text;
             string ville = txtVille.Text;
-            string cp = txtCp.Text;
+            int cp = Convert.ToInt32(txtCp.Text);
             string adresse = txtAdresse.Text;
-            string tel = txtTelephone.Text;
-            string numCarte = txtNumCarte.Text;
-            string crypto = txtCryptogramme.Text;
-            string dateExp = txtDateExp.Text;
+            int tel = Convert.ToInt32(txtTelephone.Text);
+            int numCarte = Convert.ToInt32(txtNumCarte.Text);
+            int crypto = Convert.ToInt32(txtCryptogramme.Text);
+            DateTime dateExp = Convert.ToDateTime(txtDateExp.Text);
 
             if (!String.IsNullOrEmpty(nom) && !String.IsNullOrEmpty(prenom) &&
                 !String.IsNullOrEmpty(age) && !String.IsNullOrEmpty(nationalite) &&
-                !String.IsNullOrEmpty(ville) && !String.IsNullOrEmpty(cp) &&
-                !String.IsNullOrEmpty(adresse) && !String.IsNullOrEmpty(tel) &&
-                !String.IsNullOrEmpty(numCarte) && !String.IsNullOrEmpty(crypto) &&
-                !String.IsNullOrEmpty(dateExp))
+                !String.IsNullOrEmpty(ville) && cp != null &&
+                !String.IsNullOrEmpty(adresse) && tel != null &&
+                numCarte != null && crypto != null && dateExp != null)
             {
                 // MSMQ
                 clsInfoClient client = new clsInfoClient();
-                client.nomUser = txtNom.Text;
-                client.prenomUser = txtPrenom.Text;
-                client.age = txtAge.Text;
-                client.nationalite = txtNationalite.Text;
-                client.villeUser = txtVille.Text;
-                client.cpUser = Convert.ToInt32(txtCp.Text);
-                client.adresseUser = txtAdresse.Text;
-                client.tel = txtTelephone.Text;
-                client.numCarte = Convert.ToInt32(txtNumCarte.Text);
-                client.crypto = Convert.ToInt32(txtCryptogramme.Text);
-                client.dateExp = Convert.ToDateTime(txtDateExp.Text);
-                
-
+                client.nomUser = nom;
+                client.prenomUser = prenom;
+                client.age = age;
+                client.nationalite = nationalite;
+                client.villeUser = ville;
+                client.cpUser = cp;
+                client.adresseUser = adresse;
+                client.tel = tel;
+                client.compteUser = numCarte.ToString() + ' ' + crypto.ToString();
+                client.dateExp = dateExp;
                 
                 clsVolEntity vol = new clsVolEntity();
                 clsHotelEntity hotel = new clsHotelEntity();

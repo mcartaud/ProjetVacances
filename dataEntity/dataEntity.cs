@@ -27,7 +27,7 @@ namespace dataEntity
         public string paysHotel { get; set; }
         public DateTime dateArrivee { get; set; }
         public int duree { get; set; }
-
+        public int prixHotel { get; set; }
         public clsInfoClient infoClient { get; set; }
     }
 
@@ -41,11 +41,9 @@ namespace dataEntity
         public string adresseUser { get; set; }
         public int cpUser { get; set; }
         public string villeUser { get; set; }
-        public string tel { get; set; }
-        public int numCarte { get; set; }
-        public int crypto { get; set; }
+        public int tel { get; set; }
+        public string compteUser { get; set; }
         public string paysUser { get; set; }
-        public string ribUser { get; set; }
         public DateTime dateExp { get; set; }
     }
 

@@ -128,7 +128,7 @@
                     Téléphone :</td>
                 <td>
 
-                    <asp:TextBox ID="txtTelephone" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtTelephone" runat="server" OnTextChanged="txtTelephone_TextChanged"></asp:TextBox>
                     <asp:CompareValidator ID="cv" runat="server" ControlToValidate="TextBox_telephone" Type="Integer"
    Operator="DataTypeCheck" ErrorMessage="Veuillez entrer un nombre !" />
                 </td>

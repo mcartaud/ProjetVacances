@@ -20,27 +20,27 @@ namespace libEnregistrerVol
 
             SqlCommand MyCom = new SqlCommand("dbo.enregistrerHotel", MyC);
             MyCom.CommandType = CommandType.StoredProcedure;
-            MyCom.Parameters.Add("@villeDepart", SqlDbType.Text);
-            MyCom.Parameters["@villeDepart"].Value = vol.villeDepart;
-
-            MyCom.Parameters.Add("@paysDepart", SqlDbType.Text);
-            MyCom.Parameters["@paysDepart"].Value = vol.paysDepart;
-
-            MyCom.Parameters.Add("@paysDestination", SqlDbType.Text);
-            MyCom.Parameters["@paysDestination"].Value = vol.paysDestination;
-
-            MyCom.Parameters.Add("@villeDestination", SqlDbType.Text);
-            MyCom.Parameters["@villeDestination"].Value = vol.villeDestination;
-
-            MyCom.Parameters.Add("@dateDepart", SqlDbType.Date);
-            MyCom.Parameters["@dateDepart"].Value = vol.dateDepart;
-
-            MyCom.Parameters.Add("@prixVol", SqlDbType.Int);
-            MyCom.Parameters["@prixVol"].Value = vol.prixVol;
 
             MyCom.Parameters.Add("@id", SqlDbType.Int);
             MyCom.Parameters["@id"].Value = vol.id;
 
+            MyCom.Parameters.Add("@villeDepartVol", SqlDbType.Text);
+            MyCom.Parameters["@villeDepartVol"].Value = vol.villeDepart;
+
+            MyCom.Parameters.Add("@paysDepartVol", SqlDbType.Text);
+            MyCom.Parameters["@paysDepartVol"].Value = vol.paysDepart;
+
+            MyCom.Parameters.Add("@paysDestinationVol", SqlDbType.Text);
+            MyCom.Parameters["@paysDestinationVol"].Value = vol.paysDestination;
+
+            MyCom.Parameters.Add("@villeDestinationVol", SqlDbType.Text);
+            MyCom.Parameters["@villeDestinationVol"].Value = vol.villeDestination;
+
+            MyCom.Parameters.Add("@dateDepartVol", SqlDbType.Date);
+            MyCom.Parameters["@dateDepartVol"].Value = vol.dateDepart;
+
+            MyCom.Parameters.Add("@prixVol", SqlDbType.Int);
+            MyCom.Parameters["@prixVol"].Value = vol.prixVol;
 
             MyCom.Parameters.Add("@nomUser", SqlDbType.Text);
             MyCom.Parameters["@nomUser"].Value = client.nomUser;
@@ -60,8 +60,8 @@ namespace libEnregistrerVol
             MyCom.Parameters.Add("@prenomUser", SqlDbType.Text);
             MyCom.Parameters["@prenomUser"].Value = client.prenomUser;
 
-            MyCom.Parameters.Add("@ribUser", SqlDbType.Text);
-            MyCom.Parameters["@ribUser"].Value = client.ribUser;
+            MyCom.Parameters.Add("@compteUser", SqlDbType.Text);
+            MyCom.Parameters["@compteUser"].Value = client.compteUser;
 
             MyCom.ExecuteScalar();
 

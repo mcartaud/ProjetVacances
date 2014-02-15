@@ -20,6 +20,10 @@ namespace libEnregistrerHotel
 
             SqlCommand MyCom = new SqlCommand("dbo.enregistrerHotel", MyC);
             MyCom.CommandType = CommandType.StoredProcedure;
+
+            MyCom.Parameters.Add("@id", SqlDbType.Int);
+            MyCom.Parameters["@id"].Value = hotel.id;
+
             MyCom.Parameters.Add("@villeHotel", SqlDbType.Text);
             MyCom.Parameters["@VilleHotel"].Value = hotel.villeHotel;
 
@@ -28,9 +32,6 @@ namespace libEnregistrerHotel
 
             MyCom.Parameters.Add("@adresseHotel", SqlDbType.Text);
             MyCom.Parameters["@adresseHotel"].Value = hotel.adresseHotel;
-
-            MyCom.Parameters.Add("@nomHotel", SqlDbType.Text);
-            MyCom.Parameters["@nomHotel"].Value = hotel.nomHotel;
 
             MyCom.Parameters.Add("@paysHotel", SqlDbType.Text);
             MyCom.Parameters["@paysHotel"].Value = hotel.paysHotel;
@@ -44,9 +45,8 @@ namespace libEnregistrerHotel
             MyCom.Parameters.Add("@cpHotel", SqlDbType.Int);
             MyCom.Parameters["@cpHotel"].Value = hotel.cpHotel;
 
-            MyCom.Parameters.Add("@id", SqlDbType.Int);
-            MyCom.Parameters["@id"].Value = hotel.id;
-
+            MyCom.Parameters.Add("@prixHotel", SqlDbType.Int);
+            MyCom.Parameters["@prixHotel"].Value = hotel.prixHotel;
 
             MyCom.Parameters.Add("@nomUser", SqlDbType.Text);
             MyCom.Parameters["@nomUser"].Value = client.nomUser;
@@ -66,8 +66,8 @@ namespace libEnregistrerHotel
             MyCom.Parameters.Add("@prenomUser", SqlDbType.Text);
             MyCom.Parameters["@prenomUser"].Value = client.prenomUser;
 
-            MyCom.Parameters.Add("@ribUser", SqlDbType.Text);
-            MyCom.Parameters["@ribUser"].Value = client.ribUser;
+            MyCom.Parameters.Add("@compteUser", SqlDbType.Text);
+            MyCom.Parameters["@compteUser"].Value = client.compteUser;
 
             MyCom.ExecuteScalar();
 
