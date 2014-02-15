@@ -31,8 +31,8 @@
             </div>
             <div class="row">
                 <asp:Label ID="Label1" runat="server" Text="Date de départ:"></asp:Label>
-                <asp:Label ID="Label2" runat="server" Text="Date de retour:"></asp:Label>
                 <asp:Calendar ID="cldDateDepart" runat="server" Width="42%"></asp:Calendar>
+                <asp:Label ID="Label2" runat="server" Text="Date de retour:"></asp:Label>
                 <asp:Calendar ID="calHotel" runat="server"></asp:Calendar>
             </div>
             <div class="row">
