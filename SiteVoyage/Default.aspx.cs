@@ -67,7 +67,7 @@ namespace SiteVoyage
                 DataTable infoHotels;
                 if (infoVols != null)
                 {
-                    TimeSpan ts = dateDepart - dateRetour;
+                    TimeSpan ts = dateRetour - dateDepart;
                     int duree = ts.Days;
                     infoHotels = this.wsHotel.getHotels(villeA, paysA, duree, dateDepart).Tables[0];
                     gvVols.DataSource = infoVols;
