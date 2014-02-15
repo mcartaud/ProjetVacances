@@ -114,7 +114,12 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\dataEntity\dataEntity.csproj">
+      <Project>{016bcb39-4212-4e2e-865e-183c8f110dbe}</Project>
+      <Name>dataEntity</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Web References\WebServiceVol\webServiceVol.wsdl" />
     <None Include="Web.Debug.config">

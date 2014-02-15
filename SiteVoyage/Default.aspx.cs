@@ -15,10 +15,11 @@ namespace SiteVoyage
         protected void Page_Init(object sender, EventArgs e)
         {
             SiteVoyage.WebServiceVol.departStructure[] liste = wsVol.getInit();
-            string[] listeDepart = new string[liste.Length];
-            for (int i = 0; i < listeDepart.Length; i++)
+            string[] listeDepart = new string[liste.Length + 1];
+            listeDepart[0] = "indéfini";
+            for (int i = 1; i < listeDepart.Length; i++)
             {
-                SiteVoyage.WebServiceVol.departStructure depart = liste[i];
+                SiteVoyage.WebServiceVol.departStructure depart = liste[i - 1];
                 listeDepart[i] = depart.ville + " - " + depart.pays;
             }
             drpVilleDepart.DataSource = listeDepart;
@@ -72,6 +73,7 @@ namespace SiteVoyage
                     infoHotels = this.wsHotel.getHotels(villeA, paysA, duree, dateDepart).Tables[0];
                     gvVols.DataSource = infoVols;
                     gvVols.DataBind();
+
                     gvHotels.DataSource = infoHotels;
                     gvHotels.DataBind();
                 }     
@@ -80,7 +82,7 @@ namespace SiteVoyage
 
         protected void gvVols_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void gvHotels_SelectedIndexChanged(object sender, EventArgs e)
