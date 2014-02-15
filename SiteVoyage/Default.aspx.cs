@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using dataEntity;
 
 namespace SiteVoyage
 {
@@ -21,9 +22,10 @@ namespace SiteVoyage
             {
                 SiteVoyage.WebServiceVol.departStructure depart = liste[i - 1];
                 listeDepart[i] = depart.ville + " - " + depart.pays;
+                if(!drpVilleDepart.Items.Contains(new ListItem(listeDepart[i]))){
+                    drpVilleDepart.Items.Add(new ListItem(listeDepart[i]));
+                }
             }
-            drpVilleDepart.DataSource = listeDepart;
-            drpVilleDepart.DataBind();
         }
 
         protected void drpVilleDepart_SelectedIndexChanged(object sender, EventArgs e)
@@ -34,15 +36,17 @@ namespace SiteVoyage
             string paysD = selections[1].Trim();
             SiteVoyage.WebServiceVol.arriveeStructure[] liste = this.wsVol.getVilleArrivee(villeD, paysD);
             string[] listeArrivee = new string[liste.Length];
+
+            drpVilleArrivee.Items.Clear();
             for (int i = 0; i < listeArrivee.Length; i++)
             {
                 SiteVoyage.WebServiceVol.arriveeStructure arrivee = liste[i];
                 listeArrivee[i] = arrivee.ville + " - " + arrivee.pays;
+                if (!drpVilleArrivee.Items.Contains(new ListItem(listeArrivee[i])))
+                {
+                    drpVilleArrivee.Items.Add(new ListItem(listeArrivee[i]));
+                }
             }
-            ListItem li = new ListItem();
-            drpVilleArrivee.Items.Clear();
-            drpVilleArrivee.DataSource = listeArrivee;
-            drpVilleArrivee.DataBind();
         }
 
         protected void btnRechercher_Click(object sender, EventArgs e)
@@ -118,6 +122,8 @@ namespace SiteVoyage
             DateTime dateRetour = calHotel.SelectedDate;
             
             if(rowHotel != null && rowVol != null && dateDepart != null && dateRetour != null) {
+              
+
 
                 Session["vol"] = rowVol;
                 Session["hotel"] = rowHotel;
