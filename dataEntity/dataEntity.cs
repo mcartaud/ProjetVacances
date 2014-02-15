@@ -27,6 +27,7 @@ namespace dataEntity
         public string paysHotel { get; set; }
         public DateTime dateArrivee { get; set; }
         public int duree { get; set; }
+        public int prixNuit { get; set; }
 
         public clsInfoClient infoClient { get; set; }
     }

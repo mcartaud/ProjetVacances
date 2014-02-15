@@ -10,6 +10,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="VilleA" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="PaysA" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="FinDate" type="s:dateTime" />
           </s:sequence>
         </s:complexType>
       </s:element>

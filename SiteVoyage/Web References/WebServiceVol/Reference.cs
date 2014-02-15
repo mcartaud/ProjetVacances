@@ -85,23 +85,24 @@ namespace SiteVoyage.WebServiceVol {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getVols", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public System.Data.DataSet getVols(string VilleD, string PaysD, string VilleA, string PaysA, System.DateTime Date) {
+        public System.Data.DataSet getVols(string VilleD, string PaysD, string VilleA, string PaysA, System.DateTime Date, System.DateTime FinDate) {
             object[] results = this.Invoke("getVols", new object[] {
                         VilleD,
                         PaysD,
                         VilleA,
                         PaysA,
-                        Date});
+                        Date,
+                        FinDate});
             return ((System.Data.DataSet)(results[0]));
         }
         
         /// <remarks/>
-        public void getVolsAsync(string VilleD, string PaysD, string VilleA, string PaysA, System.DateTime Date) {
-            this.getVolsAsync(VilleD, PaysD, VilleA, PaysA, Date, null);
+        public void getVolsAsync(string VilleD, string PaysD, string VilleA, string PaysA, System.DateTime Date, System.DateTime FinDate) {
+            this.getVolsAsync(VilleD, PaysD, VilleA, PaysA, Date, FinDate, null);
         }
         
         /// <remarks/>
-        public void getVolsAsync(string VilleD, string PaysD, string VilleA, string PaysA, System.DateTime Date, object userState) {
+        public void getVolsAsync(string VilleD, string PaysD, string VilleA, string PaysA, System.DateTime Date, System.DateTime FinDate, object userState) {
             if ((this.getVolsOperationCompleted == null)) {
                 this.getVolsOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetVolsOperationCompleted);
             }
@@ -110,7 +111,8 @@ namespace SiteVoyage.WebServiceVol {
                         PaysD,
                         VilleA,
                         PaysA,
-                        Date}, this.getVolsOperationCompleted, userState);
+                        Date,
+                        FinDate}, this.getVolsOperationCompleted, userState);
         }
         
         private void OngetVolsOperationCompleted(object arg) {

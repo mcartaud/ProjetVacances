@@ -332,7 +332,9 @@ CREATE PROCEDURE [dbo].[listeVol]
 
 	@PAYSARRIVEE varchar(50),
 
-	@DATE date
+	@DATE date,
+
+	@DATEFIN date
 
 AS
 
@@ -350,7 +352,9 @@ BEGIN
 
 	AND VOLS.paysDestinationVol = @PAYSARRIVEE 
 
-	AND VOLS.dateDepartVol= @DATE
+	AND VOLS.dateDepartVol >= @DATE
+
+	AND VOLS.dateDepartVol <= @DATEFIN
 
 END
 
@@ -477,6 +481,8 @@ INSERT [dbo].[VOLS] ([id], [villeDepartVol], [paysDepartVol], [villeDestinationV
 INSERT [dbo].[VOLS] ([id], [villeDepartVol], [paysDepartVol], [villeDestinationVol], [paysDestinationVol], [dateDepartVol], [prixVol]) VALUES (CAST(2 AS Numeric(18, 0)), N'Paris', N'France', N'Nantes', N'France', CAST(0x0000A2C500000000 AS DateTime), 100)
 
 INSERT [dbo].[VOLS] ([id], [villeDepartVol], [paysDepartVol], [villeDestinationVol], [paysDestinationVol], [dateDepartVol], [prixVol]) VALUES (CAST(3 AS Numeric(18, 0)), N'Vertou', N'Angleterre', N'Milan', N'Italie', CAST(0x0000A2C500000000 AS DateTime), 150)
+
+INSERT [dbo].[VOLS] ([id], [villeDepartVol], [paysDepartVol], [villeDestinationVol], [paysDestinationVol], [dateDepartVol], [prixVol]) VALUES (CAST(3 AS Numeric(18, 0)), N'Paris', N'France', N'Nantes', N'France', CAST(0x0000A2C500000000 AS DateTime), 120)
 
 USE [master]
 

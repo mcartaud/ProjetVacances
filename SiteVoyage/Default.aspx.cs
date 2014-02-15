@@ -10,6 +10,7 @@ namespace SiteVoyage
 {
     public partial class _Default : System.Web.UI.Page
     {
+        private int duree;
         private WebServiceVol.Service1 wsVol = new WebServiceVol.Service1();
         private WebServiceHotel.Service1 wsHotel = new WebServiceHotel.Service1();
 
@@ -17,7 +18,9 @@ namespace SiteVoyage
         {
             SiteVoyage.WebServiceVol.departStructure[] liste = wsVol.getInit();
             string[] listeDepart = new string[liste.Length + 1];
-            listeDepart[0] = "indéfini";
+
+            drpVilleDepart.Items.Add(new ListItem("indéfini"));
+
             for (int i = 1; i < listeDepart.Length; i++)
             {
                 SiteVoyage.WebServiceVol.departStructure depart = liste[i - 1];
@@ -60,6 +63,8 @@ namespace SiteVoyage
             string villeD = selectionsDep[0].Trim();
             string paysD = selectionsDep[1].Trim();
             DateTime dateDepart = cldDateDepart.SelectedDate;
+            DateTime dateFinDepart = cldDateDepart.SelectedDate;
+            dateFinDepart = dateFinDepart.AddDays(1.0);
             DateTime dateRetour = calHotel.SelectedDate;
             // Un des champs n'a pas été saisi
             if (String.IsNullOrEmpty(villeD) || String.IsNullOrEmpty(villeA) || dateDepart == null || dateRetour == null)
@@ -68,12 +73,12 @@ namespace SiteVoyage
             }
             else
             {
-                DataTable infoVols = this.wsVol.getVols(villeD, paysD, villeA, paysA, dateDepart).Tables[0];
+                DataTable infoVols = this.wsVol.getVols(villeD, paysD, villeA, paysA, dateDepart, dateFinDepart).Tables[0];
                 DataTable infoHotels;
                 if (infoVols != null)
                 {
                     TimeSpan ts = dateRetour - dateDepart;
-                    int duree = ts.Days;
+                    duree = ts.Days;
                     infoHotels = this.wsHotel.getHotels(villeA, paysA, duree, dateDepart).Tables[0];
                     gvVols.DataSource = infoVols;
                     gvVols.DataBind();
@@ -86,7 +91,8 @@ namespace SiteVoyage
 
         protected void gvVols_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach(GridViewRow row in gvVols.Rows){
+            foreach(GridViewRow row in gvVols.Rows)
+            {
                 row.BackColor = System.Drawing.Color.White;
             }
             GridViewRow selectedRow = gvVols.SelectedRow;
@@ -105,28 +111,32 @@ namespace SiteVoyage
 
         protected void btnValider_Click(object sender, EventArgs e)
         {
-            GridViewRow rowVol = null;
-            GridViewRow rowHotel = null;
-            foreach (GridViewRow row in gvVols.Rows){
-                if (row.BackColor == System.Drawing.Color.Cyan) {
-                    rowVol = row;
-                }
-            }
-            foreach (GridViewRow row in gvHotels.Rows){
-                if (row.BackColor == System.Drawing.Color.Cyan) {
-                    rowHotel = row;
-                }
-            }
-
+            GridViewRow rowVol = gvVols.SelectedRow;
+            GridViewRow rowHotel = gvHotels.SelectedRow;
             DateTime dateDepart = cldDateDepart.SelectedDate;
             DateTime dateRetour = calHotel.SelectedDate;
-            
+            clsVolEntity volEntity = new clsVolEntity();
+            clsHotelEntity hotelEntity = new clsHotelEntity();
+
             if(rowHotel != null && rowVol != null && dateDepart != null && dateRetour != null) {
-              
+                volEntity.dateDepart = Convert.ToDateTime(rowVol.Cells[5].Text);
+                volEntity.villeDepart = rowVol.Cells[1].Text;
+                volEntity.paysDepart = rowVol.Cells[2].Text;
+                volEntity.villeDestination = rowVol.Cells[3].Text;
+                volEntity.paysDestination = rowVol.Cells[4].Text;
+                volEntity.prixVol = Convert.ToInt32(rowVol.Cells[6].Text);
 
+                hotelEntity.nomHotel = rowHotel.Cells[1].Text;
+                hotelEntity.adresseHotel = rowHotel.Cells[2].Text;
+                hotelEntity.cpHotel = Convert.ToInt32(rowHotel.Cells[3].Text);
+                hotelEntity.villeHotel = rowHotel.Cells[4].Text;
+                hotelEntity.paysHotel = rowHotel.Cells[5].Text;
+                hotelEntity.dateArrivee = Convert.ToDateTime(rowHotel.Cells[8].Text);
+                hotelEntity.duree = duree;
+                hotelEntity.prixNuit = Convert.ToInt32(rowHotel.Cells[6].Text);
 
-                Session["vol"] = rowVol;
-                Session["hotel"] = rowHotel;
+                Session["vol"] = volEntity;
+                Session["hotel"] = hotelEntity;
                 Session["arrivee"] = dateRetour.ToShortDateString();
                 Session["depart"] = dateDepart.ToShortDateString();
                 Response.Redirect("UIPaiement.aspx");

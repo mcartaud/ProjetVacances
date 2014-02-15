@@ -24,9 +24,9 @@ namespace svcVols
         }
 
         [WebMethod]
-        public DataSet getVols(string VilleD, string PaysD, string VilleA, string PaysA, DateTime Date)
+        public DataSet getVols(string VilleD, string PaysD, string VilleA, string PaysA, DateTime Date, DateTime FinDate)
         {
-            return this.Vols.getVols(VilleD, PaysD, VilleA, PaysA, Date);
+            return this.Vols.getVols(VilleD, PaysD, VilleA, PaysA, Date, FinDate);
         }
 
 

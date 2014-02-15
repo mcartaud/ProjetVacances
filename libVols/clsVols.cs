@@ -58,7 +58,7 @@ namespace libVols
             return listArrivee;
         }
 
-        public DataSet getVols(string VilleD, string PaysD, string VilleA, string PaysA, DateTime Date)
+        public DataSet getVols(string VilleD, string PaysD, string VilleA, string PaysA, DateTime Date, DateTime FinDate)
         {
             SqlConnection MyC = new SqlConnection();
             MyC.ConnectionString = Connection;
@@ -75,6 +75,8 @@ namespace libVols
             MyCom.SelectCommand.Parameters["@PAYSARRIVEE"].Value = PaysA;
             MyCom.SelectCommand.Parameters.Add("@DATE", SqlDbType.Date);
             MyCom.SelectCommand.Parameters["@DATE"].Value = Date;
+            MyCom.SelectCommand.Parameters.Add("@DATEFIN", SqlDbType.Date);
+            MyCom.SelectCommand.Parameters["@DATEFIN"].Value = FinDate;
             DataSet DataSet = new DataSet();
             MyCom.Fill(DataSet, "LISTE_VOLS");
             MyCom.Dispose();
