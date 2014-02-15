@@ -38,4 +38,16 @@ namespace dataEntity
         public string paysUser { get; set; }
         public string ribUser { get; set; }
     }
+
+    public class departStructure
+    {
+        public string ville;
+        public string pays;
+    }
+
+    public class arriveeStructure
+    {
+        public string ville;
+        public string pays;
+    }
 }

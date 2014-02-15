@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
-using System.Diagnostics;
+using System.Data;
 
 namespace SiteVoyage
 {
     public partial class _Default : System.Web.UI.Page
     {
         private WebServiceVol.Service1 wsVol = new WebServiceVol.Service1();
+        private WebServiceHotel.Service1 wsHotel = new WebServiceHotel.Service1();
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            string[][] listeDepart = this.wsVol.getVilleDepart();
-            string[] liste = listeDepart[0];
-            for (int i = 0; i < liste.Length; i++)
+            SiteVoyage.WebServiceVol.departStructure[] liste = wsVol.getInit();
+            string[] listeDepart = new string[liste.Length];
+            for (int i = 0; i < listeDepart.Length; i++)
             {
-                liste[i] = liste[i] + " - " + listeDepart[1][i];
+                SiteVoyage.WebServiceVol.departStructure depart = liste[i];
+                listeDepart[i] = depart.ville + " - " + depart.pays;
             }
-            drpVilleDepart.DataSource = liste;
+            drpVilleDepart.DataSource = listeDepart;
             drpVilleDepart.DataBind();
         }
 
@@ -28,40 +29,68 @@ namespace SiteVoyage
         {
             string selection = drpVilleDepart.SelectedItem.ToString();
             string[] selections = selection.Split('-');
-            string villeDepart = selections[0].Trim();
-            string paysDepart = selections[1].Trim();
-            string[][] listeArrivee = this.wsVol.getVilleArrivee(villeDepart, paysDepart);
-            string[] liste = listeArrivee[0];
-            for (int i = 0; i < liste.Length; i++)
+            string villeD = selections[0].Trim();
+            string paysD = selections[1].Trim();
+            SiteVoyage.WebServiceVol.arriveeStructure[] liste = this.wsVol.getVilleArrivee(villeD, paysD);
+            string[] listeArrivee = new string[liste.Length];
+            for (int i = 0; i < listeArrivee.Length; i++)
             {
-                liste[i] = liste[i] + " - " + listeArrivee[1][i];
+                SiteVoyage.WebServiceVol.arriveeStructure arrivee = liste[i];
+                listeArrivee[i] = arrivee.ville + " - " + arrivee.pays;
             }
             ListItem li = new ListItem();
             drpVilleArrivee.Items.Clear();
-            for (int i = 0; i < liste.Length; i++)
-            {
-                li.Text = liste[i];
-                li.Value = liste[i];
-                drpVilleArrivee.Items.Add(li);
-            }
+            drpVilleArrivee.DataSource = listeArrivee;
+            drpVilleArrivee.DataBind();
         }
 
         protected void btnRechercher_Click(object sender, EventArgs e)
         {
-            string villeDepart = drpVilleDepart.Text;
-            string villeArrivee = drpVilleArrivee.Text;
+            string selection = drpVilleArrivee.SelectedItem.ToString();
+            string[] selections = selection.Split('-');
+            string villeA = selections[0].Trim();
+            string paysA = selections[1].Trim();
+            string selectionDep = drpVilleDepart.SelectedItem.ToString();
+            string[] selectionsDep = selectionDep.Split('-');
+            string villeD = selectionsDep[0].Trim();
+            string paysD = selectionsDep[1].Trim();
             DateTime dateDepart = cldDateDepart.SelectedDate;
+            DateTime dateRetour = calHotel.SelectedDate;
             // Un des champs n'a pas été saisi
-            if (String.IsNullOrEmpty(villeDepart) || String.IsNullOrEmpty(villeArrivee) || dateDepart == null)
+            if (String.IsNullOrEmpty(villeD) || String.IsNullOrEmpty(villeA) || dateDepart == null || dateRetour == null)
             {
                 lblError.Text = "Un des champs n'a pas été rempli";
             }
             else
             {
-                drpVols.DataSource = this.wsVol.getVols(villeDepart, villeArrivee, dateDepart).Tables[0];
-                drpVols.DataTextField = "villeDepartVol";
-                drpVols.DataBind();
+                DataTable infoVols = this.wsVol.getVols(villeD, paysD, villeA, paysA, dateDepart).Tables[0];
+                DataTable infoHotels;
+                if (infoVols != null)
+                {
+                    TimeSpan ts = dateDepart - dateRetour;
+                    int duree = ts.Days;
+                    infoHotels = this.wsHotel.getHotels(villeA, paysA, duree, dateDepart).Tables[0];
+                    gvVols.DataSource = infoVols;
+                    gvVols.DataBind();
+                    gvHotels.DataSource = infoHotels;
+                    gvHotels.DataBind();
+                }     
             }
+        }
+
+        protected void gvVols_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void gvHotels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnValider_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

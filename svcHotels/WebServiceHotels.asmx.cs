@@ -21,9 +21,9 @@ namespace svcHotels
         }
 
         [WebMethod]
-        public DataSet getHotels(string VilleA, int Duree, DateTime Date)
+        public DataSet getHotels(string VilleA, string PaysA, int Duree, DateTime Date)
         {
-            return this.Hotels.getHotels(VilleA, Duree, Date);
+            return this.Hotels.getHotels(VilleA, PaysA, Duree, Date);
         }
     }
 }

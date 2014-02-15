@@ -4,6 +4,8 @@ using System.Data;
 using System.Web;
 using System.Web.Services;
 using libVols;
+using dataEntity;
+
 namespace svcVols
 {
     /// <summary>
@@ -22,35 +24,22 @@ namespace svcVols
         }
 
         [WebMethod]
-        public DataSet getVols(string VilleD, string VilleA, DateTime Date)
+        public DataSet getVols(string VilleD, string PaysD, string VilleA, string PaysA, DateTime Date)
         {
-            return this.Vols.getVols(VilleD, VilleA, Date);
+            return this.Vols.getVols(VilleD, PaysD, VilleA, PaysA, Date);
         }
 
 
         [WebMethod]
-        public List<List<string>> getVilleDepart()
+        public List<departStructure> getInit()
         {
-            return this.Vols.getVilleDepart();
+            return this.Vols.getInit();
         }
 
-//        [WebMethod]
- //       public List<string> getPaysDepart()
- //       {
-  //          return this.Vols.getPaysDepart();
-   ///     }
-
         [WebMethod]
-        public List<List<string>> getVilleArrivee(string VilleDepart, string paysDepart)
+        public List<arriveeStructure> getVilleArrivee(string VilleDepart, string paysDepart)
         {
             return this.Vols.getVilleArrivee(VilleDepart, paysDepart);
         }
-
-//        [WebMethod]
-//        public List<string> getPaysArrivee()
-//        {
- //        //   return this.Vols.getPaysArrivee();
- //       }
-
     }
 }

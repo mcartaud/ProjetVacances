@@ -26,6 +26,16 @@ namespace SiteVoyage.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:2129/WebServiceHotels.asmx")]
+        public string SiteVoyage_WebServiceHotel_Service1 {
+            get {
+                return ((string)(this["SiteVoyage_WebServiceHotel_Service1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:2133/webServiceVol.asmx")]
         public string SiteVoyage_WebServiceVol_Service1 {
             get {

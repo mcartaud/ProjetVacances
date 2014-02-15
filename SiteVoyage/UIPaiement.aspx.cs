@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Messaging;
 
 namespace SiteVoyage
 {
@@ -23,6 +23,7 @@ namespace SiteVoyage
         }
         protected void Button_valider_Click(object sender, EventArgs e)
         {
+            // vol.nom
             // Donnée à envoyer
             string nom = txtNom.Text;
             string prenom = txtPrenom.Text;
@@ -44,6 +45,17 @@ namespace SiteVoyage
                 !String.IsNullOrEmpty(dateExp))
             {
                 // MSMQ
+                dataEntity.clsVolEntity vol = new dataEntity.clsVolEntity();
+                dataEntity.clsHotelEntity hotel = new dataEntity.clsHotelEntity();
+                vol = (dataEntity.clsVolEntity) Session["vol"];
+                hotel = (dataEntity.clsHotelEntity) Session["hotel"];
+                MessageQueue mqVols = new MessageQueue(@".\private$\cmdvols");
+                MessageQueue mqHotels = new MessageQueue(@".\private$\cmdhotels");
+                // Ajout dans la file d'attente
+                mqVols.Send(vol, "Commande vol");
+                mqHotels.Send(hotel, "Commande hotel");
+                mqVols.Close();
+                mqHotels.Close();
             }
             else
             {
