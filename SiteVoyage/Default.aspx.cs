@@ -113,12 +113,14 @@ namespace SiteVoyage
         {
             GridViewRow rowVol = gvVols.SelectedRow;
             GridViewRow rowHotel = gvHotels.SelectedRow;
+
             DateTime dateDepart = cldDateDepart.SelectedDate;
             DateTime dateRetour = calHotel.SelectedDate;
             clsVolEntity volEntity = new clsVolEntity();
             clsHotelEntity hotelEntity = new clsHotelEntity();
 
-            if(rowHotel != null && rowVol != null && dateDepart != null && dateRetour != null) {
+            if(rowHotel != null && rowVol != null && dateDepart != null && dateRetour != null)
+            {
                 volEntity.dateDepart = Convert.ToDateTime(rowVol.Cells[5].Text);
                 volEntity.villeDepart = rowVol.Cells[1].Text;
                 volEntity.paysDepart = rowVol.Cells[2].Text;

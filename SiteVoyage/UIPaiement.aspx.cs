@@ -17,10 +17,10 @@ namespace SiteVoyage
         protected void Page_Init(object sender, EventArgs e)
         {
             // donnée à init
-            /*lblRecapVol.Text = Session["vol"].ToString();
+            lblRecapVol.Text = Session["vol"].ToString();
             lblRecapHotel.Text = Session["hotel"].ToString();
             lblRecapArrivee.Text = Session["arrivee"].ToString();
-            lblRecapDepart.Text = Session["depart"].ToString();*/
+            lblRecapDepart.Text = Session["depart"].ToString();
         }
         protected void Button_valider_Click(object sender, EventArgs e)
         {
@@ -31,43 +31,45 @@ namespace SiteVoyage
             string age = txtAge.Text;
             string nationalite = txtNationalite.Text;
             string ville = txtVille.Text;
-            string cp = txtCp.Text;
+            int cp = Convert.ToInt32(txtCp.Text);
             string adresse = txtAdresse.Text;
-            string tel = txtTelephone.Text;
-            string numCarte = txtNumCarte.Text;
-            string crypto = txtCryptogramme.Text;
-            string dateExp = txtDateExp.Text;
+            int tel = Convert.ToInt32(txtTelephone.Text);
+            int numCarte = Convert.ToInt32(txtNumCarte.Text);
+            int crypto = Convert.ToInt32(txtCryptogramme.Text);
+            DateTime dateExp = Convert.ToDateTime(txtDateExp.Text);
 
+            // Verification de remplissable des champs
             if (!String.IsNullOrEmpty(nom) && !String.IsNullOrEmpty(prenom) &&
                 !String.IsNullOrEmpty(age) && !String.IsNullOrEmpty(nationalite) &&
-                !String.IsNullOrEmpty(ville) && !String.IsNullOrEmpty(cp) &&
-                !String.IsNullOrEmpty(adresse) && !String.IsNullOrEmpty(tel) &&
-                !String.IsNullOrEmpty(numCarte) && !String.IsNullOrEmpty(crypto) &&
-                !String.IsNullOrEmpty(dateExp))
+                !String.IsNullOrEmpty(ville) && !String.IsNullOrEmpty(cp.ToString()) &&
+                !String.IsNullOrEmpty(adresse) && !String.IsNullOrEmpty(tel.ToString())&&
+                !String.IsNullOrEmpty(numCarte.ToString()) && !String.IsNullOrEmpty(crypto.ToString()) 
+                && dateExp != null)
             {
-                // MSMQ
+                // Informations client
                 clsInfoClient client = new clsInfoClient();
-                client.nomUser = txtNom.Text;
-                client.prenomUser = txtPrenom.Text;
-                client.age = txtAge.Text;
-                client.nationalite = txtNationalite.Text;
-                client.villeUser = txtVille.Text;
-                client.cpUser = Convert.ToInt32(txtCp.Text);
-                client.adresseUser = txtAdresse.Text;
-                client.tel = txtTelephone.Text;
-                client.numCarte = Convert.ToInt32(txtNumCarte.Text);
-                client.crypto = Convert.ToInt32(txtCryptogramme.Text);
-                client.dateExp = Convert.ToDateTime(txtDateExp.Text);
+                client.nomUser = nom;
+                client.prenomUser = prenom;
+                client.age = age;
+                client.nationalite = nationalite;
+                client.villeUser = ville;
+                client.cpUser = cp;
+                client.adresseUser = adresse;
+                client.tel = tel;
+                client.compteUser = numCarte.ToString() + ' ' + crypto.ToString();
+                client.dateExp = dateExp;
                 
-
-                
+                // Recuperation du vol et de l'hotel
                 clsVolEntity vol = new clsVolEntity();
                 clsHotelEntity hotel = new clsHotelEntity();
-                // vol = (clsVolEntity) Request.Form["vol"];
-                // hotel = (clsHotelEntity) Request.Form["hotel"];
+                vol = (clsVolEntity) Session["vol"];
+                hotel = (clsHotelEntity) Session["hotel"];
+                vol.infoClient = client;
+                hotel.infoClient = client;
+
+                // Ajout a la file d'attente
                 MessageQueue mqVols = new MessageQueue(@".\private$\cmdvols");
                 MessageQueue mqHotels = new MessageQueue(@".\private$\cmdhotels");
-                // Ajout dans la file d'attente
                 mqVols.Send(vol, "Commande vol");
                 mqHotels.Send(hotel, "Commande hotel");
                 mqVols.Close();
