@@ -75,26 +75,28 @@ namespace SiteVoyage.WebServiceHotel {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getHotels", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public System.Data.DataSet getHotels(string VilleA, int Duree, System.DateTime Date) {
+        public System.Data.DataSet getHotels(string VilleA, string PaysA, int Duree, System.DateTime Date) {
             object[] results = this.Invoke("getHotels", new object[] {
                         VilleA,
+                        PaysA,
                         Duree,
                         Date});
             return ((System.Data.DataSet)(results[0]));
         }
         
         /// <remarks/>
-        public void getHotelsAsync(string VilleA, int Duree, System.DateTime Date) {
-            this.getHotelsAsync(VilleA, Duree, Date, null);
+        public void getHotelsAsync(string VilleA, string PaysA, int Duree, System.DateTime Date) {
+            this.getHotelsAsync(VilleA, PaysA, Duree, Date, null);
         }
         
         /// <remarks/>
-        public void getHotelsAsync(string VilleA, int Duree, System.DateTime Date, object userState) {
+        public void getHotelsAsync(string VilleA, string PaysA, int Duree, System.DateTime Date, object userState) {
             if ((this.getHotelsOperationCompleted == null)) {
                 this.getHotelsOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetHotelsOperationCompleted);
             }
             this.InvokeAsync("getHotels", new object[] {
                         VilleA,
+                        PaysA,
                         Duree,
                         Date}, this.getHotelsOperationCompleted, userState);
         }

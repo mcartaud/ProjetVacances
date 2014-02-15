@@ -4,6 +4,8 @@ using System.Data;
 using System.Web;
 using System.Web.Services;
 using libVols;
+using dataEntity;
+
 namespace svcVols
 {
     /// <summary>
@@ -29,13 +31,13 @@ namespace svcVols
 
 
         [WebMethod]
-        public List<List<string>> getInit()
+        public List<departStructure> getInit()
         {
             return this.Vols.getInit();
         }
 
         [WebMethod]
-        public List<List<string>> getVilleArrivee(string VilleDepart, string paysDepart)
+        public List<arriveeStructure> getVilleArrivee(string VilleDepart, string paysDepart)
         {
             return this.Vols.getVilleArrivee(VilleDepart, paysDepart);
         }

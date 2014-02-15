@@ -61,17 +61,23 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Web References\WebServiceHotel\Reference.map">
+    <None Include="Web References\WebServiceHotel\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebServiceHotel\WebServiceHotels.wsdl" />
+    <None Include="Web References\WebServiceHotel\WebServiceHotels.disco" />
+    <Content Include="Web References\WebServiceVol\arriveeStructure.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </Content>
-    <Content Include="Web References\WebServiceHotel\WebServiceHotels.wsdl" />
+    <Content Include="Web References\WebServiceVol\departStructure.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
     <None Include="Web References\WebServiceVol\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\WebServiceVol\webServiceVol.disco" />
-    <Content Include="Web References\WebServiceHotel\WebServiceHotels.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -147,12 +153,6 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>SiteVoyage_WebServiceVol_Service1</CachedSettingsPropName>
     </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\dataEntity\dataEntity.csproj">
-      <Project>{016bcb39-4212-4e2e-865e-183c8f110dbe}</Project>
-      <Name>dataEntity</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

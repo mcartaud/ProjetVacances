@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using dataEntity;
 
 namespace libVols
 {
@@ -11,30 +12,28 @@ namespace libVols
 
         private string Connection = "Data Source=" + Environment.MachineName + "\\SQLEXPRESS;Initial Catalog=SAISIE;Integrated Security = true";
 
-        public List<List<string>> getInit()
+        public List<departStructure> getInit()
         {
             SqlConnection MyC = new SqlConnection();
             MyC.ConnectionString = Connection;
             MyC.Open();
             SqlCommand MyCom = new SqlCommand("init", MyC);
             MyCom.CommandType = CommandType.StoredProcedure;
-            List<string> listeVilleDepart = new List<string>();
-            List<string> listePaysDepart = new List<string>();
+            List<departStructure> listDepart = new List<departStructure>();
             SqlDataReader reader = MyCom.ExecuteReader();
             while (reader.Read())
             {
-                listeVilleDepart.Add(reader.GetString(0));
-                listePaysDepart.Add(reader.GetString(1));
+                departStructure depart = new departStructure();
+                depart.ville = reader.GetString(0);
+                depart.pays = reader.GetString(1);
+                listDepart.Add(depart);
             }
-            List<List<string>> liste = new List<List<string>>();
-            liste.Add(listeVilleDepart);
-            liste.Add(listePaysDepart);
             MyCom.Dispose();
             MyC.Close();
-            return liste;
+            return listDepart;
         }
 
-        public List<List<string>> getVilleArrivee(string villeDepart, string paysDepart)
+        public List<arriveeStructure> getVilleArrivee(string villeDepart, string paysDepart)
         {
             SqlConnection MyC = new SqlConnection();
             MyC.ConnectionString = Connection;
@@ -45,20 +44,18 @@ namespace libVols
             MyCom.Parameters.Add("@PAYSDEPART", SqlDbType.Text);
             MyCom.Parameters["@DEPART"].Value = villeDepart;
             MyCom.Parameters["@PAYSDEPART"].Value = paysDepart;
-            List<string> listeVilleArrivee = new List<string>();
-            List<string> listePaysArrivee = new List<string>();
+            List<arriveeStructure> listArrivee = new List<arriveeStructure>();
             SqlDataReader reader = MyCom.ExecuteReader();
             while (reader.Read())
             {
-                listeVilleArrivee.Add(reader.GetString(0));
-                listePaysArrivee.Add(reader.GetString(1));
+                arriveeStructure arrivee = new arriveeStructure();
+                arrivee.ville = reader.GetString(0);
+                arrivee.pays = reader.GetString(1);
+                listArrivee.Add(arrivee);
             }
-            List<List<string>> listeArrivee = new List<List<string>>();
-            listeArrivee.Add(listeVilleArrivee);
-            listeArrivee.Add(listePaysArrivee);
             MyCom.Dispose();
             MyC.Close();
-            return listeArrivee;
+            return listArrivee;
         }
 
         public DataSet getVols(string VilleD, string PaysD, string VilleA, string PaysA, DateTime Date)

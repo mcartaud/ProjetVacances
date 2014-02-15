@@ -12,7 +12,7 @@
     <div class="panel">
         <h1 class="title-area; panel; text-center">Réservation de vols et d'hôtels</h1>
     </div>
-    <form data-abide id="form1" runat="server">
+    <form id="form1" runat="server">
         <div class="large-12 columns">
             <div class="row">
                 <div class="alert-box warning radius">
@@ -30,20 +30,23 @@
                 </asp:DropDownList>
             </div>
             <div class="row">
-                <asp:Label ID="Label1" runat="server" Text="Date de départ: "></asp:Label>
-                <asp:Calendar ID="cldDateDepart" runat="server" Width="100%"></asp:Calendar>
+                <asp:Label ID="Label1" runat="server" Text="Date de départ:"></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text="Date de retour:"></asp:Label>
+                <asp:Calendar ID="cldDateDepart" runat="server" Width="42%"></asp:Calendar>
+                <asp:Calendar ID="calHotel" runat="server"></asp:Calendar>
             </div>
             <div class="row">
-                <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" OnClick="btnRechercher_Click" class="button" Width="100%"/>
+                <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" OnClick="btnRechercher_Click" Width="100%"/>
             </div>
             <div class="row">
                 <asp:Label ID="lblListeVol" runat="server" Text="Liste des vols :"></asp:Label>
             </div>
-            <asp:GridView ID="gvVols" runat="server" AutoGenerateSelectButton="True">
+            <asp:GridView ID="gvVols" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvVols_SelectedIndexChanged">
             </asp:GridView>
-            Liste des hotels :<asp:GridView ID="gvHotels" runat="server" AutoGenerateSelectButton="True">
+            Liste des hotels :<asp:GridView ID="gvHotels" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvHotels_SelectedIndexChanged">
             </asp:GridView>
         </div>
+        <asp:Button ID="btnValider" runat="server" OnClick="btnValider_Click" Text="Valider" />
     </form>
 </body>
 </html>

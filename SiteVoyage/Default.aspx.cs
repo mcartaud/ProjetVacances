@@ -14,11 +14,12 @@ namespace SiteVoyage
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            string[][] liste = this.wsVol.getInit();
-            string[] listeDepart = liste[0];
+            SiteVoyage.WebServiceVol.departStructure[] liste = wsVol.getInit();
+            string[] listeDepart = new string[liste.Length];
             for (int i = 0; i < listeDepart.Length; i++)
             {
-                listeDepart[i] = listeDepart[i] + " - " + liste[1][i];
+                SiteVoyage.WebServiceVol.departStructure depart = liste[i];
+                listeDepart[i] = depart.ville + " - " + depart.pays;
             }
             drpVilleDepart.DataSource = listeDepart;
             drpVilleDepart.DataBind();
@@ -30,11 +31,12 @@ namespace SiteVoyage
             string[] selections = selection.Split('-');
             string villeD = selections[0].Trim();
             string paysD = selections[1].Trim();
-            string[][] liste= this.wsVol.getVilleArrivee(villeD, paysD);
-            string[] listeArrivee = liste[0];
+            SiteVoyage.WebServiceVol.arriveeStructure[] liste = this.wsVol.getVilleArrivee(villeD, paysD);
+            string[] listeArrivee = new string[liste.Length];
             for (int i = 0; i < listeArrivee.Length; i++)
             {
-                listeArrivee[i] = listeArrivee[i] + " - " + liste[1][i];
+                SiteVoyage.WebServiceVol.arriveeStructure arrivee = liste[i];
+                listeArrivee[i] = arrivee.ville + " - " + arrivee.pays;
             }
             ListItem li = new ListItem();
             drpVilleArrivee.Items.Clear();
@@ -53,8 +55,9 @@ namespace SiteVoyage
             string villeD = selectionsDep[0].Trim();
             string paysD = selectionsDep[1].Trim();
             DateTime dateDepart = cldDateDepart.SelectedDate;
+            DateTime dateRetour = calHotel.SelectedDate;
             // Un des champs n'a pas été saisi
-            if (String.IsNullOrEmpty(villeD) || String.IsNullOrEmpty(villeA) || dateDepart == null)
+            if (String.IsNullOrEmpty(villeD) || String.IsNullOrEmpty(villeA) || dateDepart == null || dateRetour == null)
             {
                 lblError.Text = "Un des champs n'a pas été rempli";
             }
@@ -64,13 +67,30 @@ namespace SiteVoyage
                 DataTable infoHotels;
                 if (infoVols != null)
                 {
-                  //  infoHotels = this.wsHotel.getHotels()
+                    TimeSpan ts = dateDepart - dateRetour;
+                    int duree = ts.Days;
+                    infoHotels = this.wsHotel.getHotels(villeA, paysA, duree, dateDepart).Tables[0];
+                    gvVols.DataSource = infoVols;
+                    gvVols.DataBind();
+                    gvHotels.DataSource = infoHotels;
+                    gvHotels.DataBind();
                 }     
-                gvVols.DataSource = infoVols;
-                gvVols.DataBind();
-              //  gvHotels.DataSource = infoHotels;
-               // gvHotels.DataBind();
             }
+        }
+
+        protected void gvVols_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void gvHotels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnValider_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

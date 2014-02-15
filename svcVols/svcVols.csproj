@@ -70,6 +70,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\dataEntity\dataEntity.csproj">
+      <Project>{016bcb39-4212-4e2e-865e-183c8f110dbe}</Project>
+      <Name>dataEntity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\libVols\libVols.csproj">
       <Project>{631efd57-9937-4db2-9960-dbb89a1c4b39}</Project>
       <Name>libVols</Name>

@@ -29,7 +29,7 @@ namespace libHotels
             return DataSet;
         }
 
-        public DataSet getHotels(string VilleA, int Duree, DateTime Date)
+        public DataSet getHotels(string VilleA, string PaysA, int Duree, DateTime Date)
         {
             SqlConnection MyC = new SqlConnection();
             MyC.ConnectionString = Connection;
@@ -38,8 +38,10 @@ namespace libHotels
             MyCom.SelectCommand.CommandType = CommandType.StoredProcedure;
             MyCom.SelectCommand.Parameters.Add("@DUREE", SqlDbType.Int);
             MyCom.SelectCommand.Parameters["@DUREE"].Value = Duree;
-            MyCom.SelectCommand.Parameters.Add("@ARRIVEE", SqlDbType.Text);
-            MyCom.SelectCommand.Parameters["@ARRIVEE"].Value = VilleA;
+            MyCom.SelectCommand.Parameters.Add("@VILLEARRIVEE", SqlDbType.Text);
+            MyCom.SelectCommand.Parameters["@VILLEARRIVEE"].Value = VilleA;
+            MyCom.SelectCommand.Parameters.Add("@PAYSARRIVEE", SqlDbType.Text);
+            MyCom.SelectCommand.Parameters["@PAYSARRIVEE"].Value = PaysA;
             MyCom.SelectCommand.Parameters.Add("@DATE", SqlDbType.Date);
             MyCom.SelectCommand.Parameters["@DATE"].Value = Date;
 

@@ -122,11 +122,9 @@ namespace SiteVoyage.WebServiceVol {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getInit", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfString")]
-        [return: System.Xml.Serialization.XmlArrayItemAttribute(NestingLevel=1)]
-        public string[][] getInit() {
+        public departStructure[] getInit() {
             object[] results = this.Invoke("getInit", new object[0]);
-            return ((string[][])(results[0]));
+            return ((departStructure[])(results[0]));
         }
         
         /// <remarks/>
@@ -151,13 +149,11 @@ namespace SiteVoyage.WebServiceVol {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getVilleArrivee", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfString")]
-        [return: System.Xml.Serialization.XmlArrayItemAttribute(NestingLevel=1)]
-        public string[][] getVilleArrivee(string VilleDepart, string paysDepart) {
+        public arriveeStructure[] getVilleArrivee(string VilleDepart, string paysDepart) {
             object[] results = this.Invoke("getVilleArrivee", new object[] {
                         VilleDepart,
                         paysDepart});
-            return ((string[][])(results[0]));
+            return ((arriveeStructure[])(results[0]));
         }
         
         /// <remarks/>
@@ -198,6 +194,72 @@ namespace SiteVoyage.WebServiceVol {
                 return true;
             }
             return false;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class departStructure {
+        
+        private string villeField;
+        
+        private string paysField;
+        
+        /// <remarks/>
+        public string ville {
+            get {
+                return this.villeField;
+            }
+            set {
+                this.villeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string pays {
+            get {
+                return this.paysField;
+            }
+            set {
+                this.paysField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class arriveeStructure {
+        
+        private string villeField;
+        
+        private string paysField;
+        
+        /// <remarks/>
+        public string ville {
+            get {
+                return this.villeField;
+            }
+            set {
+                this.villeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string pays {
+            get {
+                return this.paysField;
+            }
+            set {
+                this.paysField = value;
+            }
         }
     }
     
@@ -245,10 +307,10 @@ namespace SiteVoyage.WebServiceVol {
         }
         
         /// <remarks/>
-        public string[][] Result {
+        public departStructure[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string[][])(this.results[0]));
+                return ((departStructure[])(this.results[0]));
             }
         }
     }
@@ -271,10 +333,10 @@ namespace SiteVoyage.WebServiceVol {
         }
         
         /// <remarks/>
-        public string[][] Result {
+        public arriveeStructure[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string[][])(this.results[0]));
+                return ((arriveeStructure[])(this.results[0]));
             }
         }
     }

@@ -6,6 +6,7 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="VilleA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PaysA" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="Duree" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
           </s:sequence>
