@@ -117,14 +117,10 @@ namespace SiteVoyage
                     rowHotel = row;
                 }
             }
-
             DateTime dateDepart = cldDateDepart.SelectedDate;
             DateTime dateRetour = calHotel.SelectedDate;
             
             if(rowHotel != null && rowVol != null && dateDepart != null && dateRetour != null) {
-              
-
-
                 Session["vol"] = rowVol;
                 Session["hotel"] = rowHotel;
                 Session["arrivee"] = dateRetour.ToShortDateString();

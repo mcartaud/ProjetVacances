@@ -128,8 +128,8 @@
                     Téléphone :</td>
                 <td>
 
-                    <asp:TextBox ID="txtTelephone" runat="server" OnTextChanged="txtTelephone_TextChanged"></asp:TextBox>
-                    <asp:CompareValidator ID="cv" runat="server" ControlToValidate="TextBox_telephone" Type="Integer"
+                    <asp:TextBox ID="txtTelephone" runat="server"></asp:TextBox>
+                    <asp:CompareValidator ID="cv" runat="server" ControlToValidate="txtTelephone" Type="Integer"
    Operator="DataTypeCheck" ErrorMessage="Veuillez entrer un nombre !" />
                 </td>
             </tr>
@@ -145,7 +145,7 @@
                 <td>
 
                     <asp:TextBox ID="txtNumCarte" runat="server"></asp:TextBox>
-                     <asp:CompareValidator ID="Cv1" runat="server" ControlToValidate="TextBox_numCarte" Type="Integer"
+                     <asp:CompareValidator ID="Cv1" runat="server" ControlToValidate="txtNumCarte" Type="Integer"
    Operator="DataTypeCheck" ErrorMessage="Veuillez entrer un nombre !" />
                 </td>
             </tr>
@@ -156,7 +156,7 @@
                 <td>
 
                     <asp:TextBox ID="txtCryptogramme" runat="server"></asp:TextBox>
-                     <asp:CompareValidator ID="Cv2" runat="server" ControlToValidate="TextBox_cryptogramme" Type="Integer"
+                     <asp:CompareValidator ID="Cv2" runat="server" ControlToValidate="txtCryptogramme" Type="Integer"
    Operator="DataTypeCheck" ErrorMessage="Veuillez entrer un nombre !" />
                 </td>
             </tr>
@@ -166,7 +166,7 @@
                 </td>
                 <td>
                      <asp:TextBox ID="txtDateExp" runat="server"></asp:TextBox>
-                    <asp:CompareValidator ID="Cv3" runat="server" ControlToValidate="TextBox_dateExp" Type="Date"
+                    <asp:CompareValidator ID="Cv3" runat="server" ControlToValidate="txtDateExp" Type="Date"
    Operator="DataTypeCheck" ErrorMessage="Veuillez entrer une date valide (dd/mm/yyyy) !" />
                 </td>
                 

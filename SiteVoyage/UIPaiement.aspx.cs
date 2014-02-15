@@ -17,10 +17,10 @@ namespace SiteVoyage
         protected void Page_Init(object sender, EventArgs e)
         {
             // donnée à init
-            /*lblRecapVol.Text = Session["vol"].ToString();
+            lblRecapVol.Text = Session["vol"].ToString();
             lblRecapHotel.Text = Session["hotel"].ToString();
             lblRecapArrivee.Text = Session["arrivee"].ToString();
-            lblRecapDepart.Text = Session["depart"].ToString();*/
+            lblRecapDepart.Text = Session["depart"].ToString();
         }
         protected void Button_valider_Click(object sender, EventArgs e)
         {
@@ -40,9 +40,10 @@ namespace SiteVoyage
 
             if (!String.IsNullOrEmpty(nom) && !String.IsNullOrEmpty(prenom) &&
                 !String.IsNullOrEmpty(age) && !String.IsNullOrEmpty(nationalite) &&
-                !String.IsNullOrEmpty(ville) && cp != null &&
-                !String.IsNullOrEmpty(adresse) && tel != null &&
-                numCarte != null && crypto != null && dateExp != null)
+                !String.IsNullOrEmpty(ville) && !String.IsNullOrEmpty(cp.ToString()) &&
+                !String.IsNullOrEmpty(adresse) && !String.IsNullOrEmpty(tel.ToString())&&
+                !String.IsNullOrEmpty(numCarte.ToString()) && !String.IsNullOrEmpty(crypto.ToString()) 
+                && dateExp != null)
             {
                 // MSMQ
                 clsInfoClient client = new clsInfoClient();
