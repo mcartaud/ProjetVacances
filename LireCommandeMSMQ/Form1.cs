@@ -46,10 +46,11 @@ namespace LireCommandeMSMQ
             hotel.dateArrivee = messageHotel.dateArrivee;
             hotel.duree = messageHotel.duree;
 
-            // TODO clsInfoClient client = new clsInfoClient();
+            clsInfoClient client = new clsInfoClient();
+            client = vol.infoClient;
 
             // Enregistrement en mode transactionnel
-            bool resEnregistrement = new TraitementCommandeLibrary.libTraitementCommande().ajouterCommande(hotel, vol,null);
+            bool resEnregistrement = new TraitementCommandeLibrary.libTraitementCommande().ajouterCommande(hotel, vol, client);
 
             // Transaction OK
             if (resEnregistrement == true)

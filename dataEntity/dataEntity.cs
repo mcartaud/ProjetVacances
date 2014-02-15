@@ -13,6 +13,8 @@ namespace dataEntity
         public string villeDestination { get; set; }
         public string paysDestination { get; set; }
         public int prixVol { get; set; }
+
+        public clsInfoClient infoClient {get; set; }
     }
 
     public class clsHotelEntity
@@ -25,6 +27,8 @@ namespace dataEntity
         public string paysHotel { get; set; }
         public DateTime dateArrivee { get; set; }
         public int duree { get; set; }
+
+        public clsInfoClient infoClient { get; set; }
     }
 
     public class clsInfoClient
@@ -32,11 +36,17 @@ namespace dataEntity
         public int id { get; set; }
         public string nomUser { get; set; }
         public string prenomUser { get; set; }
+        public string age { get; set; }
+        public string nationalite { get; set; }
         public string adresseUser { get; set; }
         public int cpUser { get; set; }
         public string villeUser { get; set; }
+        public string tel { get; set; }
+        public int numCarte { get; set; }
+        public int crypto { get; set; }
         public string paysUser { get; set; }
         public string ribUser { get; set; }
+        public DateTime dateExp { get; set; }
     }
 
     public class departStructure

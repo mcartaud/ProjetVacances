@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Messaging;
+using dataEntity;
 
 namespace SiteVoyage
 {
@@ -45,10 +46,25 @@ namespace SiteVoyage
                 !String.IsNullOrEmpty(dateExp))
             {
                 // MSMQ
-                dataEntity.clsVolEntity vol = new dataEntity.clsVolEntity();
-                dataEntity.clsHotelEntity hotel = new dataEntity.clsHotelEntity();
-                vol = (dataEntity.clsVolEntity) Session["vol"];
-                hotel = (dataEntity.clsHotelEntity) Session["hotel"];
+                clsInfoClient client = new clsInfoClient();
+                client.nomUser = txtNom.Text;
+                client.prenomUser = txtPrenom.Text;
+                client.age = txtAge.Text;
+                client.nationalite = txtNationalite.Text;
+                client.villeUser = txtVille.Text;
+                client.cpUser = Convert.ToInt32(txtCp.Text);
+                client.adresseUser = txtAdresse.Text;
+                client.tel = txtTelephone.Text;
+                client.numCarte = Convert.ToInt32(txtNumCarte.Text);
+                client.crypto = Convert.ToInt32(txtCryptogramme.Text);
+                client.dateExp = Convert.ToDateTime(txtDateExp.Text);
+                
+
+                
+                clsVolEntity vol = new clsVolEntity();
+                clsHotelEntity hotel = new clsHotelEntity();
+                // vol = (clsVolEntity) Request.Form["vol"];
+                // hotel = (clsHotelEntity) Request.Form["hotel"];
                 MessageQueue mqVols = new MessageQueue(@".\private$\cmdvols");
                 MessageQueue mqHotels = new MessageQueue(@".\private$\cmdhotels");
                 // Ajout dans la file d'attente
