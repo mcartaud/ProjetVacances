@@ -38,6 +38,7 @@ namespace SiteVoyage
             int crypto = Convert.ToInt32(txtCryptogramme.Text);
             DateTime dateExp = Convert.ToDateTime(txtDateExp.Text);
 
+            // Verification de remplissable des champs
             if (!String.IsNullOrEmpty(nom) && !String.IsNullOrEmpty(prenom) &&
                 !String.IsNullOrEmpty(age) && !String.IsNullOrEmpty(nationalite) &&
                 !String.IsNullOrEmpty(ville) && !String.IsNullOrEmpty(cp.ToString()) &&
@@ -45,7 +46,7 @@ namespace SiteVoyage
                 !String.IsNullOrEmpty(numCarte.ToString()) && !String.IsNullOrEmpty(crypto.ToString()) 
                 && dateExp != null)
             {
-                // MSMQ
+                // Informations client
                 clsInfoClient client = new clsInfoClient();
                 client.nomUser = nom;
                 client.prenomUser = prenom;
@@ -58,13 +59,17 @@ namespace SiteVoyage
                 client.compteUser = numCarte.ToString() + ' ' + crypto.ToString();
                 client.dateExp = dateExp;
                 
+                // Recuperation du vol et de l'hotel
                 clsVolEntity vol = new clsVolEntity();
                 clsHotelEntity hotel = new clsHotelEntity();
-                // vol = (clsVolEntity) Request.Form["vol"];
-                // hotel = (clsHotelEntity) Request.Form["hotel"];
+                vol = (clsVolEntity) Session["vol"];
+                hotel = (clsHotelEntity) Session["hotel"];
+                vol.infoClient = client;
+                hotel.infoClient = client;
+
+                // Ajout a la file d'attente
                 MessageQueue mqVols = new MessageQueue(@".\private$\cmdvols");
                 MessageQueue mqHotels = new MessageQueue(@".\private$\cmdhotels");
-                // Ajout dans la file d'attente
                 mqVols.Send(vol, "Commande vol");
                 mqHotels.Send(hotel, "Commande hotel");
                 mqVols.Close();
