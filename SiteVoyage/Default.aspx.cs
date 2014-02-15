@@ -82,17 +82,51 @@ namespace SiteVoyage
 
         protected void gvVols_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            foreach(GridViewRow row in gvVols.Rows){
+                row.BackColor = System.Drawing.Color.White;
+            }
+            GridViewRow selectedRow = gvVols.SelectedRow;
+            selectedRow.BackColor = System.Drawing.Color.Cyan;
         }
 
         protected void gvHotels_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            foreach (GridViewRow row in gvHotels.Rows)
+            {
+                row.BackColor = System.Drawing.Color.White;
+            }
+            GridViewRow selectedRow = gvHotels.SelectedRow;
+            selectedRow.BackColor = System.Drawing.Color.Cyan;
         }
 
         protected void btnValider_Click(object sender, EventArgs e)
         {
+            GridViewRow rowVol = null;
+            GridViewRow rowHotel = null;
+            foreach (GridViewRow row in gvVols.Rows){
+                if (row.BackColor == System.Drawing.Color.Cyan) {
+                    rowVol = row;
+                }
+            }
+            foreach (GridViewRow row in gvHotels.Rows){
+                if (row.BackColor == System.Drawing.Color.Cyan) {
+                    rowHotel = row;
+                }
+            }
 
+            DateTime dateDepart = cldDateDepart.SelectedDate;
+            DateTime dateRetour = calHotel.SelectedDate;
+            
+            if(rowHotel != null && rowVol != null && dateDepart != null && dateRetour != null) {
+
+                Session["vol"] = rowVol;
+                Session["hotel"] = rowHotel;
+                Session["arrivee"] = dateRetour.ToShortDateString();
+                Session["depart"] = dateDepart.ToShortDateString();
+                Response.Redirect("UIPaiement.aspx");
+            } else {
+                lblError.Text = "Veuillez vérifier les vols et hotels choisis";
+            }
         }
     }
 }
