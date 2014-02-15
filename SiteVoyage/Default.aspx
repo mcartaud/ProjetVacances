@@ -41,9 +41,28 @@
             <div class="row">
                 <asp:Label ID="lblListeVol" runat="server" Text="Liste des vols :"></asp:Label>
             </div>
-            <asp:GridView ID="gvVols" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvVols_SelectedIndexChanged">
+            <asp:GridView ID="gvVols" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvVols_SelectedIndexChanged" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="villeDepartVol" HeaderText="Ville de départ" SortExpression="villeDepartVol" />
+                    <asp:BoundField DataField="paysDepartVol" HeaderText="Pays de départ" SortExpression="paysDepartVol" />
+                    <asp:BoundField DataField="villeDestinationVol" HeaderText="Ville d'arrivée" SortExpression="villeDestinationVol" />
+                    <asp:BoundField DataField="paysDestinationVol" HeaderText="Pays d'arrivée" SortExpression="paysDestinationVol" />
+                    <asp:BoundField DataField="dateDepartVol" HeaderText="date de départ" SortExpression="dateDepartVol" />
+                    <asp:BoundField DataField="prixVol" HeaderText="Prix du vol" SortExpression="prixVol" />
+                </Columns>
             </asp:GridView>
-            Liste des hotels :<asp:GridView ID="gvHotels" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvHotels_SelectedIndexChanged">
+            Liste des hotels :
+            <asp:GridView ID="gvHotels" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvHotels_SelectedIndexChanged" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="nomHotel" HeaderText="Nom de l'hotel" SortExpression="nomHotel" />
+                    <asp:BoundField DataField="adresseHotel" HeaderText="Adresse" SortExpression="adresseHotel" />
+                    <asp:BoundField DataField="cpHotel" HeaderText="Code postal" SortExpression="cpHotel" />
+                    <asp:BoundField DataField="villeHotel" HeaderText="Ville" SortExpression="villeHotel" />
+                    <asp:BoundField DataField="paysHotel" HeaderText="Pays" SortExpression="paysHotel" />
+                    <asp:BoundField DataField="prixHotel" HeaderText="Prix de la nuit" SortExpression="prixHotel" />
+                    <asp:BoundField DataField="etoileHotel" HeaderText="Nombre d'étoiles" SortExpression="etoileHotel" />
+                    <asp:BoundField DataField="dateArriveeHotel" HeaderText="Date d'arrivée possible" SortExpression="dateArriveeHotel" />
+                </Columns>
             </asp:GridView>
         </div>
         <asp:Button ID="btnValider" runat="server" OnClick="btnValider_Click" Text="Valider" />
