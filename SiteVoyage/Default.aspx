@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Réservation d'hotels et de vol</title>
-    <link rel="stylesheet" media="screen" href="App_Data/foundation.min.css" />
-    <link rel="stylesheet" media="screen" href="App_Data/default.css" />
+    <link rel="stylesheet" media="screen" href="foundation.min.css" />
+    <link rel="stylesheet" media="screen" href="default.css" />
 </head>
 <body>
     <div class="panel">
