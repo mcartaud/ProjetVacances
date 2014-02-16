@@ -76,7 +76,7 @@ namespace SiteVoyage
                 client.nomUser = nom;
                 client.prenomUser = prenom;
                 client.age = age;
-                client.nationalite = nationalite;
+                client.paysUser = nationalite;
                 client.villeUser = ville;
                 client.cpUser = cp;
                 client.adresseUser = adresse;

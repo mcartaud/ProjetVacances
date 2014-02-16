@@ -38,7 +38,6 @@ namespace dataEntity
         public string nomUser { get; set; }
         public string prenomUser { get; set; }
         public string age { get; set; }
-        public string nationalite { get; set; }
         public string adresseUser { get; set; }
         public int cpUser { get; set; }
         public string villeUser { get; set; }
