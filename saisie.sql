@@ -380,7 +380,7 @@ GO
 
 CREATE TABLE [dbo].[HOTELS](
 
-	[id] [numeric](18, 0) NOT NULL,
+	[id] [int] IDENTITY(1, 1) NOT NULL,
 
 	[nomHotel] [varchar](50) NULL,
 
@@ -434,7 +434,7 @@ GO
 
 CREATE TABLE [dbo].[VOLS](
 
-	[id] [numeric](18, 0) NOT NULL,
+	[id] [int] IDENTITY(1, 1) NOT NULL,
 
 	[villeDepartVol] [varchar](50) NULL,
 
@@ -466,23 +466,23 @@ SET ANSI_PADDING OFF
 
 GO
 
-INSERT [dbo].[HOTELS] ([id], [nomHotel], [adresseHotel], [cpHotel], [villeHotel], [paysHotel], [dateArriveeHotel], [dureeSejour], [prixHotel], [etoileHotel]) VALUES (CAST(1 AS Numeric(18, 0)), N'HotelA', N'Adresse1', 44200, N'Nantes', N'France', CAST(0x0000A2C500000000 AS DateTime), 6, 200, 3)
+INSERT [dbo].[HOTELS] ([nomHotel], [adresseHotel], [cpHotel], [villeHotel], [paysHotel], [dateArriveeHotel], [dureeSejour], [prixHotel], [etoileHotel]) VALUES (N'HotelA', N'Adresse1', 44200, N'Nantes', N'France', CAST(0x0000A2C500000000 AS DateTime), 6, 200, 3)
 
-INSERT [dbo].[HOTELS] ([id], [nomHotel], [adresseHotel], [cpHotel], [villeHotel], [paysHotel], [dateArriveeHotel], [dureeSejour], [prixHotel], [etoileHotel]) VALUES (CAST(2 AS Numeric(18, 0)), N'HotelB', N'Adresse2', 44300, N'St Seb', N'France', CAST(0x0000A40B00000000 AS DateTime), 5, 300, 4)
+INSERT [dbo].[HOTELS] ([nomHotel], [adresseHotel], [cpHotel], [villeHotel], [paysHotel], [dateArriveeHotel], [dureeSejour], [prixHotel], [etoileHotel]) VALUES (N'HotelB', N'Adresse2', 44300, N'St Seb', N'France', CAST(0x0000A40B00000000 AS DateTime), 5, 300, 4)
 
-INSERT [dbo].[HOTELS] ([id], [nomHotel], [adresseHotel], [cpHotel], [villeHotel], [paysHotel], [dateArriveeHotel], [dureeSejour], [prixHotel], [etoileHotel]) VALUES (CAST(3 AS Numeric(18, 0)), N'HotelC', N'Adresse3', 44200, N'Nantes', N'France', CAST(0x0000A43500000000 AS DateTime), 8, 150, 1)
+INSERT [dbo].[HOTELS] ([nomHotel], [adresseHotel], [cpHotel], [villeHotel], [paysHotel], [dateArriveeHotel], [dureeSejour], [prixHotel], [etoileHotel]) VALUES (N'HotelC', N'Adresse3', 44200, N'Nantes', N'France', CAST(0x0000A43500000000 AS DateTime), 8, 150, 1)
 
-INSERT [dbo].[HOTELS] ([id], [nomHotel], [adresseHotel], [cpHotel], [villeHotel], [paysHotel], [dateArriveeHotel], [dureeSejour], [prixHotel], [etoileHotel]) VALUES (CAST(4 AS Numeric(18, 0)), N'HotelD', N'Adresse4', 44500, N'Basse Goulaine', N'Angleterre', CAST(0x0000A41600000000 AS DateTime), 3, 250, 1)
+INSERT [dbo].[HOTELS] ([nomHotel], [adresseHotel], [cpHotel], [villeHotel], [paysHotel], [dateArriveeHotel], [dureeSejour], [prixHotel], [etoileHotel]) VALUES (N'HotelD', N'Adresse4', 44500, N'Basse Goulaine', N'Angleterre', CAST(0x0000A41600000000 AS DateTime), 3, 250, 1)
 
-INSERT [dbo].[HOTELS] ([id], [nomHotel], [adresseHotel], [cpHotel], [villeHotel], [paysHotel], [dateArriveeHotel], [dureeSejour], [prixHotel], [etoileHotel]) VALUES (CAST(5 AS Numeric(18, 0)), N'HotelE', N'Adresse5', 44000, N'Vertou', N'Italie', CAST(0x0000A2CC00000000 AS DateTime), 1, 350, 5)
+INSERT [dbo].[HOTELS] ([nomHotel], [adresseHotel], [cpHotel], [villeHotel], [paysHotel], [dateArriveeHotel], [dureeSejour], [prixHotel], [etoileHotel]) VALUES (N'HotelE', N'Adresse5', 44000, N'Vertou', N'Italie', CAST(0x0000A2CC00000000 AS DateTime), 1, 350, 5)
 
-INSERT [dbo].[VOLS] ([id], [villeDepartVol], [paysDepartVol], [villeDestinationVol], [paysDestinationVol], [dateDepartVol], [prixVol]) VALUES (CAST(1 AS Numeric(18, 0)), N'Nantes', N'France', N'Paris', N'France', CAST(0x0000A2C800000000 AS DateTime), 50)
+INSERT [dbo].[VOLS] ([villeDepartVol], [paysDepartVol], [villeDestinationVol], [paysDestinationVol], [dateDepartVol], [prixVol]) VALUES (N'Nantes', N'France', N'Paris', N'France', CAST(0x0000A2C800000000 AS DateTime), 50)
 
-INSERT [dbo].[VOLS] ([id], [villeDepartVol], [paysDepartVol], [villeDestinationVol], [paysDestinationVol], [dateDepartVol], [prixVol]) VALUES (CAST(2 AS Numeric(18, 0)), N'Paris', N'France', N'Nantes', N'France', CAST(0x0000A2C500000000 AS DateTime), 100)
+INSERT [dbo].[VOLS] ([villeDepartVol], [paysDepartVol], [villeDestinationVol], [paysDestinationVol], [dateDepartVol], [prixVol]) VALUES (N'Paris', N'France', N'Nantes', N'France', CAST(0x0000A2C500000000 AS DateTime), 100)
 
-INSERT [dbo].[VOLS] ([id], [villeDepartVol], [paysDepartVol], [villeDestinationVol], [paysDestinationVol], [dateDepartVol], [prixVol]) VALUES (CAST(3 AS Numeric(18, 0)), N'Vertou', N'Angleterre', N'Milan', N'Italie', CAST(0x0000A2C500000000 AS DateTime), 150)
+INSERT [dbo].[VOLS] ([villeDepartVol], [paysDepartVol], [villeDestinationVol], [paysDestinationVol], [dateDepartVol], [prixVol]) VALUES (N'Vertou', N'Angleterre', N'Milan', N'Italie', CAST(0x0000A2C500000000 AS DateTime), 150)
 
-INSERT [dbo].[VOLS] ([id], [villeDepartVol], [paysDepartVol], [villeDestinationVol], [paysDestinationVol], [dateDepartVol], [prixVol]) VALUES (CAST(3 AS Numeric(18, 0)), N'Paris', N'France', N'Nantes', N'France', CAST(0x0000A2C500000000 AS DateTime), 120)
+INSERT [dbo].[VOLS] ([villeDepartVol], [paysDepartVol], [villeDestinationVol], [paysDestinationVol], [dateDepartVol], [prixVol]) VALUES (N'Paris', N'France', N'Nantes', N'France', CAST(0x0000A2C500000000 AS DateTime), 120)
 
 USE [master]
 
