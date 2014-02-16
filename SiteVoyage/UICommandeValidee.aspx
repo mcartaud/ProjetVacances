@@ -10,19 +10,19 @@
 </head>
 <body style="height: 287px">
     <form id="form1" runat="server">
-        <div class="row"></div>
-        <div class="row"></div>
-        <div class="row"></div>
-        <div class="row"></div>
+        <br />
+        <br />
+        <br />
+        <br />
     <div class="row">
         <div class="panel">
             <h1 class="title-area; panel; text-center">Commande prise en compte</h1>
         </div>
     </div>
         <div class="row"></div>
-    <div class="row"></div>
+    <br />
     <div class="row">
-        <p>
+        <p style="text-align: center;">
             <asp:Button ID="btnRetourDefault" runat="server" Height="33px" OnClick="btnRetourDefault_Click" Text="Continuer à naviguer" Width="140px" />
         </p>
     </div>

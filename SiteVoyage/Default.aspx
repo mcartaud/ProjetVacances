@@ -42,8 +42,8 @@
             <div class="row">
                 <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" OnClick="btnRechercher_Click" Width="100%"/>
             </div>
-            <div class="row"></div>
-            <div class="row"></div>
+            <br />
+            <br />
             <div class="row">
                 <asp:Label ID="lblListeVol" runat="server" Text="Liste des vols :"></asp:Label>
             </div>
@@ -57,7 +57,7 @@
                     <asp:BoundField DataField="prixVol" HeaderText="Prix du vol" SortExpression="prixVol" />
                 </Columns>
             </asp:GridView>
-            <div class="row"></div>
+            <br />
             <div class="row">
                 <asp:Label ID="lblHotel" runat="server" Text="Liste des hotels :"></asp:Label>
             </div>
@@ -74,8 +74,13 @@
                 </Columns>
             </asp:GridView>
         </div>
-        <div class="row"></div>
-        <asp:Button ID="btnValider" runat="server" OnClick="btnValider_Click" Text="Valider" />
+        <div class="row">
+            <br />
+            <p style="text-align: center;">
+                <asp:Button ID="btnValider" runat="server" OnClick="btnValider_Click" Text="Valider" />
+            </p>
+        </div>
+        
     </form>
 </body>
 </html>
