@@ -30,14 +30,22 @@
                 </asp:DropDownList>
             </div>
             <div class="row">
-                <asp:Label ID="Label1" runat="server" Text="Date de départ:"></asp:Label>
-                <asp:Calendar ID="cldDateDepart" runat="server" Width="42%"></asp:Calendar>
-                <asp:Label ID="Label2" runat="server" Text="Date de retour:"></asp:Label>
-                <asp:Calendar ID="calHotel" runat="server"></asp:Calendar>
+                <div class="medium-5 columns">
+                    <label>Date de départ:
+                        <asp:Calendar ID="cldDateDepart" runat="server"></asp:Calendar>
+                    </label>
+                </div>
+                <div class="medium-5 columns">
+                    <label>Date de retour:
+                        <asp:Calendar ID="calHotel" runat="server"></asp:Calendar>
+                    </label>
+                </div>    
             </div>
             <div class="row">
                 <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" OnClick="btnRechercher_Click" Width="100%"/>
             </div>
+            <div class="row"></div>
+            <div class="row"></div>
             <div class="row">
                 <asp:Label ID="lblListeVol" runat="server" Text="Liste des vols :"></asp:Label>
             </div>
@@ -51,7 +59,10 @@
                     <asp:BoundField DataField="prixVol" HeaderText="Prix du vol" SortExpression="prixVol" />
                 </Columns>
             </asp:GridView>
-            Liste des hotels :
+            <div class="row"></div>
+            <div class="row">
+                <asp:Label ID="lblHotel" runat="server" Text="Liste des hotels :"></asp:Label>
+            </div>
             <asp:GridView ID="gvHotels" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvHotels_SelectedIndexChanged" AutoGenerateColumns="False">
                 <Columns>
                     <asp:BoundField DataField="nomHotel" HeaderText="Nom de l'hotel" SortExpression="nomHotel" />
@@ -65,6 +76,7 @@
                 </Columns>
             </asp:GridView>
         </div>
+        <div class="row"></div>
         <asp:Button ID="btnValider" runat="server" OnClick="btnValider_Click" Text="Valider" />
     </form>
 </body>

@@ -9,10 +9,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    
-        <div align="center"><h1>Confirmation de commande</h1></div>
-
+    <div class="panel">
+            <h1 class="title-area; panel; text-center">Confirmation de la commande</h1>
+        </div>
+        <div>
         <asp:Label ID="lblError" runat="server" EnableTheming="True" Font-Size="X-Large" ForeColor="Red" Visible="False"></asp:Label>
 
         <br />

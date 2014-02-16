@@ -5,16 +5,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" media="screen" href="foundation.min.css" />
     <title></title>
 </head>
-<body>
+<body style="height: 287px">
     <form id="form1" runat="server">
-    <div>
-    
-        <asp:Label ID="lblPriseEnCompte" runat="server" Text="Commande prise en compte"></asp:Label>
-    
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"></div>
+    <div class="row">
+        <div class="panel">
+            <h1 class="title-area; panel; text-center">Commande prise en compte</h1>
+        </div>
     </div>
-        <asp:Button ID="btnRetourDefault" runat="server" OnClick="btnRetourDefault_Click" Text="Continuer à naviguer" />
+        <div class="row"></div>
+    <div class="row"></div>
+    <div class="row">
+        <p>
+            <asp:Button ID="btnRetourDefault" runat="server" Height="33px" OnClick="btnRetourDefault_Click" Text="Continuer à naviguer" Width="140px" />
+        </p>
+    </div>
     </form>
 </body>
 </html>
