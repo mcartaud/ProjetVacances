@@ -20,7 +20,7 @@ namespace SiteVoyage
             clsVolEntity volEntity = (clsVolEntity)Session["vol"];
             clsHotelEntity hotelEntity = (clsHotelEntity)Session["hotel"];
             string vol = "départ: " + volEntity.villeDepart + "/" + volEntity.paysDepart + ", destination: " + volEntity.villeDestination + "/" + volEntity.paysDestination + ", le: " + volEntity.dateDepart + ", à: " + volEntity.prixVol + "€";
-            string hotel = "nom: " + hotelEntity.nomHotel + ", nombre de nuits: " + hotelEntity.duree + ", prix total: " + hotelEntity.prixNuit * hotelEntity.duree + "€";
+            string hotel = hotelEntity.nomHotel + ", nombre de nuits: " + hotelEntity.duree + ", prix total: " + hotelEntity.prixNuit * hotelEntity.duree + "€";
 
             lblRecapVol.Text = vol;
             lblRecapHotel.Text = hotel;
