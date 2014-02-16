@@ -18,7 +18,7 @@ namespace libEnregistrerVol
             MyC.ConnectionString = Connection;
             MyC.Open();
 
-            SqlCommand MyCom = new SqlCommand("dbo.enregistrerHotel", MyC);
+            SqlCommand MyCom = new SqlCommand("dbo.enregistrerVol", MyC);
             MyCom.CommandType = CommandType.StoredProcedure;
 
             MyCom.Parameters.Add("@nomUser", SqlDbType.Text);

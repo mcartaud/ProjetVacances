@@ -45,7 +45,7 @@ namespace libEnregistrerHotel
             MyCom.Parameters.Add("@nomHotel", SqlDbType.Text);
             MyCom.Parameters["@nomHotel"].Value = hotel.nomHotel;
 
-             MyCom.Parameters.Add("@adresseHotel", SqlDbType.Text);
+            MyCom.Parameters.Add("@adresseHotel", SqlDbType.Text);
             MyCom.Parameters["@adresseHotel"].Value = hotel.adresseHotel;
 
             MyCom.Parameters.Add("@cpHotel", SqlDbType.Int);

@@ -5,6 +5,7 @@ using dataEntity;
 using libEnregistrerVol;
 using libEnregistrerHotel;
 using System.EnterpriseServices;
+using System.Data.SqlClient;
 
 namespace TraitementCommandeLibrary
 {
@@ -25,7 +26,7 @@ namespace TraitementCommandeLibrary
                 (new clsEnregistrerHotel()).ajouterHotel(hotel, client);
                 (new clsEnregistrerVol()).ajouterVol(vol, client);
             }
-            catch(SystemException e)
+            catch(SqlException e)
             {
                 Console.WriteLine(e);
                 R = false;
