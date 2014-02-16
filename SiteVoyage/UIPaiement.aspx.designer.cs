@@ -193,13 +193,13 @@ namespace SiteVoyage {
         protected global::System.Web.UI.WebControls.CompareValidator Cv2;
         
         /// <summary>
-        /// Contrôle txtDateExp.
+        /// Contrôle txtValidite.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateExp;
+        protected global::System.Web.UI.WebControls.TextBox txtValidite;
         
         /// <summary>
         /// Contrôle Cv3.

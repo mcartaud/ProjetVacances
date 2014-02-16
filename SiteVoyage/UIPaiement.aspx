@@ -173,9 +173,9 @@
                     Date d&#39;expiration :
                 </td>
                 <td>
-                     <asp:TextBox ID="txtDateExp" runat="server"></asp:TextBox>
-                    <asp:CompareValidator ID="Cv3" runat="server" ControlToValidate="txtDateExp" Type="Date"
-   Operator="DataTypeCheck" ErrorMessage="Veuillez entrer une date valide (dd/mm/yyyy) !" />
+                     <asp:TextBox ID="txtValidite" runat="server"></asp:TextBox>
+                    <asp:CompareValidator ID="Cv3" runat="server" ControlToValidate="txtValidite" Type="Date"
+   Operator="DataTypeCheck" ErrorMessage="Veuillez entrer une date valide (mm/yy) !" />
                 </td>
                 
             </tr>

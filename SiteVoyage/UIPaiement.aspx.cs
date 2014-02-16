@@ -39,10 +39,10 @@ namespace SiteVoyage
             string ville = txtVille.Text;
             int cp = Convert.ToInt32(txtCp.Text);
             string adresse = txtAdresse.Text;
-            int tel = Convert.ToInt32(txtTelephone.Text);
-            int numCarte = Convert.ToInt32(txtNumCarte.Text);
+            Int64 tel = Convert.ToInt64(txtTelephone.Text);
+            Int64 numCarte = Convert.ToInt64(txtNumCarte.Text);
             int crypto = Convert.ToInt32(txtCryptogramme.Text);
-            DateTime dateExp = Convert.ToDateTime(txtDateExp.Text);
+            DateTime dateExp = Convert.ToDateTime(txtValidite.Text);
 
             // Verification de remplissable des champs
             if (!String.IsNullOrEmpty(nom) && !String.IsNullOrEmpty(prenom) &&
