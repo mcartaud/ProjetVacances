@@ -21,9 +21,6 @@ namespace libEnregistrerVol
             SqlCommand MyCom = new SqlCommand("dbo.enregistrerHotel", MyC);
             MyCom.CommandType = CommandType.StoredProcedure;
 
-            MyCom.Parameters.Add("@id", SqlDbType.Int);
-            MyCom.Parameters["@id"].Value = vol.id;
-
             MyCom.Parameters.Add("@nomUser", SqlDbType.Text);
             MyCom.Parameters["@nomUser"].Value = client.nomUser;
 

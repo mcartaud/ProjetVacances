@@ -45,6 +45,7 @@ namespace SiteVoyage
             lblRecapDepart.Text = Session["depart"].ToString();
             lblPrixTotal.Text = volEntity.prixVol + (hotelEntity.duree * hotelEntity.prixNuit) + " €";
         }
+
         protected void Button_valider_Click(object sender, EventArgs e)
         {
             // vol.nom

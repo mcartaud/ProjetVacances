@@ -6,7 +6,6 @@ namespace dataEntity
 {
     public class clsVolEntity
     {
-        public int id;
         public DateTime dateDepart { get; set; }
         public string villeDepart { get; set; }
         public string paysDepart { get; set; }
@@ -19,7 +18,6 @@ namespace dataEntity
 
     public class clsHotelEntity
     {
-        public int id;
         public string nomHotel { get; set; }
         public string adresseHotel { get; set; }
         public int cpHotel { get; set; }
@@ -34,7 +32,6 @@ namespace dataEntity
 
     public class clsInfoClient
     {
-        public int id { get; set; }
         public string nomUser { get; set; }
         public string prenomUser { get; set; }
         public string age { get; set; }
