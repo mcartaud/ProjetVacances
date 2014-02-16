@@ -12,7 +12,7 @@ namespace libEnregistrerVol
 
         private string Connection = "Data Source=localhost;Initial Catalog=ENREGISTREMENTS;Persist Security Info=True;User ID=benjamin;Password=benjamin";
 
-        public void setVol(clsVolEntity vol, clsInfoClient client)
+        public void ajouterVol(clsVolEntity vol, clsInfoClient client)
         {
             SqlConnection MyC = new SqlConnection();
             MyC.ConnectionString = Connection;

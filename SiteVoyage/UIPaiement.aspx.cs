@@ -14,8 +14,24 @@ namespace SiteVoyage
         {
         }
 
+        // Initialisation des mois et de l'année pour le champ date d'expiration de la carte
+        protected void DateExpiration_Init()
+        {
+            for (int mois = 1; mois <= 12; mois++)
+            {
+                drpMoisExpiration.Items.Add(mois.ToString());
+            }
+            
+            int anneeCourante = DateTime.Now.Year;
+            for (int annee = anneeCourante; annee < anneeCourante + 10; annee++)
+            {
+                drpAnneeExpiration.Items.Add(annee.ToString());
+            }
+        }
+
         protected void Page_Init(object sender, EventArgs e)
         {
+            DateExpiration_Init();
             // donnée à init
             clsVolEntity volEntity = (clsVolEntity)Session["vol"];
             clsHotelEntity hotelEntity = (clsHotelEntity)Session["hotel"];
@@ -39,10 +55,12 @@ namespace SiteVoyage
             string ville = txtVille.Text;
             int cp = Convert.ToInt32(txtCp.Text);
             string adresse = txtAdresse.Text;
-            Int64 tel = Convert.ToInt64(txtTelephone.Text);
+            string tel = txtTelephone.Text;
             Int64 numCarte = Convert.ToInt64(txtNumCarte.Text);
             int crypto = Convert.ToInt32(txtCryptogramme.Text);
-            DateTime dateExp = Convert.ToDateTime(txtValidite.Text);
+            // date d'expiration de la carte
+            DateTime dateExp = new DateTime(Convert.ToInt32(drpAnneeExpiration.SelectedValue), 
+                Convert.ToInt32(drpMoisExpiration.SelectedValue),  1);
 
             // Verification de remplissable des champs
             if (!String.IsNullOrEmpty(nom) && !String.IsNullOrEmpty(prenom) &&

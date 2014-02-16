@@ -11,13 +11,13 @@ namespace TraitementCommandeLibrary
     [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(), Description("BANK 2014 EMN")]
     public class libTraitementCommande : ServicedComponent
     {
-        public bool ajouterCommande(dataEntity.clsHotelEntity hotel, dataEntity.clsVolEntity vol, clsInfoClient client)
+        public bool ajouterCommande(clsHotelEntity hotel, clsVolEntity vol, clsInfoClient client)
         {
             bool R = true;
             try
             {
-                (new clsEnregistrerHotel()).setHotel(hotel, client);
-                (new clsEnregistrerVol()).setVol(vol, client);
+                (new clsEnregistrerHotel()).ajouterHotel(hotel, client);
+                (new clsEnregistrerVol()).ajouterVol(vol, client);
             }
             catch(SystemException e)
             {

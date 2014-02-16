@@ -42,7 +42,7 @@ namespace dataEntity
         public string adresseUser { get; set; }
         public int cpUser { get; set; }
         public string villeUser { get; set; }
-        public Int64 tel { get; set; }
+        public string tel { get; set; }
         public string compteUser { get; set; }
         public string paysUser { get; set; }
         public DateTime dateExp { get; set; }

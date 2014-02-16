@@ -173,9 +173,10 @@
                     Date d&#39;expiration :
                 </td>
                 <td>
-                     <asp:TextBox ID="txtValidite" runat="server"></asp:TextBox>
-                    <asp:CompareValidator ID="Cv3" runat="server" ControlToValidate="txtValidite" Type="Date"
-   Operator="DataTypeCheck" ErrorMessage="Veuillez entrer une date valide (mm/yy) !" />
+                     <asp:DropDownList ID="drpMoisExpiration" runat="server" Height="18px" Width="54px">
+                     </asp:DropDownList>
+                     <asp:DropDownList ID="drpAnneeExpiration" runat="server">
+                     </asp:DropDownList>
                 </td>
                 
             </tr>

@@ -193,22 +193,22 @@ namespace SiteVoyage {
         protected global::System.Web.UI.WebControls.CompareValidator Cv2;
         
         /// <summary>
-        /// Contrôle txtValidite.
+        /// Contrôle drpMoisExpiration.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValidite;
+        protected global::System.Web.UI.WebControls.DropDownList drpMoisExpiration;
         
         /// <summary>
-        /// Contrôle Cv3.
+        /// Contrôle drpAnneeExpiration.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator Cv3;
+        protected global::System.Web.UI.WebControls.DropDownList drpAnneeExpiration;
         
         /// <summary>
         /// Contrôle btnValider.

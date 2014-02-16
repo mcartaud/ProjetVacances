@@ -12,7 +12,7 @@ namespace libEnregistrerHotel
 
         private string Connection = "Data Source=localhost;Initial Catalog=ENREGISTREMENTS;Persist Security Info=True;User ID=benjamin;Password=benjamin";
 
-        public void setHotel(clsHotelEntity hotel, clsInfoClient client)
+        public void ajouterHotel(clsHotelEntity hotel, clsInfoClient client)
         {
             SqlConnection MyC = new SqlConnection();
             MyC.ConnectionString = Connection;
@@ -46,7 +46,7 @@ namespace libEnregistrerHotel
             MyCom.Parameters["@cpHotel"].Value = hotel.cpHotel;
 
             MyCom.Parameters.Add("@prixHotel", SqlDbType.Int);
-            MyCom.Parameters["@prixHotel"].Value = hotel.prixHotel;
+            MyCom.Parameters["@prixHotel"].Value = hotel.prixNuit;
 
             MyCom.Parameters.Add("@nomUser", SqlDbType.Text);
             MyCom.Parameters["@nomUser"].Value = client.nomUser;
