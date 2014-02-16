@@ -32,6 +32,7 @@ namespace SiteVoyage
         protected void Page_Init(object sender, EventArgs e)
         {
             DateExpiration_Init();
+            lblError.Text = "";
             // donnée à init
             clsVolEntity volEntity = (clsVolEntity)Session["vol"];
             clsHotelEntity hotelEntity = (clsHotelEntity)Session["hotel"];

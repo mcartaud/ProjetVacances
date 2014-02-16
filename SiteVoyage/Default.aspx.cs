@@ -66,7 +66,8 @@ namespace SiteVoyage
             dateFinDepart = dateFinDepart.AddDays(1.0);
             DateTime dateRetour = calHotel.SelectedDate;
             // Un des champs n'a pas été saisi
-            if (String.IsNullOrEmpty(villeD) || String.IsNullOrEmpty(villeA) || dateDepart == null || dateRetour == null)
+            if (String.IsNullOrEmpty(villeD) || String.IsNullOrEmpty(villeA) || 
+                !verifierDateSelectionnee(dateDepart) || !verifierDateSelectionnee(dateRetour))
             {
                 lblError.Text = "Un des champs n'a pas été rempli";
             }
@@ -118,9 +119,11 @@ namespace SiteVoyage
             clsVolEntity volEntity = new clsVolEntity();
             clsHotelEntity hotelEntity = new clsHotelEntity();
 
-            if(rowHotel != null && rowVol != null && dateDepart != null && dateRetour != null)
+            if (rowHotel != null && rowVol != null && verifierDateSelectionnee(dateDepart) 
+                && verifierDateSelectionnee(dateRetour))
             {
                 TimeSpan ts = dateRetour - dateDepart;
+                
                 int duree = ts.Days;
 
                 volEntity.dateDepart = Convert.ToDateTime(rowVol.Cells[5].Text);
@@ -147,6 +150,11 @@ namespace SiteVoyage
             } else {
                 lblError.Text = "Veuillez vérifier les vols et hotels choisis";
             }
+        }
+
+        protected bool verifierDateSelectionnee(DateTime date)
+        {
+            return date != DateTime.MaxValue && date != DateTime.MinValue;
         }
     }
 }
