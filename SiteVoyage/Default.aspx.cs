@@ -10,7 +10,6 @@ namespace SiteVoyage
 {
     public partial class _Default : System.Web.UI.Page
     {
-        private int duree;
         private WebServiceVol.Service1 wsVol = new WebServiceVol.Service1();
         private WebServiceHotel.Service1 wsHotel = new WebServiceHotel.Service1();
 
@@ -78,7 +77,7 @@ namespace SiteVoyage
                 if (infoVols != null)
                 {
                     TimeSpan ts = dateRetour - dateDepart;
-                    duree = ts.Days;
+                    int duree = ts.Days;
                     infoHotels = this.wsHotel.getHotels(villeA, paysA, duree, dateDepart).Tables[0];
                     gvVols.DataSource = infoVols;
                     gvVols.DataBind();
@@ -121,6 +120,9 @@ namespace SiteVoyage
 
             if(rowHotel != null && rowVol != null && dateDepart != null && dateRetour != null)
             {
+                TimeSpan ts = dateRetour - dateDepart;
+                int duree = ts.Days;
+
                 volEntity.dateDepart = Convert.ToDateTime(rowVol.Cells[5].Text);
                 volEntity.villeDepart = rowVol.Cells[1].Text;
                 volEntity.paysDepart = rowVol.Cells[2].Text;

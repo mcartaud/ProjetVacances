@@ -18,7 +18,7 @@
         <br />
 
         <h3>Récapitulatif de la commande</h3>
-        <table>
+        <table style="height: 101px">
             <tr>
                 <td>
                     Vols :
@@ -49,6 +49,14 @@
                 </td>
                 <td>
                     <asp:Label ID="lblRecapHotel" runat="server"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Prix total :
+                </td>
+                <td>
+                    <asp:Label ID="lblPrixTotal" runat="server"></asp:Label>
                 </td>
             </tr>
         </table>        

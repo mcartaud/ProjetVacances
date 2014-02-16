@@ -17,10 +17,16 @@ namespace SiteVoyage
         protected void Page_Init(object sender, EventArgs e)
         {
             // donnée à init
-            lblRecapVol.Text = Session["vol"].ToString();
-            lblRecapHotel.Text = Session["hotel"].ToString();
+            clsVolEntity volEntity = (clsVolEntity)Session["vol"];
+            clsHotelEntity hotelEntity = (clsHotelEntity)Session["hotel"];
+            string vol = "départ: " + volEntity.villeDepart + "/" + volEntity.paysDepart + ", destination: " + volEntity.villeDestination + "/" + volEntity.paysDestination + ", le: " + volEntity.dateDepart + ", à: " + volEntity.prixVol + "€";
+            string hotel = "nom: " + hotelEntity.nomHotel + ", nombre de nuits: " + hotelEntity.duree + ", prix total: " + hotelEntity.prixNuit * hotelEntity.duree + "€";
+
+            lblRecapVol.Text = vol;
+            lblRecapHotel.Text = hotel;
             lblRecapArrivee.Text = Session["arrivee"].ToString();
             lblRecapDepart.Text = Session["depart"].ToString();
+            lblPrixTotal.Text = volEntity.prixVol + (hotelEntity.duree * hotelEntity.prixNuit) + " €";
         }
         protected void Button_valider_Click(object sender, EventArgs e)
         {
