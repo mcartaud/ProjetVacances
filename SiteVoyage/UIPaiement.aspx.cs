@@ -99,6 +99,7 @@ namespace SiteVoyage
                 mqHotels.Send(hotel, "Commande hotel");
                 mqVols.Close();
                 mqHotels.Close();
+                Response.Redirect("UICommandeValidee.aspx");
             }
             else
             {

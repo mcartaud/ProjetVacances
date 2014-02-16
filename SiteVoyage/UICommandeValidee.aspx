@@ -11,7 +11,10 @@
     <form id="form1" runat="server">
     <div>
     
+        <asp:Label ID="lblPriseEnCompte" runat="server" Text="Commande prise en compte"></asp:Label>
+    
     </div>
+        <asp:Button ID="btnRetourDefault" runat="server" OnClick="btnRetourDefault_Click" Text="Continuer à naviguer" />
     </form>
 </body>
 </html>
