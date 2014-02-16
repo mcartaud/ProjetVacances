@@ -28,7 +28,6 @@ namespace LireCommandeMSMQ
             var messageHotel = (clsHotelEntity)mqHotels.Peek().Body;
 
             clsVolEntity vol = new clsVolEntity();
-            vol.id = messageVol.id;
             vol.dateDepart = messageVol.dateDepart;
             vol.villeDepart = messageVol.villeDepart;
             vol.paysDepart = messageVol.paysDepart;
@@ -38,7 +37,6 @@ namespace LireCommandeMSMQ
             vol.infoClient = messageVol.infoClient;
 
             clsHotelEntity hotel = new clsHotelEntity();
-            hotel.id = messageHotel.id;
             hotel.nomHotel = messageHotel.nomHotel;
             hotel.adresseHotel = messageHotel.adresseHotel;
             hotel.cpHotel = messageHotel.cpHotel;

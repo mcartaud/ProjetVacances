@@ -31,14 +31,12 @@
             </div>
             <div class="row">
                 <div class="medium-5 columns">
-                    <label>Date de départ:
-                        <asp:Calendar ID="cldDateDepart" runat="server"></asp:Calendar>
-                    </label>
+                    <label>Date de départ:</label>
+                    <asp:Calendar ID="cldDateDepart" runat="server"></asp:Calendar>
                 </div>
                 <div class="medium-5 columns">
-                    <label>Date de retour:
-                        <asp:Calendar ID="calHotel" runat="server"></asp:Calendar>
-                    </label>
+                    <label>Date de retour:</label>
+                    <asp:Calendar ID="calHotel" runat="server"></asp:Calendar>
                 </div>    
             </div>
             <div class="row">
