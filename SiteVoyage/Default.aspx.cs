@@ -53,26 +53,30 @@ namespace SiteVoyage
 
         protected void btnRechercher_Click(object sender, EventArgs e)
         {
-            string selection = drpVilleArrivee.SelectedItem.ToString();
-            string[] selections = selection.Split('-');
-            string villeA = selections[0].Trim();
-            string paysA = selections[1].Trim();
-            string selectionDep = drpVilleDepart.SelectedItem.ToString();
-            string[] selectionsDep = selectionDep.Split('-');
-            string villeD = selectionsDep[0].Trim();
-            string paysD = selectionsDep[1].Trim();
+            
             DateTime dateDepart = cldDateDepart.SelectedDate;
             DateTime dateFinDepart = cldDateDepart.SelectedDate;
             dateFinDepart = dateFinDepart.AddDays(1.0);
             DateTime dateRetour = calHotel.SelectedDate;
+
             // Un des champs n'a pas été saisi
-            if (String.IsNullOrEmpty(villeD) || String.IsNullOrEmpty(villeA) || 
+            if (String.IsNullOrEmpty(drpVilleDepart.SelectedValue) || String.IsNullOrEmpty(drpVilleArrivee.SelectedValue) || 
                 !verifierDateSelectionnee(dateDepart) || !verifierDateSelectionnee(dateRetour))
             {
+                lblError.Visible = true;
                 lblError.Text = "Un des champs n'a pas été rempli";
             }
             else
             {
+                string selection = drpVilleArrivee.SelectedItem.ToString();
+                string[] selections = selection.Split('-');
+                string villeA = selections[0].Trim();
+                string paysA = selections[1].Trim();
+                string selectionDep = drpVilleDepart.SelectedItem.ToString();
+                string[] selectionsDep = selectionDep.Split('-');
+                string villeD = selectionsDep[0].Trim();
+                string paysD = selectionsDep[1].Trim();
+
                 DataTable infoVols = this.wsVol.getVols(villeD, paysD, villeA, paysA, dateDepart, dateFinDepart).Tables[0];
                 DataTable infoHotels;
                 if (infoVols != null)
@@ -148,6 +152,7 @@ namespace SiteVoyage
                 Session["depart"] = dateDepart.ToShortDateString();
                 Response.Redirect("UIPaiement.aspx");
             } else {
+                lblError.Visible = true;
                 lblError.Text = "Veuillez vérifier les vols et hotels choisis";
             }
         }

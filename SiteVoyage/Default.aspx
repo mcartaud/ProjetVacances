@@ -6,48 +6,42 @@
 <head runat="server">
     <title>Réservation d'hotels et de vol</title>
     <link rel="stylesheet" media="screen" href="foundation.min.css" />
-    <link rel="stylesheet" media="screen" href="default.css" />
 </head>
 <body>
     <div class="panel">
         <h1 class="title-area; panel; text-center">Réservation de vols et d'hôtels</h1>
     </div>
     <form id="form1" runat="server">
-        <div class="large-12 columns">
-            <div class="row">
-                <div class="alert-box warning radius">
-                    <asp:Label ID="lblError" runat="server"></asp:Label>
-                </div>
+        <div class="row">
+            <div class="alert-box warning radius">
+                <asp:Label ID="lblError" runat="server" Visible="false"></asp:Label>
             </div>
-            <div class="row">
+        </div>
+        <div class="row">
                 <asp:Label ID="labVilleD" runat="server" Text="Choisissez votre ville de départ: "></asp:Label>
                 <asp:DropDownList ID="drpVilleDepart" runat="server" OnSelectedIndexChanged="drpVilleDepart_SelectedIndexChanged" AutoPostBack="True">
                 </asp:DropDownList>
-            </div>
-            <div class="row">
+        </div>
+        <div class="row">
                 <asp:Label ID="labVilleA" runat="server" Text="Choisissez votre ville d'arrivée: "></asp:Label>
                 <asp:DropDownList ID="drpVilleArrivee" runat="server">
                 </asp:DropDownList>
+        </div>
+        <div class="row">
+            <div class="medium-7 columns">
+                <label>Date de départ:</label>
+                <asp:Calendar ID="cldDateDepart" runat="server"></asp:Calendar>
             </div>
-            <div class="row">
-                <div class="medium-5 columns">
-                    <label>Date de départ:</label>
-                    <asp:Calendar ID="cldDateDepart" runat="server"></asp:Calendar>
-                </div>
-                <div class="medium-5 columns">
-                    <label>Date de retour:</label>
-                    <asp:Calendar ID="calHotel" runat="server"></asp:Calendar>
-                </div>    
+            <div>
+                <label>Date de retour:</label>
+                <asp:Calendar ID="calHotel" runat="server"></asp:Calendar>
             </div>
-            <div class="row">
-                <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" OnClick="btnRechercher_Click" Width="100%"/>
-            </div>
-            <br />
-            <br />
-            <div class="row">
-                <asp:Label ID="lblListeVol" runat="server" Text="Liste des vols :"></asp:Label>
-            </div>
-            <asp:GridView ID="gvVols" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvVols_SelectedIndexChanged" AutoGenerateColumns="False">
+        </div>
+        <div class="row">
+            <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" OnClick="btnRechercher_Click" class="button" />
+        </div>
+        <div class="row">
+            <asp:GridView ID="gvVols" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvVols_SelectedIndexChanged" AutoGenerateColumns="False" Width="100%">
                 <Columns>
                     <asp:BoundField DataField="villeDepartVol" HeaderText="Ville de départ" SortExpression="villeDepartVol" />
                     <asp:BoundField DataField="paysDepartVol" HeaderText="Pays de départ" SortExpression="paysDepartVol" />
@@ -57,11 +51,9 @@
                     <asp:BoundField DataField="prixVol" HeaderText="Prix du vol" SortExpression="prixVol" />
                 </Columns>
             </asp:GridView>
-            <br />
-            <div class="row">
-                <asp:Label ID="lblHotel" runat="server" Text="Liste des hotels :"></asp:Label>
-            </div>
-            <asp:GridView ID="gvHotels" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvHotels_SelectedIndexChanged" AutoGenerateColumns="False">
+        </div>
+        <div class="row">
+            <asp:GridView ID="gvHotels" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvHotels_SelectedIndexChanged" AutoGenerateColumns="False" Width="100%">
                 <Columns>
                     <asp:BoundField DataField="nomHotel" HeaderText="Nom de l'hotel" SortExpression="nomHotel" />
                     <asp:BoundField DataField="adresseHotel" HeaderText="Adresse" SortExpression="adresseHotel" />
@@ -75,12 +67,9 @@
             </asp:GridView>
         </div>
         <div class="row">
-            <br />
-            <p style="text-align: center;">
-                <asp:Button ID="btnValider" runat="server" OnClick="btnValider_Click" Text="Valider" />
-            </p>
+            <asp:Button ID="btnValider" runat="server" OnClick="btnValider_Click" Text="Valider" Class="button" />
         </div>
-        
+
     </form>
 </body>
 </html>

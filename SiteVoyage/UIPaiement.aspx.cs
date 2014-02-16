@@ -55,11 +55,10 @@ namespace SiteVoyage
             string age = txtAge.Text;
             string nationalite = txtNationalite.Text;
             string ville = txtVille.Text;
-            int cp = Convert.ToInt32(txtCp.Text);
             string adresse = txtAdresse.Text;
             string tel = txtTelephone.Text;
-            Int64 numCarte = Convert.ToInt64(txtNumCarte.Text);
-            int crypto = Convert.ToInt32(txtCryptogramme.Text);
+            string numCarte = txtNumCarte.Text;
+            string crypto = txtCryptogramme.Text;
             // date d'expiration de la carte
             DateTime dateExp = new DateTime(Convert.ToInt32(drpAnneeExpiration.SelectedValue), 
                 Convert.ToInt32(drpMoisExpiration.SelectedValue),  1);
@@ -67,9 +66,9 @@ namespace SiteVoyage
             // Verification de remplissable des champs
             if (!String.IsNullOrEmpty(nom) && !String.IsNullOrEmpty(prenom) &&
                 !String.IsNullOrEmpty(age) && !String.IsNullOrEmpty(nationalite) &&
-                !String.IsNullOrEmpty(ville) && !String.IsNullOrEmpty(cp.ToString()) &&
-                !String.IsNullOrEmpty(adresse) && !String.IsNullOrEmpty(tel.ToString())&&
-                !String.IsNullOrEmpty(numCarte.ToString()) && !String.IsNullOrEmpty(crypto.ToString()) 
+                !String.IsNullOrEmpty(ville) && !String.IsNullOrEmpty(txtCp.Text) &&
+                !String.IsNullOrEmpty(adresse) && !String.IsNullOrEmpty(tel)&&
+                !String.IsNullOrEmpty(numCarte) && !String.IsNullOrEmpty(crypto) 
                 && dateExp != null)
             {
                 // Informations client
@@ -79,10 +78,10 @@ namespace SiteVoyage
                 client.age = age;
                 client.paysUser = nationalite;
                 client.villeUser = ville;
-                client.cpUser = cp;
+                client.cpUser = Convert.ToInt32(txtCp.Text);
                 client.adresseUser = adresse;
                 client.tel = tel;
-                client.compteUser = numCarte.ToString() + ' ' + crypto.ToString();
+                client.compteUser = numCarte + ' ' + crypto;
                 client.dateExp = dateExp;
                 
                 // Recuperation du vol et de l'hotel
