@@ -35,6 +35,7 @@ namespace LireCommandeMSMQ
             vol.villeDestination = messageVol.villeDestination;
             vol.paysDestination = messageVol.paysDestination;
             vol.prixVol = messageVol.prixVol;
+            vol.infoClient = messageVol.infoClient;
 
             clsHotelEntity hotel = new clsHotelEntity();
             hotel.id = messageHotel.id;
@@ -45,9 +46,9 @@ namespace LireCommandeMSMQ
             hotel.paysHotel = messageHotel.paysHotel;
             hotel.dateArrivee = messageHotel.dateArrivee;
             hotel.duree = messageHotel.duree;
+            hotel.infoClient = messageHotel.infoClient;
 
-            clsInfoClient client = new clsInfoClient();
-            client = vol.infoClient;
+            clsInfoClient client = vol.infoClient;
 
             // Enregistrement en mode transactionnel
             bool resEnregistrement = new TraitementCommandeLibrary.libTraitementCommande().ajouterCommande(hotel, vol, client);
@@ -55,14 +56,14 @@ namespace LireCommandeMSMQ
             // Transaction OK
             if (resEnregistrement == true)
             {
-                //txtListe.AppendText("Transfert de " + message.Montant + " du compte " + message.CC + " vers " + message.CD + " \n");
+                txtListe.AppendText("Enregistrement du vol " + vol.villeDepart + " - " + vol.villeDestination + " et l'hotel " + hotel.nomHotel);
                 mqVols.Receive();
                 mqHotels.Receive();
             }
             // Transaction KO
             else
             {
-                // txtListe.AppendText("Impossible de transférer " + message.Montant + " du compte " + message.CC + " vers " + message.CD);
+                txtListe.AppendText("Impossible d'enregsitrer le vol " + vol.villeDepart + " - " + vol.villeDestination + " et l'hotel " + hotel.nomHotel);
             }
             mqVols.Close();
             mqHotels.Close();
