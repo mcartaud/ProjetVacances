@@ -23,7 +23,7 @@
     <br />
     <div class="row">
         <p style="text-align: center;">
-            <asp:Button ID="btnRetourDefault" runat="server" Height="33px" OnClick="btnRetourDefault_Click" Text="Continuer à naviguer" Width="140px" />
+            <asp:Button ID="btnRetourDefault" runat="server" Height="33px" OnClick="btnRetourDefault_Click" Text="Continuer à naviguer" Width="140px" Class="Button"/>
         </p>
     </div>
     </form>
